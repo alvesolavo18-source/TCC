@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog </title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body{
+        background-color:#f4faff;
+        color:#333;
+    }
+
+    
+html{
+    scroll-behavior:smooth;
+}
+
+
+    header{
+        background: #0b6c54;
+        color:white;
+        padding:20px;
+        text-align:center;
+        box-shadow:0 2px 8px rgba(224, 228, 230, 0.2);
+    }
+
+    header h1{
+        font-size:2.5rem;
+    }
+
+    nav{
+        margin-top:10px;
+    }
+
+    nav a{
+        color:white;
+        text-decoration:none;
+        margin:0 15px;
+        font-weight:bold;
+    }
+
+    .banner{
+        background: linear-gradient(to right, #000000, #cce6ff);
+        padding:50px;
+        text-align:center;
+        color:#000000;
+    }
+
+    .banner h2{
+        font-size:2rem;
+        margin-bottom:10px;
+    }
+
+    .container{
+        width:90%;
+        max-width:1200px;
+        margin:30px auto;
+    }
+
+    .post{
+        background:white;
+        margin-bottom:60px;
+        border-radius:15px;
+        overflow:hidden;
+        box-shadow:0 4px 12px rgba(0,0,0,0.1);
+        transition:0.3s;
+    }
+
+    .post:hover{
+        transform:scale(1.02);
+    }
+
+    .post img{
+        width:100%;
+        height:300px;
+        object-fit:cover;
+    }
+
+    .content{
+        padding:20px;
+    }
+
+    .content h3{
+        color:#3399ff;
+        margin-bottom:10px;
+    }
+
+    .content p{
+        line-height:1.6;
+        margin-bottom:15px;
+    }
+
+    iframe{
+        width:100%;
+        height:350px;
+        border:none;
+        border-radius:10px;
+    }
+
+    .btn{
+        background:#000000;
+        color:rgb(0, 0, 0);
+        border:none;
+        padding:12px 20px;
+        border-radius:8px;
+        cursor:pointer;
+        transition:0.3s;
+    }
+
+    .btn:hover{
+        background:#1e90ff;
+    }
+
+    footer{
+        background:#4da6ff;
+        color:white;
+        text-align:center;
+        padding:20px;
+        margin-top:40px;
+    }
+
+    .dark-mode{
+        background:#1a1a1a;
+        color:white;
+    }
+
+    .dark-mode .post{
+        background:#2b2b2b;
+        color:white;
+    }
+
+    .dark-mode header,
+    .dark-mode footer{
+        background:#003366;
+    }
+
+/* PERFIL */
+.perfil{
+    display:flex;
+    align-items:center;
+    margin-top:50px;
+    gap:20px;
+    padding:20px;
+}
+
+.perfil img{
+    width:300px;
+    height:300px;
+    border-radius:15px;
+    object-fit:cover;
+}
+
+@media(max-width:768px){
+
+    .perfil{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .perfil img{
+        width:100%;
+        height:auto;
+    }
+
+}
+
+/* MENU HAMBÚRGUER */
+
+.menu-icon{
+    display:block;
+    font-size:35px;
+    cursor:pointer;
+    color:white;
+
+    /* POSIÇÃO */
+    position:absolute;
+    left:20px;
+    top:25px;
+}
+
+/* MENU */
+
+#menu{
+    display:none;
+
+    position:fixed;
+    top:0;
+    left:0;
+
+    /* DIMINUIR TAMANHO */
+    width:180px;
+    height:100%;
+
+    background:#003366;
+
+    padding-top:70px;
+
+    flex-direction:column;
+
+    box-shadow:4px 0 10px rgba(0,0,0,0.3);
+
+    z-index:2000;
+
+    transition:0.3s;
+}
+
+/* MENU ABERTO */
+#menu.active{
+    display:flex;
+}
+
+/* LINKS */
+#menu a{
+    color:white;
+    text-decoration:none;
+
+    /* MENOR */
+    padding:15px;
+    font-size:16px;
+
+    border-bottom:1px solid rgba(255,255,255,0.2);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Meu Blog Interativo</h1>
+<!-- BOTÃO MENU HAMBÚRGUER -->
+  <div class="menu-icon" onclick="abrirMenu()">
+     ☰ 
+    </div>
+    
+<nav id="menu">
+
+    <a href="#inicio" onclick="abrirMenu()">Início</a>
+
+    <a href="#postagens" onclick="abrirMenu()">
+        Postagens
+    </a>
+
+    <a href="#videos" onclick="abrirMenu()">
+        Vídeos
+    </a>
+
+    <a href="#contato" onclick="abrirMenu()">
+        Contato
+    </a>
+
+</nav>
+
+</header>
+
+<section class="banner" id="inicio">
+    <h2>Bem-vindo ao Blog</h2>
+    <p>Compartilhe informações, vídeos e imagens de forma moderna.</p>
+
+    <br>
+
+    <button class="btn" onclick="modoEscuro()">
+        Alternar Tema
+    </button>
+</section>
+
+<div class="container" id="postagens">
+
+    <!-- POST 1 -->
+    <div class="post">
+        <img src="https://picsum.photos/1200/500" alt="Imagem do Blog">
+
+        <div class="content">
+            <h3>Título da Postagem</h3>
+
+            <p>
+                Aqui você pode escrever textos informativos,
+                notícias, curiosidades ou conteúdos educativos.
+                O site é totalmente personalizável.
+            </p>
+
+            <button class="btn" onclick="curtir(this)">
+                👍 Curtir
+            </button>
+        </div>
+    </div>
+
+<!-- SOBRE A PESSOA -->
+<div class="post perfil">
+
+    <img src="https://picsum.photos/500/500" alt="Foto da Pessoa">
+
+    <div class="content">
+        <h3>Sobre Maria</h3>
+
+        <p>
+            Maria é uma criadora de conteúdo apaixonada por tecnologia,
+            design e educação digital. Ela gosta de compartilhar dicas,
+            curiosidades e conteúdos informativos para ajudar outras
+            pessoas a aprenderem de forma simples e divertida.
+        </p>
+
+        <p>
+            Além disso, Maria trabalha com desenvolvimento web e
+            criação de projetos interativos utilizando HTML, CSS
+            e JavaScript.
+        </p>
+
+        <button class="btn" onclick="curtir(this)">
+            👍 Curtir
+        </button>
+    </div>
+    </div>
+    
+    <!-- NOVA POSTAGEM 2 -->
+    <div class="post perfil">
+    
+        <img src="https://picsum.photos/600/600?random=2" alt="Foto">
+    
+        <div class="content">
+    
+            <h3>Sobre João</h3>
+    
+            <p>
+                João é apaixonado por esportes, tecnologia
+                e produção de conteúdo digital.
+            </p>
+    
+            <p>
+                Ele gosta de criar projetos modernos,
+                compartilhar conhecimentos e desenvolver
+                novas ideias para a internet.
+            </p>
+    
+            <button class="btn" onclick="curtir(this)">
+                👍 Curtir
+            </button>
+    
+        </div>
+    
+    </div>
+    
+    <!-- NOVA POSTAGEM 3 -->
+    <div class="post perfil">
+    
+        <img src="https://picsum.photos/600/600?random=3" alt="Foto">
+    
+        <div class="content">
+    
+            <h3>Sobre Ana</h3>
+    
+            <p>
+                Ana trabalha com design gráfico e criação
+                de interfaces modernas para sites.
+            </p>
+    
+            <p>
+                Ela gosta de combinar criatividade,
+                tecnologia e inovação em seus projetos.
+            </p>
+    
+            <button class="btn" onclick="curtir(this)">
+                👍 Curtir
+            </button>
+    
+        </div>
+    </div>
+    
+    
+    
+
+
+</div>
+
+    <!-- POST COM VÍDEO -->
+    <div class="post" id="videos">
+
+        <div class="content">
+            <h3>Vídeo Informativo</h3>
+
+            <p>
+                Você também pode inserir vídeos do YouTube
+                para deixar o blog mais dinâmico e interativo.
+            </p>
+
+            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
+            </iframe>
+
+            <br><br>
+
+            <button class="btn" onclick="curtir(this)">
+                👍 Curtir
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<footer id="contato">
+    <p>© 2026 - Meu Blog Interativo</p>
+</footer>
+
+<script>
+
+    // Função de Curtir
+    function curtir(botao){
+
+        if(botao.innerHTML === "👍 Curtir"){
+            botao.innerHTML = "❤️ Curtido";
+        } else {
+            botao.innerHTML = "👍 Curtir";
+        }
+
+    }
+
+    // Modo Escuro
+    function modoEscuro(){
+        document.body.classList.toggle("dark-mode");
+    }
+
+// MENU HAMBÚRGUER
+function abrirMenu(){
+
+    let menu = document.getElementById("menu");
+
+    menu.classList.toggle("active");
+
+}
+
+
+</script>
+
+</body>
+</html>
