@@ -30,6 +30,8 @@ html{
         padding:20px;
         text-align:center;
         box-shadow:0 2px 8px rgba(224, 228, 230, 0.2);
+
+        position:relative;
     }
 
     header h1{
@@ -78,7 +80,7 @@ html{
         transform:scale(1.02);
     }
 
-    .post img{
+    .post > img{
         width:100%;
         height:300px;
         object-fit:cover;
@@ -190,7 +192,7 @@ html{
 
 #menu{
     display:none;
-
+    flex-direction:column;
     position:fixed;
     top:0;
     left:0;
@@ -299,7 +301,9 @@ html{
     <img src="https://picsum.photos/500/500" alt="Foto da Pessoa">
 
     <div class="content">
-        <h3>Sobre Maria</h3>
+        <h3 onclick="abrirPerfil('Maria')" style="cursor:pointer;">
+            Sobre Maria
+        </h3>
 
         <p>
             Maria é uma criadora de conteúdo apaixonada por tecnologia,
@@ -327,7 +331,9 @@ html{
     
         <div class="content">
     
-            <h3>Sobre João</h3>
+            <h3 onclick="abrirPerfil('Joao')" style="cursor:pointer;">
+                Sobre João
+            </h3>
     
             <p>
                 João é apaixonado por esportes, tecnologia
@@ -355,6 +361,64 @@ html{
     
         <div class="content">
     
+            <h3 onclick="abrirPerfil('Ana')" style="cursor:pointer;">
+                Sobre Ana
+            </h3>
+    
+            <p>
+                Ana trabalha com design gráfico e criação
+                de interfaces modernas para sites.
+            </p>
+    
+            <p>
+                Ela gosta de combinar criatividade,
+                tecnologia e inovação em seus projetos.
+            </p>
+    
+            <button class="btn" onclick="curtir(this)">
+                👍 Curtir
+            </button>
+    
+        </div>
+    </div>
+    
+
+
+    <!-- NOVA POSTAGEM 4 -->
+    <div class="post perfil">
+    
+        <img src="https://picsum.photos/600/600?random=2" alt="Foto">
+    
+        <div class="content">
+    
+            <h3>Sobre João</h3>
+    
+            <p>
+                João é apaixonado por esportes, tecnologia
+                e produção de conteúdo digital.
+            </p>
+    
+            <p>
+                Ele gosta de criar projetos modernos,
+                compartilhar conhecimentos e desenvolver
+                novas ideias para a internet.
+            </p>
+    
+            <button class="btn" onclick="curtir(this)">
+                👍 Curtir
+            </button>
+    
+        </div>
+    
+    </div>
+    
+    <!-- NOVA POSTAGEM 5 -->
+    <div class="post perfil">
+    
+        <img src="https://picsum.photos/600/600?random=3" alt="Foto">
+    
+        <div class="content">
+    
             <h3>Sobre Ana</h3>
     
             <p>
@@ -374,11 +438,6 @@ html{
         </div>
     </div>
     
-    
-    
-
-
-</div>
 
     <!-- POST COM VÍDEO -->
     <div class="post" id="videos">
@@ -434,7 +493,10 @@ function abrirMenu(){
     menu.classList.toggle("active");
 
 }
-
+//ABRIR PERFIL
+function abrirPerfil(nome){
+    window.location.href = "perfil.html?usuario=" + nome;
+}
 
 </script>
 

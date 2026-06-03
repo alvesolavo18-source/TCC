@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perfil</title>
+</head>
+<body>
+
+<h1>Perfil carregado com sucesso!</h1>
+<h1 id="nome"></h1>
+
+<img id="foto" src="" width="500">
+
+<p id="descricao"></p>
+
+<a href="index.html">← Voltar ao Blog</a>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const usuario = params.get("usuario");
+
+const nome = document.getElementById("nome");
+const foto = document.getElementById("foto");
+const descricao = document.getElementById("descricao");
+
+if(usuario === "Maria"){
+
+    nome.innerHTML = "Maria";
+
+    foto.src = "https://picsum.photos/1000/500?random=1";
+
+    descricao.innerHTML =
+    "Maria é apaixonada por tecnologia, design e educação digital.";
+
+}
+else if(usuario === "Joao"){
+
+    nome.innerHTML = "João";
+
+    foto.src = "https://picsum.photos/1000/500?random=2";
+
+    descricao.innerHTML =
+    "João gosta de esportes, tecnologia e produção de conteúdo digital.";
+
+}
+else if(usuario === "Ana"){
+
+    nome.innerHTML = "Ana";
+
+    foto.src = "https://picsum.photos/1000/500?random=3";
+
+    descricao.innerHTML =
+    "Ana trabalha com design gráfico e criação de interfaces modernas.";
+
+}
+
+</script>
+
+</body>
+</html>
