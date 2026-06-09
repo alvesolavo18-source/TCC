@@ -49,17 +49,26 @@ html{
         font-weight:bold;
     }
 
-    .banner{
-        background: linear-gradient(to right, #66b3ff, #cce6ff);
-        padding:50px;
-        text-align:center;
-        color:#003366;
-    }
+    .foto-banner{
+     width:100%;
+    height:350px;
+    object-fit:contain;
+    display:block;
+    background:#f5f5f5;  
+}
 
-    .banner h2{
-        font-size:2rem;
-        margin-bottom:10px;
-    }
+.banner h2{
+    text-align:center;
+    font-size:2.5rem;
+    margin-top:20px;
+}
+
+.banner p{
+    text-align:center;
+    font-size:1.2rem;
+    margin-top:10px;
+}
+    
 
     .container{
         width:90%;
@@ -264,8 +273,13 @@ html{
 </header>
 
 <section class="banner" id="inicio">
+    <img src="imagem do banner do TCC.png" alt="Banner do TCC" class="foto-banner">
+
     <h2>Bem-vindo ao Blog</h2>
-    <p>Compartilhe informações, vídeos e imagens de forma moderna.</p>
+
+    <p>
+        Compartilhe informações, vídeos e imagens de forma moderna.
+    </p>
 
     <br>
 
@@ -391,10 +405,12 @@ html{
     
         <div class="content">
     
-            <h3>Sobre João</h3>
+            <h3 onclick="abrirPerfil('Carlos')" style="cursor:pointer;">
+                Sobre Carlos
+            </h3>
     
             <p>
-                João é apaixonado por esportes, tecnologia
+                Carlos é apaixonado por esportes, tecnologia
                 e produção de conteúdo digital.
             </p>
     
@@ -419,10 +435,12 @@ html{
     
         <div class="content">
     
-            <h3>Sobre Ana</h3>
+            <h3 onclick="abrirPerfil('Julia')" style="cursor:pointer;">
+                Sobre Julia
+            </h3>
     
             <p>
-                Ana trabalha com design gráfico e criação
+                Julia trabalha com design gráfico e criação
                 de interfaces modernas para sites.
             </p>
     
