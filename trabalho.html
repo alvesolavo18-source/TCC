@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog Interativo</title>
 
+<a href="trabalho.html">← Voltar ao Blog</a>
+
 <style>
     *{
         margin:0;
@@ -154,6 +156,8 @@ html{
     }
 
 /* PERFIL */
+
+
 .perfil{
     display:flex;
     align-items:center;
@@ -332,9 +336,55 @@ html{
             e JavaScript.
         </p>
 
-        <button class="btn" onclick="curtir(this)">
-            👍 Curtir
-        </button>
+    <style>
+        .botao-voltar {
+            display: inline-flex;     /* Permite usar alinhamento interno */
+            align-items: center;      /* Centraliza o texto verticalmente */
+            background-color: #a2d2ff; /* Cor azul clara idêntica ao Curtir */
+            color: #000000;           /* Cor do texto (ajuste se preferir outra) */
+            text-decoration: none;    /* Remove o sublinhado padrão do link */
+            padding: 8px 16px;        /* Espaçamento interno (cima/baixo e lados) */
+            border-radius: 8px;       /* Deixa os cantos arredondados */
+            font-weight: 500;         /* Deixa a letra um pouco mais grossa */
+            transition: background 0.2s; /* Efeito suave ao passar o mouse */
+        }
+        
+        /* Efeito ao passar o mouse */
+    .botao-voltar:hover {
+        background-color: #030303;
+    }
+
+    /* ESSA PARTE CRIA O ALINHAMENTO LADO A LADO */
+    .container-botoes {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-top: 15px; /* dá um espacinho do texto de cima */
+    }
+
+    /* AJUSTE DO BOTÃO PRINCIPAL COM MARGIN-LEFT AUTO */
+    .botao-voltar {
+        display: inline-flex;     
+        align-items: center;      
+        background-color: #a2d2ff; 
+        color: #000000;           
+        text-decoration: none;    
+        padding: 8px 16px;        
+        border-radius: 8px;       
+        font-weight: 500;         
+        transition: background 0.2s;
+        margin-left: auto; /* Empurra totalmente para a direita de forma automática */
+    }
+    </style>
+    <div class="container-botoes">
+    
+        <!-- Código atual do seu botão Curtir (mantenha o seu original) -->
+        <button class="botao-curtir">👍 Curtir</button>
+        
+        <!-- O seu link de voltar -->
+        <a href="index.html" class="botao-voltar">← Relato da faculdade 🎓📚</a>
+    
+    </div>
     </div>
     </div>
     
@@ -360,9 +410,55 @@ html{
                 novas ideias para a internet.
             </p>
     
-            <button class="btn" onclick="curtir(this)">
-                👍 Curtir
-            </button>
+            <style>
+                .botao-voltar {
+                    display: inline-flex;     /* Permite usar alinhamento interno */
+                    align-items: center;      /* Centraliza o texto verticalmente */
+                    background-color: #a2d2ff; /* Cor azul clara idêntica ao Curtir */
+                    color: #000000;           /* Cor do texto (ajuste se preferir outra) */
+                    text-decoration: none;    /* Remove o sublinhado padrão do link */
+                    padding: 8px 16px;        /* Espaçamento interno (cima/baixo e lados) */
+                    border-radius: 8px;       /* Deixa os cantos arredondados */
+                    font-weight: 500;         /* Deixa a letra um pouco mais grossa */
+                    transition: background 0.2s; /* Efeito suave ao passar o mouse */
+                }
+                
+                /* Efeito ao passar o mouse */
+            .botao-voltar:hover {
+                background-color: #030303;
+            }
+        
+            /* ESSA PARTE CRIA O ALINHAMENTO LADO A LADO */
+            .container-botoes {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin-top: 15px; /* dá um espacinho do texto de cima */
+            }
+        
+            /* AJUSTE DO BOTÃO PRINCIPAL COM MARGIN-LEFT AUTO */
+            .botao-voltar {
+                display: inline-flex;     
+                align-items: center;      
+                background-color: #a2d2ff; 
+                color: #000000;           
+                text-decoration: none;    
+                padding: 8px 16px;        
+                border-radius: 8px;       
+                font-weight: 500;         
+                transition: background 0.2s;
+                margin-left: auto; /* Empurra totalmente para a direita de forma automática */
+            }
+            </style>
+            <div class="container-botoes">
+            
+                <!-- Código atual do seu botão Curtir (mantenha o seu original) -->
+                <button class="botao-curtir">👍 Curtir</button>
+                
+                <!-- O seu link de voltar -->
+                <a href="index.html" class="botao-voltar">← Relato da faculdade 🎓📚</a>
+            
+            </div>
     
         </div>
     
@@ -389,9 +485,55 @@ html{
                 tecnologia e inovação em seus projetos.
             </p>
     
-            <button class="btn" onclick="curtir(this)">
-                👍 Curtir
-            </button>
+            <style>
+                .botao-voltar {
+                    display: inline-flex;     /* Permite usar alinhamento interno */
+                    align-items: center;      /* Centraliza o texto verticalmente */
+                    background-color: #a2d2ff; /* Cor azul clara idêntica ao Curtir */
+                    color: #000000;           /* Cor do texto (ajuste se preferir outra) */
+                    text-decoration: none;    /* Remove o sublinhado padrão do link */
+                    padding: 8px 16px;        /* Espaçamento interno (cima/baixo e lados) */
+                    border-radius: 8px;       /* Deixa os cantos arredondados */
+                    font-weight: 500;         /* Deixa a letra um pouco mais grossa */
+                    transition: background 0.2s; /* Efeito suave ao passar o mouse */
+                }
+                
+                /* Efeito ao passar o mouse */
+            .botao-voltar:hover {
+                background-color: #030303;
+            }
+        
+            /* ESSA PARTE CRIA O ALINHAMENTO LADO A LADO */
+            .container-botoes {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin-top: 15px; /* dá um espacinho do texto de cima */
+            }
+        
+            /* AJUSTE DO BOTÃO PRINCIPAL COM MARGIN-LEFT AUTO */
+            .botao-voltar {
+                display: inline-flex;     
+                align-items: center;      
+                background-color: #a2d2ff; 
+                color: #000000;           
+                text-decoration: none;    
+                padding: 8px 16px;        
+                border-radius: 8px;       
+                font-weight: 500;         
+                transition: background 0.2s;
+                margin-left: auto; /* Empurra totalmente para a direita de forma automática */
+            }
+            </style>
+            <div class="container-botoes">
+            
+                <!-- Código atual do seu botão Curtir (mantenha o seu original) -->
+                <button class="botao-curtir">👍 Curtir</button>
+                
+                <!-- O seu link de voltar -->
+                <a href="index.html" class="botao-voltar">← Relato da faculdade 🎓📚</a>
+            
+            </div>
     
         </div>
     </div>
@@ -419,10 +561,55 @@ html{
                 compartilhar conhecimentos e desenvolver
                 novas ideias para a internet.
             </p>
-    
-            <button class="btn" onclick="curtir(this)">
-                👍 Curtir
-            </button>
+            <style>
+                .botao-voltar {
+                    display: inline-flex;     /* Permite usar alinhamento interno */
+                    align-items: center;      /* Centraliza o texto verticalmente */
+                    background-color: #a2d2ff; /* Cor azul clara idêntica ao Curtir */
+                    color: #000000;           /* Cor do texto (ajuste se preferir outra) */
+                    text-decoration: none;    /* Remove o sublinhado padrão do link */
+                    padding: 8px 16px;        /* Espaçamento interno (cima/baixo e lados) */
+                    border-radius: 8px;       /* Deixa os cantos arredondados */
+                    font-weight: 500;         /* Deixa a letra um pouco mais grossa */
+                    transition: background 0.2s; /* Efeito suave ao passar o mouse */
+                }
+                
+                /* Efeito ao passar o mouse */
+            .botao-voltar:hover {
+                background-color: #030303;
+            }
+        
+            /* ESSA PARTE CRIA O ALINHAMENTO LADO A LADO */
+            .container-botoes {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin-top: 15px; /* dá um espacinho do texto de cima */
+            }
+        
+            /* AJUSTE DO BOTÃO PRINCIPAL COM MARGIN-LEFT AUTO */
+            .botao-voltar {
+                display: inline-flex;     
+                align-items: center;      
+                background-color: #a2d2ff; 
+                color: #000000;           
+                text-decoration: none;    
+                padding: 8px 16px;        
+                border-radius: 8px;       
+                font-weight: 500;         
+                transition: background 0.2s;
+                margin-left: auto; /* Empurra totalmente para a direita de forma automática */
+            }
+            </style>
+            <div class="container-botoes">
+            
+                <!-- Código atual do seu botão Curtir (mantenha o seu original) -->
+                <button class="botao-curtir">👍 Curtir</button>
+                
+                <!-- O seu link de voltar -->
+                <a href="index.html" class="botao-voltar">← Relato da faculdade 🎓📚</a>
+            
+            </div>
     
         </div>
     
@@ -431,28 +618,71 @@ html{
     <!-- NOVA POSTAGEM 5 -->
     <div class="post perfil">
     
-        <img src="https://picsum.photos/600/600?random=3" alt="Foto">
+        <img src="9e53bb2a-e903-44c1-bcd6-f5718dc663f7.jpg" alt="Foto">
     
         <div class="content">
     
-            <h3 onclick="abrirPerfil('Julia')" style="cursor:pointer;">
-                Sobre Julia
-            </h3>
+            <h3>Sobre bruno</h3>
     
             <p>
-                Julia trabalha com design gráfico e criação
+                bruno trabalha com design gráfico e criação
                 de interfaces modernas para sites.
             </p>
     
             <p>
-                Ela gosta de combinar criatividade,
+                Ele gosta de combinar criatividade,
                 tecnologia e inovação em seus projetos.
             </p>
     
-            <button class="btn" onclick="curtir(this)">
-                👍 Curtir
-            </button>
-    
+            <style>
+                .botao-voltar {
+                    display: inline-flex;     /* Permite usar alinhamento interno */
+                    align-items: center;      /* Centraliza o texto verticalmente */
+                    background-color: #a2d2ff; /* Cor azul clara idêntica ao Curtir */
+                    color: #000000;           /* Cor do texto (ajuste se preferir outra) */
+                    text-decoration: none;    /* Remove o sublinhado padrão do link */
+                    padding: 8px 16px;        /* Espaçamento interno (cima/baixo e lados) */
+                    border-radius: 8px;       /* Deixa os cantos arredondados */
+                    font-weight: 500;         /* Deixa a letra um pouco mais grossa */
+                    transition: background 0.2s; /* Efeito suave ao passar o mouse */
+                }
+                
+                /* Efeito ao passar o mouse */
+            .botao-voltar:hover {
+                background-color: #030303;
+            }
+        
+            /* ESSA PARTE CRIA O ALINHAMENTO LADO A LADO */
+            .container-botoes {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin-top: 15px; /* dá um espacinho do texto de cima */
+            }
+        
+            /* AJUSTE DO BOTÃO PRINCIPAL COM MARGIN-LEFT AUTO */
+            .botao-voltar {
+                display: inline-flex;     
+                align-items: center;      
+                background-color: #a2d2ff; 
+                color: #000000;           
+                text-decoration: none;    
+                padding: 8px 16px;        
+                border-radius: 8px;       
+                font-weight: 500;         
+                transition: background 0.2s;
+                margin-left: auto; /* Empurra totalmente para a direita de forma automática */
+            }
+            </style>
+            <div class="container-botoes">
+            
+                <!-- Código atual do seu botão Curtir (mantenha o seu original) -->
+                <button class="botao-curtir">👍 Curtir</button>
+                
+                <!-- O seu link de voltar -->
+                <a href="index.html" class="botao-voltar">← Relato da faculdade 🎓📚</a>
+            
+            </div>
         </div>
     </div>
     
