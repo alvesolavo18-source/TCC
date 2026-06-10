@@ -1,16 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            text-align:center;
+            padding:30px;
+        }
+        
+        .perfil-container{
+            max-width:800px;
+            margin:auto;
+            padding:30px;
+            border-radius:15px;
+        }
+        
+        img{
+    width:100%;
+    max-width:400px;
+    border-radius:15px;
+}
+        
+        </style>    
     <title>Perfil</title>
 </head>
 <body>
 
 <h1>Perfil carregado com sucesso!</h1>
-<h1 id="nome"></h1>
-
-<img id="foto" src="" width="500">
-
-<p id="descricao"></p>
+<div class="perfil-container" id="perfil">
+    <h1 id="nome"></h1>
+    <img id="foto" src="">
+    <p id="descricao"></p>
+</div>
 
 <a href="trabalho.html">← Voltar ao Blog</a>
 
@@ -21,6 +42,7 @@ const usuario = params.get("usuario");
 const nome = document.getElementById("nome");
 const foto = document.getElementById("foto");
 const descricao = document.getElementById("descricao");
+const perfil = document.getElementById("perfil");
 
 if(usuario === "Maria"){
 
@@ -30,7 +52,10 @@ if(usuario === "Maria"){
 
     descricao.innerHTML =
     "Maria é apaixonada por tecnologia, design e educação digital.";
-
+   
+    perfil.style.background = "#ffe4e1";
+    perfil.style.color = "#8b0000";
+    perfil.style.textAlign = "left";
 }
 else if(usuario === "Joao"){
 
@@ -41,6 +66,9 @@ else if(usuario === "Joao"){
     descricao.innerHTML =
     "João gosta de esportes, tecnologia e produção de conteúdo digital.";
 
+perfil.style.background = "#e6f7ff";
+perfil.style.color = "#003366";
+perfil.style.textAlign = "center";
 }
 else if(usuario === "Ana"){
 
@@ -51,8 +79,38 @@ else if(usuario === "Ana"){
     descricao.innerHTML =
     "Ana trabalha com design gráfico e criação de interfaces modernas.";
 
+perfil.style.background = "#fff0f5";
+perfil.style.color = "#800080";
+perfil.style.textAlign = "right";
 }
 
+else if(usuario === "Carlos"){
+
+nome.innerHTML = "Carlos";
+
+foto.src = "https://picsum.photos/1000/500?random=4";
+
+descricao.innerHTML =
+"Carlos é desenvolvedor web e gosta de criar projetos inovadores.";
+
+    perfil.style.background = "#ffe4e1";
+    perfil.style.color = "#8b0000";
+    perfil.style.textAlign = "left";
+}
+
+else if(usuario === "Julia"){
+
+nome.innerHTML = "Julia";
+
+foto.src = "https://picsum.photos/1000/500?random=5";
+
+descricao.innerHTML =
+"Julia é apaixonada por marketing digital e criação de conteúdo.";
+
+    perfil.style.background = "#ffe4e1";
+    perfil.style.color = "#8b0000";
+    perfil.style.textAlign = "left";
+}
 </script>
 
 </body>
