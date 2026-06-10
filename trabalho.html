@@ -244,12 +244,36 @@ html{
     border-bottom:1px solid rgba(255,255,255,0.2);
 }
 
+.cadastro-btn{
+    position:absolute;
+    top:20px;
+    right: 10px; ; /* canto superior direito */
+
+    background:#4da6ff;
+    color:white;
+    text-decoration:none;
+
+    padding:10px 15px;
+    border-radius:8px;
+
+    font-weight:bold;
+}
+
+.cadastro-btn:hover{
+    background:#1e90ff;
+}
+
 </style>
 </head>
 
 <body>
-
+    <div id="tela-inicial">
+        <img src="logo.png" alt="Minha Logo" class="logo">
+    </div>
 <header>
+    <a href="cadastro.html" class="cadastro-btn">
+        👤 Cadastre-se
+    </a>
     <h1>Meu Blog Interativo</h1>
 <!-- BOTÃO MENU HAMBÚRGUER -->
   <div class="menu-icon" onclick="abrirMenu()">
@@ -741,6 +765,21 @@ function abrirMenu(){
     menu.classList.toggle("active");
 
 }
+
+// FECHAR AO CLICAR FORA
+document.addEventListener("click", function(event){
+
+let menu = document.getElementById("menu");
+let botaoMenu = document.querySelector(".menu-icon");
+
+if(
+    !menu.contains(event.target) &&
+    !botaoMenu.contains(event.target)
+){
+    menu.classList.remove("active");
+}
+
+});
 //ABRIR PERFIL
 function abrirPerfil(nome){
     window.location.href = "perfil.html?usuario=" + nome;
