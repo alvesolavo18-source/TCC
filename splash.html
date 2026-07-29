@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bem-vindo</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:white;
+}
+
+img{
+    width:300px;
+    animation: aparecer 1.5s;
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:scale(0.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<img src="logo.png" alt="logo">
+
+<script>
+
+if(sessionStorage.getItem("logoJaMostrada")){
+    window.location.href="trabalho.html";
+}else{
+
+    sessionStorage.setItem("logoJaMostrada","sim");
+
+    setTimeout(function(){
+        window.location.href="trabalho.html";
+    },5000);
+
+}
+
+</script>
+
+</body>
+</html>
