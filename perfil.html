@@ -8,17 +8,43 @@
             padding:30px;
         }
         
-        .perfil-container{
-            max-width:800px;
-            margin:auto;
-            padding:30px;
-            border-radius:15px;
-        }
-        
-        img{
-    width:100%;
-    max-width:400px;
-    border-radius:15px;
+        .card-perfil{
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    background: #ffe4e1;
+}
+
+.cabecalho{
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}    
+
+#foto{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    flex-shrink: 0;
+}
+
+.info{
+    flex: 1;
+    text-align: left;
+}
+
+.relato-container{
+    margin-top: 30px;
+    text-align: justify;
+    width: 100%;
+}
+
+#relato p{
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-indent: 30px; /* recuo no início */
 }
         
         </style>    
@@ -27,11 +53,23 @@
 <body>
 
 <h1>Perfil carregado com sucesso!</h1>
-<div class="perfil-container" id="perfil">
-    <h1 id="nome"></h1>
-    <img id="foto" src="">
-    <p id="descricao"></p>
+<div class="card-perfil" id="perfil">
+   
+    <div class="cabecalho">
+    <img id="foto" src="" alt="Foto do usuário">
+
+    <div class="info">
+        <h1 id="nome"></h1>
+        <p id="descricao"></p>
+    </div>
+
 </div>
+
+<div class="relato-container">
+    <div id="relato"></div>
+</div>
+
+</div> <!-- fecha card-perfil -->
 
 <a href="trabalho.html">← Voltar ao Blog</a>
 
@@ -42,35 +80,52 @@ const usuario = params.get("usuario");
 const nome = document.getElementById("nome");
 const foto = document.getElementById("foto");
 const descricao = document.getElementById("descricao");
+const relato = document.getElementById("relato");
 const perfil = document.getElementById("perfil");
 
-if(usuario === "Joyce"){
+if(usuario === "Joyce Inácio"){
 
     nome.innerHTML = "Joyce";
 
-    foto.src = "Joyce Inácio.jgp";
+    foto.src = "Joyce Inácio.jpg";
 
     descricao.innerHTML =
     "Joyce é apaixonada por tecnologia, design e educação digital.";
    
+    relato.innerHTML =`
+    <p>Joyce Bezerra, de 28 anos e residente em Hortolândia, graduou-se em Engenharia Civil pela Unimetrocamp há aproximadamente cinco anos. Sua escolha profissional foi fortemente influenciada por seu pai, cuja atuação na construção civil permitiu que ela convivesse com obras desde a infância, despertando um profundo interesse e paixão pelo segmento. A opção pela Unimetrocamp baseou-se no reconhecimento da instituição no mercado de trabalho e na qualificação de seu corpo docente, composto por profissionais com formação e experiência vinculadas à Unicamp, fatores que lhe transmitiram a segurança de receber um ensino de excelência. Seu ingresso ocorreu por meio do Programa Universidade para Todos (PROUNI), no qual obteve uma bolsa de estudos de 50%, resultando em uma mensalidade de R$ 1.500,00 na época. Quanto à logística desse período, as condições mantiveram-se independentes: embora o campus localizasse-se a uma hora de deslocamento por transporte coletivo, o trajeto era considerado viável, e a estudante supria as necessidades de alimentação levando seus próprios lanches.</p>
+
+<p>O período inicial de adaptação na universidade apresentou-se de forma desafiadora, sendo caracterizado por uma fase de intensas mudanças e novas responsabilidades. A transição e a inserção na rotina de estudos, no ambiente acadêmico e nas exigências específicas do curso de Engenharia Civil ocorreram de maneira gradual. Nesse processo de integração, o suporte oferecido pelo corpo docente e a convivência diária com os colegas de classe desempenharam um papel fundamental, proporcionando o acolhimento necessário para que a estudante ganhasse confiança e se sentisse efetivamente integrada à comunidade acadêmica. O alto grau de complexidade das avaliações também exigiu resiliência, obstáculo que pôde ser mitigado pelo suporte da instituição de ensino ao disponibilizar os livros didáticos necessários para o embasamento dos estudos.</p>
+
+<p>No âmbito acadêmico, o curso destacava-se pela forte vertente prática em sua metodologia de ensino. Atividades dinâmicas e complementares eram rotina na graduação, sendo exemplificadas por disciplinas como Topografia e Concreto, estruturadas essencialmente por meio de aulas práticas, palestras, projetos e dinâmicas de campo que conectavam a teoria à realidade da profissão. Embora a faculdade oferecesse outros auxílios e benefícios de assistência aos estudantes para além do material didático, os detalhes específicos desses suportes adicionais não são recordados. De forma geral, a instituição foi de suma importância para o crescimento pessoal e técnico de Joyce, fomentando atributos essenciais como responsabilidade, pensamento analítico e trabalho em equipe.</p>
+
+<p>A trajetória profissional de Joyce durante a graduação exigiu persistência e dedicação frente a um mercado de trabalho restrito e com menor volume de vagas em comparação ao cenário contemporâneo. A dificuldade inicial em conquistar um estágio na Engenharia Civil gerou sentimentos de frustração diante da busca diária por oportunidades. Nesse período, Joyce aceitou um convite para trabalhar na área comercial com a venda de joias; embora fosse um setor totalmente alheio à sua área de formação, a experiência garantiu-lhe renda própria e estabilidade financeira para persistir nos estudos. Essa resiliência culminou em sua inserção definitiva no mercado de engenharia e, atualmente, ela atua no setor de Infraestrutura, área pela qual consolidou sua paixão profissional.</p>
+
+<p>Como reflexão e legado de sua experiência, Joyce desmistifica a visão de que a Engenharia Civil limita-se a cálculos, apontando que a formação é integralmente voltada para habilidades de gestão, planejamento e resolução de problemas complexos. Como diretriz para novos estudantes, recomenda o engajamento imediato em atividades extracurriculares e a busca ativa por estágios desde os semestres iniciais, dado o impacto diferencial na inserção mercadológica. Por fim, enfatiza o valor das conexões humanas desenvolvidas, destacando que os laços de amizade firmados na universidade perduram até os dias atuais, servindo como mútuo suporte profissional e pessoal para a vida toda.</p>`;
+
+
+
     perfil.style.background = "#ffe4e1";
     perfil.style.color = "#8b0000";
     perfil.style.textAlign = "left";
 }
-else if(usuario === "Julia"){
+else if(usuario === "Julia costa"){
 
     nome.innerHTML = "Julia";
 
-    foto.src = "Julia Costa.jpg";
+    foto.src = "Julia costa.jpg";
 
     descricao.innerHTML =
     "Julia gosta de esportes, tecnologia e produção de conteúdo digital.";
+
+    relato.innerHTML =
+    "Durante a faculdade," 
 
 perfil.style.background = "#e6f7ff";
 perfil.style.color = "#003366";
 perfil.style.textAlign = "center";
 }
-else if(usuario === "Maria"){
+else if(usuario === "Maria Andrade"){
 
     nome.innerHTML = "Maria";
 
@@ -79,12 +134,15 @@ else if(usuario === "Maria"){
     descricao.innerHTML =
     "Maria trabalha com design gráfico e criação de interfaces modernas.";
 
+ relato.innerHTML =
+    "Durante a faculdade,"
+
 perfil.style.background = "#fff0f5";
 perfil.style.color = "#800080";
 perfil.style.textAlign = "right";
 }
 
-else if(usuario === "Maryana"){
+else if(usuario === "Maryana Freschi"){
 
 nome.innerHTML = "Maryana";
 
@@ -93,12 +151,15 @@ foto.src = "Maryana Freschi.jpg";
 descricao.innerHTML =
 "Maryana é desenvolvedor web e gosta de criar projetos inovadores.";
 
+ relato.innerHTML =
+    "Durante a faculdade,"
+
     perfil.style.background = "#ffe4e1";
     perfil.style.color = "#8b0000";
     perfil.style.textAlign = "left";
 }
 
-else if(usuario === "Raquel"){
+else if(usuario === "Raquel Rodrigues"){
 
 nome.innerHTML = "Raquel";
 
@@ -107,12 +168,15 @@ foto.src = "Raquel Rodrigues.jpg";
 descricao.innerHTML =
 "Raquel é apaixonada por marketing digital e criação de conteúdo.";
 
+ relato.innerHTML =
+    "Durante a faculdade,"
+
     perfil.style.background = "#ffe4e1";
     perfil.style.color = "#8b0000";
     perfil.style.textAlign = "left";
 }
 
-else if(usuario === "Stefany"){
+else if(usuario === "Stefany Morais"){
 
 nome.innerHTML = "Stefany";
 
@@ -120,6 +184,9 @@ foto.src = "Stefany Morais.jpg";
 
 descricao.innerHTML =
 "Stefany é apaixonada por marketing digital e criação de conteúdo.";
+
+ relato.innerHTML =
+    "        "
 
     perfil.style.background = "#ffe4e1";
     perfil.style.color = "#8b0000";
