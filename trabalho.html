@@ -16,7 +16,7 @@
     }
 
     body{
-        background-color:#f4faff;
+        background-color:hwb(215 91% 2% / 0.888);
         color:#333;
     }
 
@@ -49,13 +49,14 @@ html{
         font-weight:bold;
     }
 
-    .foto-banner{
-     width:100%;
-    height:350px;
-    object-fit:contain;
-    display:block;
-    background:#f5f5f5;  
-}
+    .foto-banner {
+    width: 100vw;       /* Ocupa toda a largura da tela */
+    height: auto;       /* Faz a altura se ajustar sozinha sem cortar nada */
+    object-fit: contain;/* Garante que a foto apareça 100% inteira */
+    display: block;
+    margin: 0 auto;
+} 
+
 
 .banner h2{
     text-align:center;
@@ -356,6 +357,10 @@ html{
         Vídeos
     </a>
 
+    <a href="#Sobre" onclick="abrirMenu()">
+        Sobre
+    </a>
+
     <a href="#contato" onclick="abrirMenu()">
         Contato
     </a>
@@ -365,7 +370,7 @@ html{
 </header>
 
 <section class="banner" id="inicio">
-    <img src="imagem do banner do TCC.png" alt="Banner do TCC" class="foto-banner">
+    <img src="banner.png" alt="banner" class="foto-banner">
 
     <h2>Bem-vindo ao Blog</h2>
 
@@ -1485,6 +1490,29 @@ function abrirPerfil(nome){
     }
     
     </script>
+<!-- Seção Sobre o Blog Perfeita e Direta -->
+<section id="Sobre" style="padding: 60px 20px; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; width: 100%; box-sizing: border-box; clear: both;">
+    <div style="background-color: #ffffff; max-width: 650px; width: 100%; padding: 35px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); position: relative; border-top: 6px solid #007bff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px auto;">
+        
+        <h2 style="color: #212529; font-size: 1.8rem; margin-top: 0; margin-bottom: 20px; font-weight: 700;">Nossa História</h2>
+        
+        <p style="color: #495057; font-size: 1.05rem; line-height: 1.7; margin-bottom: 15px; text-align: justify;">
+            O <strong>Diário de um Universitário</strong> nasceu da nossa própria jornada acadêmica. 
+            Entre prazos apertados, noites de estudo e a paixão pela tecnologia, percebemos que 
+            compartilhar essa rotina tornaria o caminho mais leve para nós e para outros estudantes.
+        </p>
+        
+        <p style="color: #495057; font-size: 1.05rem; line-height: 1.7; margin-bottom: 20px; text-align: justify;">
+            Este blog é o reflexo da nossa parceria, dedicação e aprendizado diário. Um espaço feito 
+            para registrar nossos projetos, trocar conhecimentos sobre desenvolvimento web e criar uma 
+            comunidade onde ninguém precisa enfrentar os desafios da faculdade sozinho.
+        </p>
+        
+        <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #dee2e6; color: #6c757d; font-size: 0.9rem; font-style: italic;">
+            <span>🚀 Criado com dedicação por dois universitários.</span>
+        </div>
+    </div>
+</section>
 
 </body>
 </html> 
