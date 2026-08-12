@@ -27,13 +27,11 @@ html{
 
 
     header{
-        background: #0b6c54;
-        color:white;
-        padding:20px;
-        text-align:center;
-        box-shadow:0 2px 8px rgba(224, 228, 230, 0.2);
-
-        position:relative;
+     background: transparent;
+    color:white;
+    height:90px;
+    position:relative;
+    box-shadow:0 2px 8px rgba(0,0,0,0.2);
     }
 
     header h1{
@@ -196,12 +194,23 @@ html{
     display:block;
     font-size:35px;
     cursor:pointer;
-    color:white;
+    color:black;
 
     /* POSIÇÃO */
     position:absolute;
     left:20px;
     top:25px;
+}
+/* LOGO DA BARRA SUPERIOR */
+.logo-barra{
+    position:absolute;
+    left:75px;
+    top:50%;
+    transform:translateY(-50%);
+    
+    width:150px;
+    height:65px;
+    object-fit:contain;
 }
 
 /* MENU */
@@ -260,6 +269,8 @@ html{
     border-radius:8px;
 
     font-weight:bold;
+
+    border:1px solid #000000;
 }
 
 .cadastro-btn:hover{
@@ -322,12 +333,17 @@ html{
          Cadastre-se
     </a>
 
-    <h1>Meu Blog Interativo</h1>
-<!-- BOTÃO MENU HAMBÚRGUER -->
+  <!-- BOTÃO MENU HAMBÚRGUER -->
   <div class="menu-icon" onclick="abrirMenu()">
      ☰ 
     </div>
-    
+
+     <!-- IMAGEM DA BARRA SUPERIOR -->
+     <img src="Imagem da Barra Superior.png"
+     alt="Logo do TCC"
+     class="logo-barra">
+
+    <!-- MENU -->
 <nav id="menu">
 
     <a href="#inicio" onclick="abrirMenu()">Início</a>
