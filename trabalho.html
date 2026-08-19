@@ -412,11 +412,9 @@ html{
     <img src="https://picsum.photos/500/500" alt="Foto da Pessoa">
 
     <div class="content">
-        <h3 onclick="abrirPerfil('Maria')" style="cursor:pointer;">
-            Sobre Maria
-        </h3>
-
+        <h3 onclick="('Maria'); falarTextoMaria()" style="cursor:pointer;">Sobre Maria 🔊</h3>
         <p>
+            
             Maria é uma criadora de conteúdo apaixonada por tecnologia,
             design e educação digital. Ela gosta de compartilhar dicas,
             curiosidades e conteúdos informativos para ajudar outras
@@ -1596,5 +1594,20 @@ function abrirPerfil(nome){
 
 </body>
 </html>
+<script>
+    function falarTextoMaria() {
+        // 1. O texto que o robô vai ditar
+        const texto = "Maria é uma criadora de conteúdo apaixonada por tecnologia, design e educação digital. Ela gosta de compartilhar dicas, curiosidades e conteúdos informativos para ajudar outras pessoas a aprenderem de forma simples e divertida. Além disso, Maria trabalha com desenvolvimento web e criação de projetos interativos utilizando HTML, CSS e JavaScript.";
+        
+        // 2. Cria o objeto de fala do navegador
+        const fala = new SpeechSynthesisUtterance(texto);
+        
+        // 3. Define o idioma para português do Brasil
+        fala.lang = 'pt-BR';
+        
+        // 4. Executa a leitura por voz
+        window.speechSynthesis.speak(fala);
+    }
+    </script>
 </body>
 </html> 
