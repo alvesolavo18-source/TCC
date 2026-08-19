@@ -46,8 +46,34 @@
     margin-bottom: 20px;
     text-indent: 30px; /* recuo no início */
 }
-        
-        </style>    
+     
+#galeria-perfil {
+    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+#galeria-perfil h3 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.galeria {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.galeria img {
+    width: 220px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+ </style>    
     <title>Perfil</title>
 </head>
 <body>
@@ -65,23 +91,7 @@
 
 </div>
 
-<!-- Seção com 4 Imagens Maiores -->
-<div style="max-width: 1200px; margin: 40px auto; padding: 20px; font-family: 'Segoe UI', sans-serif; text-align: center; clear: both;">
-    <h3 style="color: #333; margin-bottom: 25px; font-size: 1.6rem; font-weight: 700; border-bottom: 2px solid #b83b5e; padding-bottom: 10px; display: inline-block;">
-        Registros da Faculdade
-    </h3>
-    
-    <!-- Mudamos a altura de 160px para 250px para dar o destaque que você quer -->
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; justify-content: center; margin-top: 10px;">
-        <img src="albu 2.jpg" alt="Foto 1" style="width: 100%; height: 250px; border-radius: 12px; object-fit: cover; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-        
-        <img src="facu.jpg" alt="Foto 2" style="width: 100%; height: 250px; border-radius: 12px; object-fit: cover; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-        
-        <img src="albu 3.jpg" alt="Foto 3" style="width: 100%; height: 250px; border-radius: 12px; object-fit: cover; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-        
-        <img src="albu 4.jpg" alt="Foto 4" style="width: 100%; height: 250px; border-radius: 12px; object-fit: cover; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-    </div>
-</div>
+<div id="galeria-perfil"></div>
 
 <div class="relato-container">
     <div id="relato"></div>
@@ -100,6 +110,7 @@ const foto = document.getElementById("foto");
 const descricao = document.getElementById("descricao");
 const relato = document.getElementById("relato");
 const perfil = document.getElementById("perfil");
+const galeriaPerfil = document.getElementById("galeria-perfil");
 
 if(usuario === "Joyce Inácio"){
 
@@ -360,6 +371,28 @@ else if(usuario === "Rafaela Gomes"){
     foto.src = "...";
     descricao.innerHTML = "...";
     relato.innerHTML = `...`;
+
+    perfil.style.background = "#ffe4e1";
+    perfil.style.color = "#8b0000";
+    perfil.style.textAlign = "left";
+}
+
+else if(usuario === "Maria Eduarda Albuquerque"){
+    nome.innerHTML = "Maria Albuquerque";
+    foto.src = "Maria Eduarda Albuquerque.jpg";
+    descricao.innerHTML = "...";
+    galeriaPerfil.innerHTML = `
+        <h3>Registros da Faculdade</h3>
+
+        <div class="galeria">
+            <img src="albu 2.jpg" alt="Registro da faculdade">
+            <img src="albu 3.jpg" alt="Registro da faculdade">
+            <img src="albu 4.jpg" alt="Registro da faculdade">
+        </div>
+    `;
+    relato.innerHTML = `<p>Na contemporaneidade, a transição do ensino médio para o ensino superior configura-se como um marco decisivo na trajetória pessoal e profissional dos jovens brasileiros. Esse período é intensificado por uma conjuntura social que associa a qualificação técnica e superior a critérios de validação e inclusão no mercado de trabalho, muitas vezes marginalizando indivíduos sem titulação formal. Esse cenário impõe uma cobrança severa sobre os estudantes, sendo que aqueles oriundos da rede pública de ensino emergem como os principais afetados por essa disparidade socioeducacional. Diante da escassez de recursos de orientação e do peso psicológico das expectativas sociais, esses jovens tornam-se altamente vulneráveis ao desenvolvimento de patologias psicossociais severas, tais como crises agudas de ansiedade e a síndrome de burnout acadêmico.</p>
+
+<p>Somado ao fator psicológico, a assimetria de informações tangíveis acerca do cotidiano acadêmico atua como um elemento catalisador para escolhas equivocadas de carreira. A ausência de canais que exponham a realidade prática das matrizes curriculares, os desafios na obtenção de estágios e as reais condições da infraestrutura das instituições de ensino superior gera um descompasso estrutural. Consequentemente, muitos discentes idealizam o curso pretendido e, ao se depararem com a densidade teórica e com as limitações físicas ou pedagógicas da instituição, acabam evadindo no decorrer dos primeiros semestres. Essa conjuntura força os vestibulandos a realizarem escolhas cruciais de maneira empiricamente cega, sem o respaldo de dados práticos sobre a carga horária real, a complexidade dos conteúdos programáticos e o suporte estrutural oferecido pelos campi.</p>`;
 
     perfil.style.background = "#ffe4e1";
     perfil.style.color = "#8b0000";
