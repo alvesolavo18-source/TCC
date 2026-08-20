@@ -321,6 +321,38 @@ html{
     border-radius:8px;
     cursor:pointer;
 }
+
+.botao-curtir {
+    position: relative;
+}
+
+.emoji-curtida {
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    pointer-events: none;
+    animation: subirEmoji 3s ease-out forwards;
+    z-index: 1000;
+}
+
+@keyframes subirEmoji {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, 0) scale(1);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translate(-50%, -100px) scale(1.2);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -150px) scale(1);
+    }
+}
 </style>
 </head>
 
@@ -485,18 +517,12 @@ html{
         <div class="content">
     
             <h3 onclick="abrirPerfil('Joyce Inácio')" style="cursor:pointer;">
-                Sobre Joyce Inácio
+                 Joyce Inácio
             </h3>
     
             <p>
-                Joyce Inácio é apaixonado por esportes, tecnologia
-                e produção de conteúdo digital.
-            </p>
-    
-            <p>
-                Ele gosta de criar projetos modernos,
-                compartilhar conhecimentos e desenvolver
-                novas ideias para a internet.
+                Joyce Bezerra, de 28 anos, é engenheira civil formada pela Unimetrocamp com o apoio do PROUNI.
+                Residente em Hortolândia (SP), superou um início de carreira desafiador, atuou temporariamente na área comercial e hoje consolida sua paixão profissional trabalhando no setor de Infraestrutura.
             </p>
     
             <style>
@@ -541,7 +567,7 @@ html{
             </style>
             <div class="container-botoes">
 
-                <button class="botao-curtir">
+                <button class="botao-curtir" onclick="curtir(this)">
                     👍 Curtir
                 </button>
 
@@ -563,18 +589,14 @@ html{
         <div class="content">
     
             <h3 onclick="abrirPerfil('Julia Costa')" style="cursor:pointer;">
-                Sobre Julia Costa
+            Julia Costa
             </h3>
     
             <p>
-                Julia Costa trabalha com design gráfico e criação
-                de interfaces modernas para sites.
+                Julia Costa, de 21 anos, cursa Psicologia no UNASP em Hortolândia (SP), com o objetivo de atuar na área criminal. Bolsista pelo ENEM, superou os desafios de adaptação e hoje destaca a qualidade dos professores e a grade curricular que prepara para diversas áreas além da clínica.
             </p>
     
-            <p>
-                Ela gosta de combinar criatividade,
-                tecnologia e inovação em seus projetos.
-            </p>
+        
     
             <style>
                 .botao-voltar {
@@ -618,7 +640,7 @@ html{
             </style>
            <div class="container-botoes">
 
-            <button class="botao-curtir">
+            <button class="botao-curtir" onclick="curtir(this)">
                 👍 Curtir
             </button>
 
@@ -641,19 +663,14 @@ html{
         <div class="content">
     
             <h3 onclick="abrirPerfil('Maria Andrade')" style="cursor:pointer;">
-                Sobre Maria Andrade
+             Maria Andrade
             </h3>
     
             <p>
-                Maria Andrade é apaixonado por esportes, tecnologia
-                e produção de conteúdo digital.
+                Maria Eduarda Andrade Rocha, 19 anos, cursa História na UFSJ via SISU. Natural de São João del-Rei (MG), superou a mudança de estado e estuda à noite, focando no sonho de unir a paixão histórica à educação. 
             </p>
     
-            <p>
-                Ele gosta de criar projetos modernos,
-                compartilhar conhecimentos e desenvolver
-                novas ideias para a internet.
-            </p>
+            
             <style>
                 .botao-voltar {
                     display: inline-flex;     /* Permite usar alinhamento interno */
@@ -696,7 +713,7 @@ html{
             </style>
             <div class="container-botoes">
 
-                <button class="botao-curtir">
+                <button class="botao-curtir" onclick="curtir(this)">
                     👍 Curtir
                 </button>
 
@@ -718,18 +735,14 @@ html{
         <div class="content">
     
             <h3 onclick="abrirPerfil('Maryana Freschi')" style="cursor:pointer;">
-                Sobre Maryana Freschi
+             Maryana Freschi
             </h3>
     
             <p>
-                Maryana Freschi trabalha com design gráfico e criação
-                de interfaces modernas para sites
+                Maryana Freschi, 22 anos, cursa Medicina Veterinária na Anhanguera de Campinas com bolsa do ENEM. Residente em Hortolândia (SP), realiza seu sonho de infância focada na saúde e no bem-estar dos animais.
             </p>
     
-            <p>
-                Ele gosta de combinar criatividade,
-                tecnologia e inovação em seus projetos.
-            </p>
+            
     
             <style>
                 .botao-voltar {
@@ -773,7 +786,7 @@ html{
             </style>
             <div class="container-botoes">
 
-                <button class="botao-curtir">
+                <button class="botao-curtir" onclick="curtir(this)">
                     👍 Curtir
                 </button>
 
@@ -793,18 +806,14 @@ html{
         <div class="content">
     
             <h3 onclick="abrirPerfil('Raquel Rodrigues')" style="cursor:pointer;">
-                Sobre Raquel Rodrigues
+            Raquel Rodrigues
             </h3>
     
             <p>
-                Raquel Rodrigues trabalha com design gráfico e criação
-                de interfaces modernas para sites
+                Raquel Rodrigues, 23 anos, é graduada em Direito pelo UNASP e reside em Hortolândia (SP). Aprovada na OAB, hoje faz pós-graduação e atua como estagiária de gabinete no TJ-SP, auxiliando um magistrado na elaboração de sentenças.
             </p>
     
-            <p>
-                Ele gosta de combinar criatividade,
-                tecnologia e inovação em seus projetos.
-            </p>
+            
     
             <style>
                 .botao-voltar {
@@ -848,7 +857,7 @@ html{
             </style>
             <div class="container-botoes">
 
-                <button class="botao-curtir">
+                <button class="botao-curtir" onclick="curtir(this)">
                     👍 Curtir
                 </button>
 
@@ -868,18 +877,14 @@ html{
         <div class="content">
     
             <h3 onclick="abrirPerfil('Stefany Morais')" style="cursor:pointer;">
-                Sobre Stefany Morais
+            Stefany Morais
             </h3>
     
             <p>
-                Stefany Morais trabalha com design gráfico e criação
-                de interfaces modernas para sites
+            Stefany Morais de Oliveira, de 27 anos, é técnica de enfermagem concursada em Campinas e enfermeira graduada pela Anhanguera com bolsa integral do PROUNI. Residente em Hortolândia (SP), superou a rotina de trabalho e estudos e hoje foca em concursos para a área de Saúde Pública.
             </p>
     
-            <p>
-                Ele gosta de combinar criatividade,
-                tecnologia e inovação em seus projetos.
-            </p>
+            
     
             <style>
                 .botao-voltar {
@@ -923,7 +928,7 @@ html{
             </style>
             <div class="container-botoes">
 
-                <button class="botao-curtir">
+                <button class="botao-curtir" onclick="curtir(this)">
                     👍 Curtir
                 </button>
 
@@ -943,18 +948,14 @@ html{
         <div class="content">
     
             <h3 onclick="abrirPerfil('Davi Nelson')" style="cursor:pointer;">
-                Sobre Stefany Morais
+            Davi Nelson
             </h3>
     
             <p>
-                Stefany Morais trabalha com design gráfico e criação
-                de interfaces modernas para sites
+                Davi Nelson Brito Camargo, 20 anos, cursa Ciências Sociais na UNESP de Araraquara. Residente em Campinas (SP), organiza sua rotina de leituras com foco em concluir a graduação no prazo e desenvolver seu senso crítico.
             </p>
     
-            <p>
-                Ele gosta de combinar criatividade,
-                tecnologia e inovação em seus projetos.
-            </p>
+
     
             <style>
                 .botao-voltar {
@@ -998,7 +999,7 @@ html{
             </style>
             <div class="container-botoes">
 
-                <button class="botao-curtir">
+                <button class="botao-curtir" onclick="curtir(this)">
                     👍 Curtir
                 </button>
 
@@ -1019,18 +1020,14 @@ html{
         <div class="content">
     
             <h3 onclick="abrirPerfil('Diego Santos')" style="cursor:pointer;">
-                Sobre Stefany Morais
+            Diego Santos 
             </h3>
     
             <p>
-                Stefany Morais trabalha com design gráfico e criação
-                de interfaces modernas para sites
+                Diego Santos, 32 anos, é engenheiro da computação e atua em desenvolvimento de software na IBM, carreira iniciada ainda na faculdade. Residente em Vinhedo (SP), destaca-se por sua resiliência acadêmica e forte capacidade de resolução de problemas.
             </p>
     
-            <p>
-                Ele gosta de combinar criatividade,
-                tecnologia e inovação em seus projetos.
-            </p>
+
     
             <style>
                 .botao-voltar {
@@ -1074,7 +1071,7 @@ html{
             </style>
             <div class="container-botoes">
 
-                <button class="botao-curtir">
+                <button class="botao-curtir" onclick="curtir(this)">
                     👍 Curtir
                 </button>
 
@@ -1094,18 +1091,14 @@ html{
         <div class="content">
     
             <h3 onclick="abrirPerfil('Maria Eduarda')" style="cursor:pointer;">
-                Sobre Stefany Morais
+                Maria Eduarda
             </h3>
     
             <p>
-                Stefany Morais trabalha com design gráfico e criação
-                de interfaces modernas para sites
+                Maria Eduarda da Silva, 18 anos, cursa Psicologia na PUC-Campinas com bolsa integral do ProUni. Residente em Monte Mor (SP), viaja diariamente para o campus em período integral e dedica-se à biblioteca e ao hub de inovação.
             </p>
     
-            <p>
-                Ele gosta de combinar criatividade,
-                tecnologia e inovação em seus projetos.
-            </p>
+            
     
             <style>
                 .botao-voltar {
@@ -1149,7 +1142,7 @@ html{
             </style>
             <div class="container-botoes">
 
-                <button class="botao-curtir">
+                <button class="botao-curtir" onclick="curtir(this)">
                     👍 Curtir
                 </button>
 
@@ -1161,81 +1154,7 @@ html{
         </div>
     </div>
 
-    <!--- NOVA POSTAGEM 11  -->
-    <div class="post perfil">
     
-        <img src="Cintia.jpg" alt="Cintia">
-    
-        <div class="content">
-    
-            <h3 onclick="abrirPerfil('Cintia')" style="cursor:pointer;">
-                Sobre Stefany Morais
-            </h3>
-    
-            <p>
-                Stefany Morais trabalha com design gráfico e criação
-                de interfaces modernas para sites
-            </p>
-    
-            <p>
-                Ele gosta de combinar criatividade,
-                tecnologia e inovação em seus projetos.
-            </p>
-    
-            <style>
-                .botao-voltar {
-                    display: inline-flex;     /* Permite usar alinhamento interno */
-                    align-items: center;      /* Centraliza o texto verticalmente */
-                    background-color: #a2d2ff; /* Cor azul clara idêntica ao Curtir */
-                    color: #000000;           /* Cor do texto (ajuste se preferir outra) */
-                    text-decoration: none;    /* Remove o sublinhado padrão do link */
-                    padding: 8px 16px;        /* Espaçamento interno (cima/baixo e lados) */
-                    border-radius: 8px;       /* Deixa os cantos arredondados */
-                    font-weight: 500;         /* Deixa a letra um pouco mais grossa */
-                    transition: background 0.2s; /* Efeito suave ao passar o mouse */
-                }
-                
-                /* Efeito ao passar o mouse */
-            .botao-voltar:hover {
-                background-color: #030303;
-            }
-        
-            /* ESSA PARTE CRIA O ALINHAMENTO LADO A LADO */
-            .container-botoes {
-                display: flex;
-                align-items: center;
-                width: 100%;
-                margin-top: 15px; /* dá um espacinho do texto de cima */
-            }
-        
-            /* AJUSTE DO BOTÃO PRINCIPAL COM MARGIN-LEFT AUTO */
-            .botao-voltar {
-                display: inline-flex;     
-                align-items: center;      
-                background-color: #a2d2ff; 
-                color: #000000;           
-                text-decoration: none;    
-                padding: 8px 16px;        
-                border-radius: 8px;       
-                font-weight: 500;         
-                transition: background 0.2s;
-                margin-left: auto; /* Empurra totalmente para a direita de forma automática */
-            }
-            </style>
-            <div class="container-botoes">
-
-                <button class="botao-curtir">
-                    👍 Curtir
-                </button>
-
-                <a href="perfil.html?usuario=Cintia" class="botao-voltar">
-                     Relato da faculdade 
-                </a>
-            
-            </div>
-        </div>
-    </div>
-
 <!--- NOVA POSTAGEM 12  -->
 <div class="post perfil">
     
@@ -1244,18 +1163,14 @@ html{
     <div class="content">
 
         <h3 onclick="abrirPerfil('Rafaela')" style="cursor:pointer;">
-            Sobre Stefany Morais
+            Rafaela Gomes
         </h3>
 
         <p>
-            Stefany Morais trabalha com design gráfico e criação
-            de interfaces modernas para sites
+            Rafaela Gomes dos Santos, 19 anos, cursa Engenharia Mecânica na Facamp via PROUNI. Residente em Hortolândia (SP), estuda motivada pelo interesse no setor automobilístico e pela alta empregabilidade da instituição.
         </p>
 
-        <p>
-            Ele gosta de combinar criatividade,
-            tecnologia e inovação em seus projetos.
-        </p>
+        
 
         <style>
             .botao-voltar {
@@ -1299,7 +1214,7 @@ html{
         </style>
         <div class="container-botoes">
 
-            <button class="botao-curtir">
+            <button class="botao-curtir" onclick="curtir(this)">
                 👍 Curtir
             </button>
 
@@ -1319,18 +1234,14 @@ html{
     <div class="content">
 
         <h3 onclick="abrirPerfil('Queite')" style="cursor:pointer;">
-            Sobre Stefany Morais
+            Queite Neves
         </h3>
 
         <p>
-            Stefany Morais trabalha com design gráfico e criação
-            de interfaces modernas para sites
+            Queite Neves, 36 anos, é formada em Gestão de RH pela Anhanguera via PROUNI. Residente em Hortolândia (SP), conciliou a faculdade com a IBM e hoje atua como Líder de Operações Estratégicas em Pré-vendas.
         </p>
 
-        <p>
-            Ele gosta de combinar criatividade,
-            tecnologia e inovação em seus projetos.
-        </p>
+    
 
         <style>
             .botao-voltar {
@@ -1374,7 +1285,7 @@ html{
         </style>
         <div class="container-botoes">
 
-            <button class="botao-curtir">
+            <button class="botao-curtir" onclick="curtir(this)">
                 👍 Curtir
             </button>
 
@@ -1399,14 +1310,10 @@ html{
         </h3>
 
         <p>
-            Maria Albuquerque trabalha com design gráfico e criação
-            de interfaces modernas para sites
+            Maria Eduarda de Albuquerque, 19 anos, é estudante de Administração no UNASP e escolheu a área pela diversidade de oportunidades profissionais e de empreendedorismo. Sua trajetória destaca a importância da dedicação, da qualificação contínua e do desenvolvimento de habilidades para o mercado de trabalho.
         </p>
 
-        <p>
-            Ele gosta de combinar criatividade,
-            tecnologia e inovação em seus projetos.
-        </p>
+    
 
         <style>
             .botao-voltar {
@@ -1450,7 +1357,7 @@ html{
         </style>
         <div class="container-botoes">
 
-            <button class="botao-curtir">
+            <button class="botao-curtir" onclick="curtir(this)">
                 👍 Curtir
             </button>
 
@@ -1462,6 +1369,147 @@ html{
     </div>
 </div>
 
+<!--- NOVA POSTAGEM 16  -->
+<div class="post perfil">
+    
+    <img src="Vanessa Martins.jpg" alt="Vanessa Martins">
+
+    <div class="content">
+
+        <h3 onclick="abrirPerfil('Vanessa Martins')" style="cursor:pointer;">
+            Vanessa Martins
+        </h3>
+
+        <p>
+            Vanessa Martins, 29 anos, cursou Biomedicina na UFRJ via SISU. Residente em São Gonçalo (RJ), superava horas de transporte diário atraída pela excelência da instituição em pesquisa clínica e iniciação científica. 
+        </p>
+
+    
+
+        <style>
+            .botao-voltar {
+                display: inline-flex;     /* Permite usar alinhamento interno */
+                align-items: center;      /* Centraliza o texto verticalmente */
+                background-color: #a2d2ff; /* Cor azul clara idêntica ao Curtir */
+                color: #000000;           /* Cor do texto (ajuste se preferir outra) */
+                text-decoration: none;    /* Remove o sublinhado padrão do link */
+                padding: 8px 16px;        /* Espaçamento interno (cima/baixo e lados) */
+                border-radius: 8px;       /* Deixa os cantos arredondados */
+                font-weight: 500;         /* Deixa a letra um pouco mais grossa */
+                transition: background 0.2s; /* Efeito suave ao passar o mouse */
+            }
+            
+            /* Efeito ao passar o mouse */
+        .botao-voltar:hover {
+            background-color: #030303;
+        }
+    
+        /* ESSA PARTE CRIA O ALINHAMENTO LADO A LADO */
+        .container-botoes {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-top: 15px; /* dá um espacinho do texto de cima */
+        }
+    
+        /* AJUSTE DO BOTÃO PRINCIPAL COM MARGIN-LEFT AUTO */
+        .botao-voltar {
+            display: inline-flex;     
+            align-items: center;      
+            background-color: #a2d2ff; 
+            color: #000000;           
+            text-decoration: none;    
+            padding: 8px 16px;        
+            border-radius: 8px;       
+            font-weight: 500;         
+            transition: background 0.2s;
+            margin-left: auto; /* Empurra totalmente para a direita de forma automática */
+        }
+        </style>
+        <div class="container-botoes">
+
+            <button class="botao-curtir" onclick="curtir(this)">
+                👍 Curtir
+            </button>
+
+            <a href="perfil.html?usuario=Vanessa Martins" class="botao-voltar">
+                 Relato da faculdade 
+            </a>
+        
+        </div>
+    </div>
+</div>
+
+<!--- NOVA POSTAGEM 17 -->
+<div class="post perfil">
+    
+    <img src="Alice.jpg" alt="Alice">
+
+    <div class="content">
+
+        <h3 onclick="abrirPerfil('Alice')" style="cursor:pointer;">
+            Alice
+        </h3>
+
+        <p>
+           
+        </p>
+
+    
+
+        <style>
+            .botao-voltar {
+                display: inline-flex;     /* Permite usar alinhamento interno */
+                align-items: center;      /* Centraliza o texto verticalmente */
+                background-color: #a2d2ff; /* Cor azul clara idêntica ao Curtir */
+                color: #000000;           /* Cor do texto (ajuste se preferir outra) */
+                text-decoration: none;    /* Remove o sublinhado padrão do link */
+                padding: 8px 16px;        /* Espaçamento interno (cima/baixo e lados) */
+                border-radius: 8px;       /* Deixa os cantos arredondados */
+                font-weight: 500;         /* Deixa a letra um pouco mais grossa */
+                transition: background 0.2s; /* Efeito suave ao passar o mouse */
+            }
+            
+            /* Efeito ao passar o mouse */
+        .botao-voltar:hover {
+            background-color: #030303;
+        }
+    
+        /* ESSA PARTE CRIA O ALINHAMENTO LADO A LADO */
+        .container-botoes {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-top: 15px; /* dá um espacinho do texto de cima */
+        }
+    
+        /* AJUSTE DO BOTÃO PRINCIPAL COM MARGIN-LEFT AUTO */
+        .botao-voltar {
+            display: inline-flex;     
+            align-items: center;      
+            background-color: #a2d2ff; 
+            color: #000000;           
+            text-decoration: none;    
+            padding: 8px 16px;        
+            border-radius: 8px;       
+            font-weight: 500;         
+            transition: background 0.2s;
+            margin-left: auto; /* Empurra totalmente para a direita de forma automática */
+        }
+        </style>
+        <div class="container-botoes">
+
+            <button class="botao-curtir" onclick="curtir(this)">
+                👍 Curtir
+            </button>
+
+            <a href="perfil.html?usuario=Alice" class="botao-voltar">
+                 Relato da faculdade 
+            </a>
+        
+        </div>
+    </div>
+</div>
 
     <!-- POST COM VÍDEO -->
     <div class="post" id="videos">
@@ -1479,7 +1527,7 @@ html{
 
             <br><br>
 
-            <button class="btn" onclick="curtir(this)">
+            <button class="botao-curtir" onclick="curtir(this)">
                 👍 Curtir
             </button>
         </div>
@@ -1488,7 +1536,7 @@ html{
 </div>
 
 <footer id="contato">
-    <p>© 2026 - Meu Blog Interativo</p>
+    <p>© 2026 -Blog Interativo</p>
 </footer>
 
 <script>
@@ -1609,5 +1657,24 @@ function abrirPerfil(nome){
         window.speechSynthesis.speak(fala);
     }
     </script>
+
+<script>
+    function curtir(botao) {
+    
+        // Cria somente 1 emoji
+        const emoji = document.createElement("span");
+        emoji.classList.add("emoji-curtida");
+        emoji.textContent = "❤️";
+    
+        // Coloca o emoji dentro do botão
+        botao.appendChild(emoji);
+    
+        // Remove o emoji depois de 3 segundos
+        setTimeout(() => {
+            emoji.remove();
+        }, 3000);
+    }
+    </script> 
+
 </body>
 </html> 
