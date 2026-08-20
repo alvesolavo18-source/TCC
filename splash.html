@@ -20,9 +20,40 @@ body{
     background:white;
 }
 
-img{
+.logo-container{
+    position:relative;
+    width:350px;
+    height:350px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.logo-container img{
     width:300px;
-    animation: aparecer 1.5s;
+    position:relative;
+    z-index:1;
+    animation:aparecer 1.5s;
+}
+
+.circulo{
+    position:absolute;
+    width:250px;
+    height:250px;
+    border:7px solid red;
+    border-radius:50%;
+    z-index:10;
+    animation:girar 2s linear infinite;
+}
+
+@keyframes girar{
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
 }
 
 @keyframes aparecer{
@@ -41,7 +72,10 @@ img{
 
 <body>
 
-<img src="logo.png" alt="logo">
+    <div class="logo-container">
+        <img src="Logo Oficial.png" alt="logo">
+        <div class="circulo"></div>
+    </div>
 
 <script>
 
@@ -53,7 +87,7 @@ if(sessionStorage.getItem("logoJaMostrada")){
 
     setTimeout(function(){
         window.location.href="trabalho.html";
-    },5000);
+    },10000);
 
 }
 
