@@ -31,41 +31,26 @@ body{
 
 .logo-container img{
     width:300px;
-    position:relative;
-    z-index:1;
-    animation:aparecer 1.5s;
+    animation: aparecer 1.5s ease-out; 
 }
-
-.circulo{
-    position:absolute;
-    width:250px;
-    height:250px;
-    border:7px solid red;
-    border-radius:50%;
-    z-index:10;
-    animation:girar 2s linear infinite;
-}
-
-@keyframes girar{
-    from{
-        transform:rotate(0deg);
-    }
-
-    to{
-        transform:rotate(360deg);
-    }
-}
-
+/* Efeito da logo aumentando */
 @keyframes aparecer{
-    from{
+    0%{
         opacity:0;
-        transform:scale(0.8);
+        transform:scale(0.5);
     }
-    to{
+
+    60%{
+        opacity:1;
+        transform:scale(1.08);
+    }
+
+    100%{
         opacity:1;
         transform:scale(1);
     }
 }
+
 </style>
 
 </head>
@@ -74,7 +59,7 @@ body{
 
     <div class="logo-container">
         <img src="Logo Oficial.png" alt="logo">
-        <div class="circulo"></div>
+
     </div>
 
 <script>
@@ -87,7 +72,7 @@ if(sessionStorage.getItem("logoJaMostrada")){
 
     setTimeout(function(){
         window.location.href="trabalho.html";
-    },10000);
+    },5000);
 
 }
 
