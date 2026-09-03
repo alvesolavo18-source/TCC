@@ -14,10 +14,15 @@
         box-sizing:border-box;
         font-family: Arial, sans-serif;
     }
+    body {
+    margin: 0;
+    min-height: 100vh;
+}
 
     body{
         background-color:hwb(215 91% 2% / 0.888);
         color:#333;
+        padding-top:90px;
     }
 
     
@@ -27,10 +32,14 @@ html{
 
 
     header{
-     background: transparent;
+    background: white;
     color:white;
     height:90px;
-    position:relative;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
     box-shadow:0 2px 8px rgba(0,0,0,0.2);
     }
 
@@ -195,7 +204,7 @@ html{
     display:block;
     font-size:35px;
     cursor:pointer;
-    color:black;
+    color:rgba(0, 7, 9, 0.982);
 
     /* POSIÇÃO */
     position:absolute;
@@ -227,7 +236,7 @@ html{
     width:180px;
     height:100%;
 
-    background:#003366;
+    background:#ddebf9;
 
     padding-top:70px;
 
@@ -247,7 +256,7 @@ html{
 
 /* LINKS */
 #menu a{
-    color:white;
+    color:rgb(8, 8, 8);
     text-decoration:none;
 
     /* MENOR */
@@ -335,11 +344,296 @@ html{
         transform: translate(-50%, -150px) scale(1);
     }
 }
+
+.barra-pesquisa{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+
+    display:flex;
+    align-items:center;
+
+    width:350px;
+    height:40px;
+
+    background:white;
+    border:1px solid #ccc;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.barra-pesquisa input{
+    flex:1;
+    height:100%;
+    border:none;
+    outline:none;
+
+    padding:0 15px;
+    font-size:16px;
+}
+
+.barra-pesquisa button{
+    width:50px;
+    height:100%;
+
+    border:none;
+    background:white;
+    color:black;
+
+    cursor:pointer;
+    font-size:18px;
+}
+
+.barra-pesquisa button:hover{
+    background:#bfdaf6;
+}
+
+/* BOTÃO ADICIONAR PERFIL */
+.botao-adicionar {
+    position: fixed;
+    left: 25px;
+    bottom: 25px;
+
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+    border: none;
+
+    background: #4da6ff;
+    color: white;
+
+    font-size: 35px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+
+    z-index: 3000;
+
+    transition: 0.3s;
+}
+
+.botao-adicionar:hover {
+    transform: scale(1.1);
+    background: #1e90ff;
+}
+
+/* FUNDO DO FORMULÁRIO */
+.formulario-perfil {
+    display: none;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.6);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 4000;
+}
+
+/* CAIXA DO FORMULÁRIO */
+.formulario-conteudo {
+    background: white;
+
+    width: 90%;
+    max-width: 500px;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+/* CAMPOS */
+.formulario-conteudo input,
+.formulario-conteudo textarea {
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 5px;
+    margin-bottom: 15px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    font-size: 16px;
+}
+
+.formulario-conteudo textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+/* X PARA FECHAR */
+.fechar-formulario {
+    float: right;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.nossa-historia {
+    width: 95%;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 40px;
+    line-height: 1.8;
+    text-align: justify;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.nossa-historia h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.comentarios {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.comentarios h2 {
+    text-align: center;
+}
+
+.comentarios p {
+    text-align: center;
+}
+
+#formComentario {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+#formComentario input,
+#formComentario textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+#formComentario textarea {
+    height: 70px;
+    resize: none;
+}
+
+#formComentario button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #4da6ff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#formComentario button:hover {
+    background: #2589e8;
+}
+
+.comentario {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background: #f1f7ff;
+    border-left: 4px solid #4da6ff;
+}
+
+.comentario strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.estrelas {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.estrelas input {
+    display: none;
+}
+
+.estrelas label {
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.estrelas label:hover,
+.estrelas label:hover ~ label,
+.estrelas input:checked ~ label {
+    color: #ffc107;
+}
+
+.avaliacao {
+    color: #ffc107;
+    font-size: 20px;
+    margin: 5px 0;
+}
+
 </style>
 </head>
 
+<body>
 
+    <!-- BOTÃO PARA ADICIONAR UM NOVO RELATO -->
+    <button class="botao-adicionar" onclick="abrirFormulario()">+</button>
+    <div id="formularioPerfil" class="formulario-perfil">
+
+        <div class="formulario-conteudo">
     
+            <span class="fechar-formulario" onclick="fecharFormulario()">
+                &times;
+            </span>
+    
+            <h2>Adicionar meu perfil</h2>
+    
+            <label>Nome:</label>
+            <input type="text" id="nomePerfil" placeholder="Digite seu nome">
+    
+            <label>Foto:</label>
+            <input type="file" id="fotoPerfil" accept="image/*">
+    
+            <label>Relato:</label>
+            <textarea id="relatoPerfil" placeholder="Conte um pouco sobre sua trajetória..."></textarea>
+    
+            <button onclick="adicionarPerfil()" class="btn">
+                Adicionar perfil
+            </button>
+    
+        </div>
+    
+    </div>
+
 <header>
     <a href="cadastro.html" class="cadastro-btn">
          Cadastre-se
@@ -354,6 +648,12 @@ html{
      <img src="Imagem da Barra Superior.png"
      alt="Logo do TCC"
      class="logo-barra">
+
+     <!-- BARRA DE PESQUISA -->
+     <div class="barra-pesquisa">
+        <input type="text" id="campoPesquisa" placeholder="Pesquisar...">
+        <button onclick="pesquisar()">⌕</button>
+    </div>
 
     <!-- MENU -->
 <nav id="menu">
@@ -1490,6 +1790,78 @@ html{
     </div>
 </div>
 
+<!--- NOVA POSTAGEM 18 -->
+<div class="post perfil">
+    
+    <img src="Halisom De Souza.jpg" alt="Halisom De Souza">
+
+    <div class="content">
+
+        <h3 onclick="abrirPerfil('Halisom De Souza')" style="cursor:pointer;">
+            Halisom De Souza
+        </h3>
+
+        <p>
+            Halisom escolheu Psicologia por sua história de vida e pelo desejo de ajudar outras pessoas.
+            Ele destaca o apoio da faculdade e das amizades durante sua formação.
+        </p>
+
+    
+
+        <style>
+            .botao-voltar {
+                display: inline-flex;     /* Permite usar alinhamento interno */
+                align-items: center;      /* Centraliza o texto verticalmente */
+                background-color: #a2d2ff; /* Cor azul clara idêntica ao Curtir */
+                color: #000000;           /* Cor do texto (ajuste se preferir outra) */
+                text-decoration: none;    /* Remove o sublinhado padrão do link */
+                padding: 8px 16px;        /* Espaçamento interno (cima/baixo e lados) */
+                border-radius: 8px;       /* Deixa os cantos arredondados */
+                font-weight: 500;         /* Deixa a letra um pouco mais grossa */
+                transition: background 0.2s; /* Efeito suave ao passar o mouse */
+            }
+            
+            /* Efeito ao passar o mouse */
+        .botao-voltar:hover {
+            background-color: #030303;
+        }
+    
+        /* ESSA PARTE CRIA O ALINHAMENTO LADO A LADO */
+        .container-botoes {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-top: 15px; /* dá um espacinho do texto de cima */
+        }
+    
+        /* AJUSTE DO BOTÃO PRINCIPAL COM MARGIN-LEFT AUTO */
+        .botao-voltar {
+            display: inline-flex;     
+            align-items: center;      
+            background-color: #a2d2ff; 
+            color: #000000;           
+            text-decoration: none;    
+            padding: 8px 16px;        
+            border-radius: 8px;       
+            font-weight: 500;         
+            transition: background 0.2s;
+            margin-left: auto; /* Empurra totalmente para a direita de forma automática */
+        }
+        </style>
+        <div class="container-botoes">
+
+            <button class="botao-curtir" onclick="curtir(this)">
+                👍 Curtir
+            </button>
+
+            <a href="perfil.html?usuario=Halisom De Souza" class="botao-voltar">
+                 Relato da faculdade 
+            </a>
+        
+        </div>
+    </div>
+</div>
+
     <!-- POST COM VÍDEO -->
     <div class="post" id="videos">
 
@@ -1513,10 +1885,6 @@ html{
     </div>
 
 </div>
-
-<footer id="contato">
-    <p>© 2026 -Blog Interativo</p>
-</footer>
 
 <script>
 
@@ -1568,35 +1936,78 @@ function abrirPerfil(nome){
 
 
 <!-- Seção Sobre o Blog Perfeita e Direta -->
-<section id="Sobre" style="padding: 60px 20px; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; width: 100%; box-sizing: border-box; clear: both;">
-    <div style="background-color: #ffffff; max-width: 650px; width: 100%; padding: 35px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); position: relative; border-top: 6px solid #007bff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px auto;">
-        
-        <h2 style="color: #212529; font-size: 1.8rem; margin-top: 0; margin-bottom: 20px; font-weight: 700;">Nossa História</h2>
-        
-        <p style="color: #495057; font-size: 1.05rem; line-height: 1.7; margin-bottom: 15px; text-align: justify;">
-            O <strong>Diário de um Universitário</strong> nasceu da nossa própria jornada acadêmica. 
-            Entre prazos apertados, noites de estudo e a paixão pela tecnologia, percebemos que 
-            compartilhar essa rotina tornaria o caminho mais leve para nós e para outros estudantes.
-        </p>
-        
-        <p style="color: #495057; font-size: 1.05rem; line-height: 1.7; margin-bottom: 20px; text-align: justify;">
-            Este blog é o reflexo da nossa parceria, dedicação e aprendizado diário. Um espaço feito 
-            para registrar nossos projetos, trocar conhecimentos sobre desenvolvimento web e criar uma 
-            comunidade onde ninguém precisa enfrentar os desafios da faculdade sozinho.
-        </p>
-        
-        <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #dee2e6; color: #6c757d; font-size: 0.9rem; font-style: italic;">
-            <span>🚀 Criado com dedicação por dois universitários.</span>
+<section id="Sobre" class="nossa-historia">
+
+    <h2>Nossa História</h2>
+
+    <p>
+        O Blog Interativo foi criado com o objetivo de compartilhar
+        experiências, histórias e informações de uma maneira simples,
+        interativa e acessível para todos.
+    </p>
+
+    <p>
+        A ideia surgiu a partir da vontade de criar um espaço onde os
+        usuários pudessem conhecer diferentes histórias e também participar
+        do conteúdo do site.
+    </p>
+
+    <p>
+        Durante o desenvolvimento, buscamos melhorar o visual, a organização
+        e a interação com os usuários, criando uma experiência mais agradável.
+    </p>
+
+    <p>
+        Este projeto continua sendo desenvolvido e pode receber novas
+        funcionalidades no futuro.
+    </p>
+
+</section>
+
+<section id="comentarios" class="comentarios">
+
+    <h2>O que você achou do nosso site?</h2>
+
+    <p>Deixe seu comentário e conte para nós o que você achou do Blog Interativo!</p>
+
+    <form id="formComentario"> 
+
+        <input type="text" id="nomeComentario" placeholder="Seu nome" required>
+    
+        <label>Avalie nosso site:</label>
+    
+        <div class="estrelas">
+            <input type="radio" name="estrelas" id="estrela5" value="5">
+            <label for="estrela5">★</label>
+    
+            <input type="radio" name="estrelas" id="estrela4" value="4">
+            <label for="estrela4">★</label>
+    
+            <input type="radio" name="estrelas" id="estrela3" value="3">
+            <label for="estrela3">★</label>
+    
+            <input type="radio" name="estrelas" id="estrela2" value="2">
+            <label for="estrela2">★</label>
+    
+            <input type="radio" name="estrelas" id="estrela1" value="1">
+            <label for="estrela1">★</label>
         </div>
-    </div>
+    
+        <textarea id="textoComentario" placeholder="Escreva seu comentário..." required></textarea>
+    
+        <button type="submit">Enviar comentário</button>
+    
+    </form>
+
+    <div id="listaComentarios"></div>
+
 </section>
+
+
+
 <!-- ... seu card da história sobre o blog ... -->
-</section>
 
 
-
-</body>
-</html>
 <script>
     function falarTextoMaria() {
         // 1. O texto que o robô vai ditar
@@ -1631,6 +2042,177 @@ function abrirPerfil(nome){
     }
     </script> 
 
+    <script>
+
+function pesquisar() {
+    let pesquisa = document.getElementById("campoPesquisa").value
+        .toLowerCase()
+        .trim();
+
+    if (pesquisa === "") {
+        alert("Digite algo para pesquisar.");
+        return;
+    }
+
+    // Palavras-chave e o elemento que deve ser encontrado
+    let palavrasChave = {
+        "engenharia": ["engenharia", "engenheiro", "engenharia mecânica", "engenharia civil"],
+        "psicologia": ["psicologia", "psicóloga", "psicólogo"],
+        "psicologia": ["psicologia", "psicóloga", "psicólogo"],
+        "direito": ["direito", "advocacia", "advogado"],
+        "enfermagem": ["enfermagem", "enfermeira", "enfermeiro"],
+        "veterinaria": ["veterinária", "veterinario", "veterinária"],
+        "historia": ["história", "historiador", "historiadora"],
+        "universidade": ["universidade", "faculdade", "facamp", "unasp", "ufsj"]
+    };
+
+    let encontrados = [];
+
+    // Procura nos posts da página
+    let posts = document.querySelectorAll(".post");
+
+    posts.forEach(function(post) {
+
+        let texto = post.innerText.toLowerCase();
+
+        if (texto.includes(pesquisa)) {
+            encontrados.push(post);
+        } else {
+
+            // Verifica se a pesquisa é uma palavra-chave
+            for (let categoria in palavrasChave) {
+
+                if (pesquisa.includes(categoria)) {
+
+                    let palavras = palavrasChave[categoria];
+
+                    for (let palavra of palavras) {
+
+                        if (texto.includes(palavra)) {
+                            encontrados.push(post);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Se encontrou alguma coisa
+    if (encontrados.length > 0) {
+
+        // Volta a mostrar todos os posts
+        posts.forEach(function(post) {
+            post.style.display = "";
+        });
+
+        // Destaca o primeiro resultado
+        encontrados[0].scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+        encontrados[0].style.outline = "4px solid #003366";
+
+        // Remove o destaque depois de 3 segundos
+        setTimeout(function() {
+            encontrados[0].style.outline = "";
+        }, 3000);
+
+    } else {
+
+        alert("Não encontramos nenhum resultado para: " + pesquisa);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+
+document.getElementById("campoPesquisa").addEventListener("keypress", function(event) {
+
+    if (event.key === "Enter") {
+        pesquisar();
+    }
+
+});
+
+});
+    </script>
+
+    <script>
+
+// ABRIR FORMULÁRIO
+function abrirFormulario() {
+
+document.getElementById("formularioPerfil").style.display = "flex";
+
+}
+
+// FECHAR FORMULÁRIO
+function fecharFormulario() {
+
+document.getElementById("formularioPerfil").style.display = "none";
+
+}
+
+// ADICIONAR PERFIL
+function adicionarPerfil() {
+
+let nome = document.getElementById("nomePerfil").value;
+let relato = document.getElementById("relatoPerfil").value;
+let foto = document.getElementById("fotoPerfil").files[0];
+
+if (nome === "" || relato === "" || !foto) {
+
+    alert("Preencha o nome, escolha uma foto e escreva seu relato.");
+
+    return;
+}
+
+let leitor = new FileReader();
+
+leitor.onload = function(event) {
+
+    let novoPerfil = document.createElement("div");
+
+    novoPerfil.className = "post perfil";
+
+    novoPerfil.innerHTML = `
+        <img src="${event.target.result}" alt="${nome}">
+
+        <div class="content">
+
+            <h3>${nome}</h3>
+
+            <p>
+                ${relato}
+            </p>
+
+            <div class="container-botoes">
+
+                <button class="botao-curtir" onclick="curtir(this)">
+                    👍 Curtir
+                </button>
+
+            </div>
+
+        </div>
+    `;
+
+    document.getElementById("postagens").appendChild(novoPerfil);
+
+    fecharFormulario();
+
+    document.getElementById("nomePerfil").value = "";
+    document.getElementById("relatoPerfil").value = "";
+    document.getElementById("fotoPerfil").value = "";
+
+};
+
+leitor.readAsDataURL(foto);
+}
+
+    </script>
+
 <div style="display: flex; justify-content: center; gap: 15px; margin: 20px 0;">
     <img src="MF.jpg" alt="Foto 1" style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
     <img src="MF (3).jpg" alt="Foto 2" style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
@@ -1638,5 +2220,50 @@ function abrirPerfil(nome){
     <img src="RG.jpg" alt="Foto 4" style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
 </div>
 
+
+<script>
+    const formulario = document.getElementById("formComentario");
+const listaComentarios = document.getElementById("listaComentarios");
+
+formulario.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const nome = document.getElementById("nomeComentario").value;
+    const texto = document.getElementById("textoComentario").value;
+
+    // Pega a estrela escolhida pelo usuário
+    const estrelaSelecionada = document.querySelector('input[name="estrelas"]:checked');
+
+    // Verifica se o usuário escolheu uma avaliação
+    if (!estrelaSelecionada) {
+        alert("Por favor, selecione uma quantidade de estrelas.");
+        return;
+    }
+
+    const estrelas = Number(estrelaSelecionada.value);
+
+    const comentario = document.createElement("div");
+    comentario.classList.add("comentario");
+
+    comentario.innerHTML = `
+        <strong>${nome}</strong>
+
+        <div class="avaliacao">
+            ${"★".repeat(estrelas)}${"☆".repeat(5 - estrelas)}
+        </div>
+
+        <p>${texto}</p>
+    `;
+
+    listaComentarios.appendChild(comentario);
+
+    formulario.reset();
+});
+    </script>
+
+
+<footer> 
+    <p>© 2026 - Blog Interativo</p> 
+</footer>
 </body>
 </html> 
