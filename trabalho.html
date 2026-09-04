@@ -14,10 +14,15 @@
         box-sizing:border-box;
         font-family: Arial, sans-serif;
     }
+    body {
+    margin: 0;
+    min-height: 100vh;
+}
 
     body{
         background-color:hwb(215 91% 2% / 0.888);
         color:#333;
+        padding-top:90px;
     }
 
     
@@ -27,10 +32,14 @@ html{
 
 
     header{
-     background: transparent;
+    background: white;
     color:white;
     height:90px;
-    position:relative;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
     box-shadow:0 2px 8px rgba(0,0,0,0.2);
     }
 
@@ -72,8 +81,8 @@ html{
     
 
     .container{
-        width:90%;
-        max-width:1200px;
+        width:99%;
+        max-width:1700px;
         margin:30px auto;
     }
 
@@ -97,7 +106,7 @@ html{
     }
 
     .content{
-        padding:20px;
+        padding:30px;
         display:flex;
         flex-direction:column;
         height:100%;
@@ -171,8 +180,9 @@ html{
 .perfil img{
     width:300px;
     height:300px;
-    border-radius:15px;
     object-fit:cover;
+    border-radius:15px;
+    flex-shrink:0;
 }
 
 @media(max-width:768px){
@@ -195,7 +205,7 @@ html{
     display:block;
     font-size:35px;
     cursor:pointer;
-    color:black;
+    color:rgba(0, 7, 9, 0.982);
 
     /* POSIÇÃO */
     position:absolute;
@@ -227,7 +237,7 @@ html{
     width:180px;
     height:100%;
 
-    background:#003366;
+    background:#ddebf9;
 
     padding-top:70px;
 
@@ -247,7 +257,7 @@ html{
 
 /* LINKS */
 #menu a{
-    color:white;
+    color:rgb(8, 8, 8);
     text-decoration:none;
 
     /* MENOR */
@@ -278,25 +288,6 @@ html{
     background:#fcfcfd;
 }
 
-#tela-inicial{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100vh;
-    background:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:9999;
-}
-
-.logo-entrada{
-    width:60%;
-    max-width:800px;
-    height: auto;
-}
-
 .container-botoes{
     display:flex;
     align-items:center;
@@ -305,30 +296,382 @@ html{
 }
 
 .botao-voltar{
-    background:#a2d2ff;
-    color:rgb(204, 202, 202);
-    text-decoration:none;
-    padding:8px 16px;
-    border-radius:8px;
-    font-weight:500;
+    background: transparent;
+    color: #000000;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    border: 1px solid #000000;
 }
 
 .botao-curtir{
     background:#4da6ff;
     color:white;
     border:none;
-    padding:8px 16px;
-    border-radius:8px;
+    padding:14px 25px;
+    font-size: 20px;
+    border-radius:10px;
     cursor:pointer;
+}
+
+.botao-curtir {
+    position: relative;
+}
+
+.emoji-curtida {
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    pointer-events: none;
+    animation: subirEmoji 3s ease-out forwards;
+    z-index: 1000;
+}
+
+@keyframes subirEmoji {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, 0) scale(1);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translate(-50%, -100px) scale(1.2);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -150px) scale(1);
+    }
+}
+
+.barra-pesquisa{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+
+    display:flex;
+    align-items:center;
+
+    width:350px;
+    height:40px;
+
+    background:white;
+    border:1px solid #ccc;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.barra-pesquisa input{
+    flex:1;
+    height:100%;
+    border:none;
+    outline:none;
+
+    padding:0 15px;
+    font-size:16px;
+}
+
+.barra-pesquisa button{
+    width:50px;
+    height:100%;
+
+    border:none;
+    background:white;
+    color:black;
+
+    cursor:pointer;
+    font-size:18px;
+}
+
+.barra-pesquisa button:hover{
+    background:#bfdaf6;
+}
+
+/* BOTÃO ADICIONAR PERFIL */
+.botao-adicionar {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+    border: none;
+
+    background: #4da6ff;
+    color: white;
+
+    font-size: 35px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+
+    z-index: 3000;
+
+    transition: 0.3s;
+}
+
+.botao-adicionar:hover {
+    transform: scale(1.1);
+    background: #1e90ff;
+}
+
+/* FUNDO DO FORMULÁRIO */
+.formulario-perfil {
+    display: none;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.6);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 4000;
+}
+
+/* CAIXA DO FORMULÁRIO */
+.formulario-conteudo {
+    background: white;
+
+    width: 90%;
+    max-width: 500px;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+/* CAMPOS */
+.formulario-conteudo input,
+.formulario-conteudo textarea {
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 5px;
+    margin-bottom: 15px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    font-size: 16px;
+}
+
+.formulario-conteudo textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+/* X PARA FECHAR */
+.fechar-formulario {
+    float: right;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.nossa-historia {
+    width: 95%;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 40px;
+    line-height: 1.8;
+    text-align: justify;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.nossa-historia h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.comentarios {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.comentarios h2 {
+    text-align: center;
+}
+
+.comentarios p {
+    text-align: center;
+}
+
+#formComentario {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+#formComentario input,
+#formComentario textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+#formComentario textarea {
+    height: 70px;
+    resize: none;
+}
+
+#formComentario button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #4da6ff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#formComentario button:hover {
+    background: #2589e8;
+}
+
+.comentario {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background: #f1f7ff;
+    border-left: 4px solid #4da6ff;
+}
+
+.comentario strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.estrelas {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.estrelas input {
+    display: none;
+}
+
+.estrelas label {
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.estrelas label:hover,
+.estrelas label:hover ~ label,
+.estrelas input:checked ~ label {
+    color: #ffc107;
+}
+
+.avaliacao {
+    color: #ffc107;
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+#postagens .perfil .content p{
+    font-size: 22px;
+    line-height: 1.7;
+}
+
+#postagens .perfil .content h3{
+    font-size: 31px;
+}
+
+.filtro-cursos {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #000207;
+}
+
+.filtro-cursos h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.filtro-cursos button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    border: none;
+    border-radius: 6px;
+    background-color: #6f96f8;
+    cursor: pointer;
+    text-align: left;
+}
+
+.filtro-cursos button:hover {
+    background-color: #6f96f8;
 }
 </style>
 </head>
 
 <body>
-    <div id="tela-inicial">
-        <img src="logo.png" alt="Minha Logo" class="logo-entrada">
-    </div>  
+
+    <!-- BOTÃO PARA ADICIONAR UM NOVO RELATO -->
+    <button class="botao-adicionar" onclick="abrirFormulario()">+</button>
+    <div id="formularioPerfil" class="formulario-perfil">
+
+        <div class="formulario-conteudo">
     
+            <span class="fechar-formulario" onclick="fecharFormulario()">
+                &times;
+            </span>
+    
+            <h2>Adicionar meu perfil</h2>
+    
+            <label>Nome:</label>
+            <input type="text" id="nomePerfil" placeholder="Digite seu nome">
+    
+            <label>Foto:</label>
+            <input type="file" id="fotoPerfil" accept="image/*">
+    
+            <label>Relato:</label>
+            <textarea id="relatoPerfil" placeholder="Conte um pouco sobre sua trajetória..."></textarea>
+    
+            <button onclick="adicionarPerfil()" class="btn">
+                Adicionar perfil
+            </button>
+    
+        </div>
+    
+    </div>
+
 <header>
     <a href="cadastro.html" class="cadastro-btn">
          Cadastre-se
@@ -343,6 +686,17 @@ html{
      <img src="Imagem da Barra Superior.png"
      alt="Logo do TCC"
      class="logo-barra">
+
+      <!-- Barra de Pesquisa -->
+     <div class="barra-pesquisa">
+        <input 
+            type="text" 
+            id="campoPesquisa" 
+            placeholder="⌕ Pesquise por nome, curso ou faculdade..."
+            oninput="pesquisar()"
+            >
+        <button onclick="pesquisar()">⌕</button>
+    </div>
 
     <!-- MENU -->
 <nav id="menu">
@@ -364,6 +718,58 @@ html{
     <a href="#contato" onclick="abrirMenu()">
         Contato
     </a>
+
+    <!-- FILTRO POR CURSO -->
+    <div class="filtro-cursos">
+        <h3>Filtrar por curso</h3>
+
+        <button onclick="filtrarCurso('todos')">
+            Todos os cursos
+        </button>
+
+        <button onclick="filtrarCurso('Administração')">
+            Administração
+        </button>
+
+        <button onclick="filtrarCurso('Recursos Humanos')">
+            Recursos Humanos
+        </button>
+
+        <button onclick="filtrarCurso('Desenvolvimento de Sistemas')">
+            Desenvolvimento de Sistemas
+        </button>
+
+        <button onclick="filtrarCurso('Ciencias Sociais')">
+            Ciencias Sociais
+        </button>
+   
+        <button onclick="filtrarCurso('Direito')">
+            Direito
+        </button>
+   
+        <button onclick="filtrarCurso('Psicologia')">
+            Psicologia
+        </button>
+
+        <button onclick="filtrarCurso('Engenharia')">
+            Engenharia
+        </button>
+
+        <button onclick="filtrarCurso('Enfermagem')">
+            Enfermagem
+        </button>
+
+        <button onclick="filtrarCurso('Historia')">
+            Historia
+        </button>
+
+        <button onclick="filtrarCurso('Medicina')">
+            Medicina
+        </button>
+
+    </div>
+
+</div>
 
 </nav>
 
@@ -412,11 +818,9 @@ html{
     <img src="https://picsum.photos/500/500" alt="Foto da Pessoa">
 
     <div class="content">
-        <h3 onclick="abrirPerfil('Maria')" style="cursor:pointer;">
-            Sobre Maria
-        </h3>
-
+        <h3 onclick="('Maria'); falarTextoMaria()" style="cursor:pointer;">Sobre Maria 🔊</h3>
         <p>
+            
             Maria é uma criadora de conteúdo apaixonada por tecnologia,
             design e educação digital. Ela gosta de compartilhar dicas,
             curiosidades e conteúdos informativos para ajudar outras
@@ -480,25 +884,19 @@ html{
     </div>
     
     <!-- NOVA POSTAGEM 2 -->
-    <div class="post perfil">
+    <div class="post perfil" data-curso="Engenharia">
     
         <img src="Joyce Inácio.jpg" alt="Joyce Inácio">
     
         <div class="content">
     
             <h3 onclick="abrirPerfil('Joyce Inácio')" style="cursor:pointer;">
-                Sobre Joyce Inácio
+                 Joyce Inácio
             </h3>
     
             <p>
-                Joyce Inácio é apaixonado por esportes, tecnologia
-                e produção de conteúdo digital.
-            </p>
-    
-            <p>
-                Ele gosta de criar projetos modernos,
-                compartilhar conhecimentos e desenvolver
-                novas ideias para a internet.
+                Joyce Bezerra, de 28 anos, é engenheira civil formada pela Unimetrocamp com o apoio do PROUNI.
+                Residente em Hortolândia (SP), superou um início de carreira desafiador, atuou temporariamente na área comercial e hoje consolida sua paixão profissional trabalhando no setor de Infraestrutura.
             </p>
     
             <style>
@@ -543,7 +941,7 @@ html{
             </style>
             <div class="container-botoes">
 
-                <button class="botao-curtir">
+                <button class="botao-curtir" onclick="curtir(this)">
                     👍 Curtir
                 </button>
 
@@ -558,25 +956,21 @@ html{
     </div>
     
     <!-- NOVA POSTAGEM 3 -->
-    <div class="post perfil">
+    <div class="post perfil" data-curso="Psicologia">
     
         <img src="Julia costa.jpg" alt="Julia Costa">
     
         <div class="content">
     
             <h3 onclick="abrirPerfil('Julia Costa')" style="cursor:pointer;">
-                Sobre Julia Costa
+            Julia Costa
             </h3>
     
             <p>
-                Julia Costa trabalha com design gráfico e criação
-                de interfaces modernas para sites.
+                Julia Costa, de 21 anos, cursa Psicologia no UNASP em Hortolândia (SP), com o objetivo de atuar na área criminal. Bolsista pelo ENEM, superou os desafios de adaptação e hoje destaca a qualidade dos professores e a grade curricular que prepara para diversas áreas além da clínica.
             </p>
     
-            <p>
-                Ela gosta de combinar criatividade,
-                tecnologia e inovação em seus projetos.
-            </p>
+        
     
             <style>
                 .botao-voltar {
@@ -620,11 +1014,11 @@ html{
             </style>
            <div class="container-botoes">
 
-            <button class="botao-curtir">
+            <button class="botao-curtir" onclick="curtir(this)">
                 👍 Curtir
             </button>
 
-                <a href="perfil.html?usuario=Julia Costa" class="botao-voltar">
+                <a href="perfil.html?usuario=Julia costa" class="botao-voltar">
                      Relato da faculdade 
                 </a>
             
@@ -636,26 +1030,21 @@ html{
 
 
     <!-- NOVA POSTAGEM 4 -->
-    <div class="post perfil">
+    <div class="post perfil" data-curso="Historia">
     
         <img src="Maria Andrade.jpg" alt="Maria Andrade">
     
         <div class="content">
     
             <h3 onclick="abrirPerfil('Maria Andrade')" style="cursor:pointer;">
-                Sobre Maria Andrade
+             Maria Andrade
             </h3>
     
             <p>
-                Maria Andrade é apaixonado por esportes, tecnologia
-                e produção de conteúdo digital.
+                Maria Eduarda Andrade Rocha, 19 anos, cursa História na UFSJ via SISU. Natural de São João del-Rei (MG), superou a mudança de estado e estuda à noite, focando no sonho de unir a paixão histórica à educação. 
             </p>
     
-            <p>
-                Ele gosta de criar projetos modernos,
-                compartilhar conhecimentos e desenvolver
-                novas ideias para a internet.
-            </p>
+            
             <style>
                 .botao-voltar {
                     display: inline-flex;     /* Permite usar alinhamento interno */
@@ -698,7 +1087,7 @@ html{
             </style>
             <div class="container-botoes">
 
-                <button class="botao-curtir">
+                <button class="botao-curtir" onclick="curtir(this)">
                     👍 Curtir
                 </button>
 
@@ -713,25 +1102,21 @@ html{
     </div>
     
     <!-- NOVA POSTAGEM 5 -->
-    <div class="post perfil">
+    <div class="post perfil" data-curso="Medicina">
     
         <img src="Maryana Freschi.jpg" alt="Maryana Freschi">
     
         <div class="content">
     
             <h3 onclick="abrirPerfil('Maryana Freschi')" style="cursor:pointer;">
-                Sobre Maryana Freschi
+             Maryana Freschi
             </h3>
     
             <p>
-                Maryana Freschi trabalha com design gráfico e criação
-                de interfaces modernas para sites
+                Maryana Freschi, 22 anos, cursa Medicina Veterinária na Anhanguera de Campinas com bolsa do ENEM. Residente em Hortolândia (SP), realiza seu sonho de infância focada na saúde e no bem-estar dos animais.
             </p>
     
-            <p>
-                Ele gosta de combinar criatividade,
-                tecnologia e inovação em seus projetos.
-            </p>
+            
     
             <style>
                 .botao-voltar {
@@ -775,7 +1160,7 @@ html{
             </style>
             <div class="container-botoes">
 
-                <button class="botao-curtir">
+                <button class="botao-curtir" onclick="curtir(this)">
                     👍 Curtir
                 </button>
 
@@ -788,25 +1173,21 @@ html{
     </div>
     
     <!--- NOVA POSTAGEM 6  -->
-    <div class="post perfil">
+    <div class="post perfil" data-curso="Direito">
     
         <img src="Raquel Rodrigues.jpg" alt="Raquel Rodrigues">
     
         <div class="content">
     
             <h3 onclick="abrirPerfil('Raquel Rodrigues')" style="cursor:pointer;">
-                Sobre Raquel Rodrigues
+            Raquel Rodrigues
             </h3>
     
             <p>
-                Raquel Rodrigues trabalha com design gráfico e criação
-                de interfaces modernas para sites
+                Raquel Rodrigues, 23 anos, é graduada em Direito pelo UNASP e reside em Hortolândia (SP). Aprovada na OAB, hoje faz pós-graduação e atua como estagiária de gabinete no TJ-SP, auxiliando um magistrado na elaboração de sentenças.
             </p>
     
-            <p>
-                Ele gosta de combinar criatividade,
-                tecnologia e inovação em seus projetos.
-            </p>
+            
     
             <style>
                 .botao-voltar {
@@ -850,7 +1231,7 @@ html{
             </style>
             <div class="container-botoes">
 
-                <button class="botao-curtir">
+                <button class="botao-curtir" onclick="curtir(this)">
                     👍 Curtir
                 </button>
 
@@ -863,25 +1244,21 @@ html{
     </div>
 
     <!--- NOVA POSTAGEM 7  -->
-    <div class="post perfil">
+    <div class="post perfil" data-curso="Enfermagem">
     
         <img src="Stefany Morais.jpg" alt="Stefany Morais">
     
         <div class="content">
     
             <h3 onclick="abrirPerfil('Stefany Morais')" style="cursor:pointer;">
-                Sobre Stefany Morais
+            Stefany Morais
             </h3>
     
             <p>
-                Stefany Morais trabalha com design gráfico e criação
-                de interfaces modernas para sites
+            Stefany Morais de Oliveira, de 27 anos, é técnica de enfermagem concursada em Campinas e enfermeira graduada pela Anhanguera com bolsa integral do PROUNI. Residente em Hortolândia (SP), superou a rotina de trabalho e estudos e hoje foca em concursos para a área de Saúde Pública.
             </p>
     
-            <p>
-                Ele gosta de combinar criatividade,
-                tecnologia e inovação em seus projetos.
-            </p>
+            
     
             <style>
                 .botao-voltar {
@@ -925,7 +1302,7 @@ html{
             </style>
             <div class="container-botoes">
 
-                <button class="botao-curtir">
+                <button class="botao-curtir" onclick="curtir(this)">
                     👍 Curtir
                 </button>
 
@@ -938,25 +1315,21 @@ html{
     </div>
 
     <!--- NOVA POSTAGEM 8  -->
-    <div class="post perfil">
+    <div class="post perfil" data-curso="Ciencias Sociais">
     
         <img src="Davi Nelson.jpg" alt="Davi Nelson">
     
         <div class="content">
     
             <h3 onclick="abrirPerfil('Davi Nelson')" style="cursor:pointer;">
-                Sobre Stefany Morais
+            Davi Nelson
             </h3>
     
             <p>
-                Stefany Morais trabalha com design gráfico e criação
-                de interfaces modernas para sites
+                Davi Nelson Brito Camargo, 20 anos, cursa Ciências Sociais na UNESP de Araraquara. Residente em Campinas (SP), organiza sua rotina de leituras com foco em concluir a graduação no prazo e desenvolver seu senso crítico.
             </p>
     
-            <p>
-                Ele gosta de combinar criatividade,
-                tecnologia e inovação em seus projetos.
-            </p>
+
     
             <style>
                 .botao-voltar {
@@ -1000,7 +1373,7 @@ html{
             </style>
             <div class="container-botoes">
 
-                <button class="botao-curtir">
+                <button class="botao-curtir" onclick="curtir(this)">
                     👍 Curtir
                 </button>
 
@@ -1014,25 +1387,21 @@ html{
 
 
     <!--- NOVA POSTAGEM 9 -->
-    <div class="post perfil">
+    <div class="post perfil" data-curso="Desenvolvimento de Sistemas">
     
         <img src="Diego Santos.jpg" alt="Diego santos">
     
         <div class="content">
     
             <h3 onclick="abrirPerfil('Diego Santos')" style="cursor:pointer;">
-                Sobre Stefany Morais
+            Diego Santos 
             </h3>
     
             <p>
-                Stefany Morais trabalha com design gráfico e criação
-                de interfaces modernas para sites
+                Diego Santos, 32 anos, é engenheiro da computação e atua em desenvolvimento de software na IBM, carreira iniciada ainda na faculdade. Residente em Vinhedo (SP), destaca-se por sua resiliência acadêmica e forte capacidade de resolução de problemas.
             </p>
     
-            <p>
-                Ele gosta de combinar criatividade,
-                tecnologia e inovação em seus projetos.
-            </p>
+
     
             <style>
                 .botao-voltar {
@@ -1076,7 +1445,7 @@ html{
             </style>
             <div class="container-botoes">
 
-                <button class="botao-curtir">
+                <button class="botao-curtir" onclick="curtir(this)">
                     👍 Curtir
                 </button>
 
@@ -1089,25 +1458,21 @@ html{
     </div>
 
     <!--- NOVA POSTAGEM 10 -->
-    <div class="post perfil">
+    <div class="post perfil" data-curso="Psicologia">
     
         <img src="Maria Eduarda.jpg" alt="Maria Eduarda">
     
         <div class="content">
     
             <h3 onclick="abrirPerfil('Maria Eduarda')" style="cursor:pointer;">
-                Sobre Stefany Morais
+                Maria Eduarda
             </h3>
     
             <p>
-                Stefany Morais trabalha com design gráfico e criação
-                de interfaces modernas para sites
+                Maria Eduarda da Silva, 18 anos, cursa Psicologia na PUC-Campinas com bolsa integral do ProUni. Residente em Monte Mor (SP), viaja diariamente para o campus em período integral e dedica-se à biblioteca e ao hub de inovação.
             </p>
     
-            <p>
-                Ele gosta de combinar criatividade,
-                tecnologia e inovação em seus projetos.
-            </p>
+            
     
             <style>
                 .botao-voltar {
@@ -1151,7 +1516,7 @@ html{
             </style>
             <div class="container-botoes">
 
-                <button class="botao-curtir">
+                <button class="botao-curtir" onclick="curtir(this)">
                     👍 Curtir
                 </button>
 
@@ -1163,101 +1528,23 @@ html{
         </div>
     </div>
 
-    <!--- NOVA POSTAGEM 11  -->
-    <div class="post perfil">
     
-        <img src="Cintia.jpg" alt="Cintia">
-    
-        <div class="content">
-    
-            <h3 onclick="abrirPerfil('Cintia')" style="cursor:pointer;">
-                Sobre Stefany Morais
-            </h3>
-    
-            <p>
-                Stefany Morais trabalha com design gráfico e criação
-                de interfaces modernas para sites
-            </p>
-    
-            <p>
-                Ele gosta de combinar criatividade,
-                tecnologia e inovação em seus projetos.
-            </p>
-    
-            <style>
-                .botao-voltar {
-                    display: inline-flex;     /* Permite usar alinhamento interno */
-                    align-items: center;      /* Centraliza o texto verticalmente */
-                    background-color: #a2d2ff; /* Cor azul clara idêntica ao Curtir */
-                    color: #000000;           /* Cor do texto (ajuste se preferir outra) */
-                    text-decoration: none;    /* Remove o sublinhado padrão do link */
-                    padding: 8px 16px;        /* Espaçamento interno (cima/baixo e lados) */
-                    border-radius: 8px;       /* Deixa os cantos arredondados */
-                    font-weight: 500;         /* Deixa a letra um pouco mais grossa */
-                    transition: background 0.2s; /* Efeito suave ao passar o mouse */
-                }
-                
-                /* Efeito ao passar o mouse */
-            .botao-voltar:hover {
-                background-color: #030303;
-            }
-        
-            /* ESSA PARTE CRIA O ALINHAMENTO LADO A LADO */
-            .container-botoes {
-                display: flex;
-                align-items: center;
-                width: 100%;
-                margin-top: 15px; /* dá um espacinho do texto de cima */
-            }
-        
-            /* AJUSTE DO BOTÃO PRINCIPAL COM MARGIN-LEFT AUTO */
-            .botao-voltar {
-                display: inline-flex;     
-                align-items: center;      
-                background-color: #a2d2ff; 
-                color: #000000;           
-                text-decoration: none;    
-                padding: 8px 16px;        
-                border-radius: 8px;       
-                font-weight: 500;         
-                transition: background 0.2s;
-                margin-left: auto; /* Empurra totalmente para a direita de forma automática */
-            }
-            </style>
-            <div class="container-botoes">
-
-                <button class="botao-curtir">
-                    👍 Curtir
-                </button>
-
-                <a href="perfil.html?usuario=Cintia" class="botao-voltar">
-                     Relato da faculdade 
-                </a>
-            
-            </div>
-        </div>
-    </div>
-
 <!--- NOVA POSTAGEM 12  -->
-<div class="post perfil">
+<div class="post perfil" data-curso="Engenharia">
     
     <img src="Rafaela Gomes.jpg" alt="Rafaela Gomes">
 
     <div class="content">
 
         <h3 onclick="abrirPerfil('Rafaela')" style="cursor:pointer;">
-            Sobre Stefany Morais
+            Rafaela Gomes
         </h3>
 
         <p>
-            Stefany Morais trabalha com design gráfico e criação
-            de interfaces modernas para sites
+            Rafaela Gomes dos Santos, 19 anos, cursa Engenharia Mecânica na Facamp via PROUNI. Residente em Hortolândia (SP), estuda motivada pelo interesse no setor automobilístico e pela alta empregabilidade da instituição.
         </p>
 
-        <p>
-            Ele gosta de combinar criatividade,
-            tecnologia e inovação em seus projetos.
-        </p>
+        
 
         <style>
             .botao-voltar {
@@ -1301,7 +1588,7 @@ html{
         </style>
         <div class="container-botoes">
 
-            <button class="botao-curtir">
+            <button class="botao-curtir" onclick="curtir(this)">
                 👍 Curtir
             </button>
 
@@ -1314,25 +1601,21 @@ html{
 </div>
 
 <!--- NOVA POSTAGEM 13  -->
-<div class="post perfil">
+<div class="post perfil" data-curso="Recursos Humanos">
     
     <img src="Queite Neves.jpg" alt="Queite Neves">
 
     <div class="content">
 
         <h3 onclick="abrirPerfil('Queite')" style="cursor:pointer;">
-            Sobre Stefany Morais
+            Queite Neves
         </h3>
 
         <p>
-            Stefany Morais trabalha com design gráfico e criação
-            de interfaces modernas para sites
+            Queite Neves, 36 anos, é formada em Gestão de RH pela Anhanguera via PROUNI. Residente em Hortolândia (SP), conciliou a faculdade com a IBM e hoje atua como Líder de Operações Estratégicas em Pré-vendas.
         </p>
 
-        <p>
-            Ele gosta de combinar criatividade,
-            tecnologia e inovação em seus projetos.
-        </p>
+    
 
         <style>
             .botao-voltar {
@@ -1376,7 +1659,7 @@ html{
         </style>
         <div class="container-botoes">
 
-            <button class="botao-curtir">
+            <button class="botao-curtir" onclick="curtir(this)">
                 👍 Curtir
             </button>
 
@@ -1388,6 +1671,291 @@ html{
     </div>
 </div>
 
+
+<!--- NOVA POSTAGEM 14  -->
+<div class="post perfil" data-curso="Administração">
+    
+    <img src="Maria Eduarda Albuquerque.jpg" alt="Maria Eduarda Albuquerque">
+
+    <div class="content">
+
+        <h3 onclick="abrirPerfil('Maria Eduarda Albuquerque')" style="cursor:pointer;">
+           Maria Eduarda Albuquerque
+        </h3>
+
+        <p>
+            Maria Eduarda de Albuquerque, 19 anos, é estudante de Administração no UNASP e escolheu a área pela diversidade de oportunidades profissionais e de empreendedorismo. Sua trajetória destaca a importância da dedicação, da qualificação contínua e do desenvolvimento de habilidades para o mercado de trabalho.
+        </p>
+
+    
+
+        <style>
+            .botao-voltar {
+                display: inline-flex;     /* Permite usar alinhamento interno */
+                align-items: center;      /* Centraliza o texto verticalmente */
+                background-color: #a2d2ff; /* Cor azul clara idêntica ao Curtir */
+                color: #000000;           /* Cor do texto (ajuste se preferir outra) */
+                text-decoration: none;    /* Remove o sublinhado padrão do link */
+                padding: 8px 16px;        /* Espaçamento interno (cima/baixo e lados) */
+                border-radius: 8px;       /* Deixa os cantos arredondados */
+                font-weight: 500;         /* Deixa a letra um pouco mais grossa */
+                transition: background 0.2s; /* Efeito suave ao passar o mouse */
+            }
+            
+            /* Efeito ao passar o mouse */
+        .botao-voltar:hover {
+            background-color: #030303;
+        }
+    
+        /* ESSA PARTE CRIA O ALINHAMENTO LADO A LADO */
+        .container-botoes {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-top: 15px; /* dá um espacinho do texto de cima */
+        }
+    
+        /* AJUSTE DO BOTÃO PRINCIPAL COM MARGIN-LEFT AUTO */
+        .botao-voltar {
+            display: inline-flex;     
+            align-items: center;      
+            background-color: #a2d2ff; 
+            color: #000000;           
+            text-decoration: none;    
+            padding: 8px 16px;        
+            border-radius: 8px;       
+            font-weight: 500;         
+            transition: background 0.2s;
+            margin-left: auto; /* Empurra totalmente para a direita de forma automática */
+        }
+        </style>
+        <div class="container-botoes">
+
+            <button class="botao-curtir" onclick="curtir(this)">
+                👍 Curtir
+            </button>
+
+            <a href="perfil.html?usuario=Maria Eduarda Albuquerque" class="botao-voltar">
+                 Relato da faculdade 
+            </a>
+        
+        </div>
+    </div>
+</div>
+
+<!--- NOVA POSTAGEM 16  -->
+<div class="post perfil">
+    
+    <img src="Vanessa Martins.jpg" alt="Vanessa Martins">
+
+    <div class="content">
+
+        <h3 onclick="abrirPerfil('Vanessa Martins')" style="cursor:pointer;">
+            Vanessa Martins
+        </h3>
+
+        <p>
+            Vanessa Martins, 29 anos, cursou Biomedicina na UFRJ via SISU. Residente em São Gonçalo (RJ), superava horas de transporte diário atraída pela excelência da instituição em pesquisa clínica e iniciação científica. 
+        </p>
+
+    
+
+        <style>
+            .botao-voltar {
+                display: inline-flex;     /* Permite usar alinhamento interno */
+                align-items: center;      /* Centraliza o texto verticalmente */
+                background-color: #a2d2ff; /* Cor azul clara idêntica ao Curtir */
+                color: #000000;           /* Cor do texto (ajuste se preferir outra) */
+                text-decoration: none;    /* Remove o sublinhado padrão do link */
+                padding: 8px 16px;        /* Espaçamento interno (cima/baixo e lados) */
+                border-radius: 8px;       /* Deixa os cantos arredondados */
+                font-weight: 500;         /* Deixa a letra um pouco mais grossa */
+                transition: background 0.2s; /* Efeito suave ao passar o mouse */
+            }
+            
+            /* Efeito ao passar o mouse */
+        .botao-voltar:hover {
+            background-color: #030303;
+        }
+    
+        /* ESSA PARTE CRIA O ALINHAMENTO LADO A LADO */
+        .container-botoes {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-top: 15px; /* dá um espacinho do texto de cima */
+        }
+    
+        /* AJUSTE DO BOTÃO PRINCIPAL COM MARGIN-LEFT AUTO */
+        .botao-voltar {
+            display: inline-flex;     
+            align-items: center;      
+            background-color: #a2d2ff; 
+            color: #000000;           
+            text-decoration: none;    
+            padding: 8px 16px;        
+            border-radius: 8px;       
+            font-weight: 500;         
+            transition: background 0.2s;
+            margin-left: auto; /* Empurra totalmente para a direita de forma automática */
+        }
+        </style>
+        <div class="container-botoes">
+
+            <button class="botao-curtir" onclick="curtir(this)">
+                👍 Curtir
+            </button>
+
+            <a href="perfil.html?usuario=Vanessa Martins" class="botao-voltar">
+                 Relato da faculdade 
+            </a>
+        
+        </div>
+    </div>
+</div>
+
+<!--- NOVA POSTAGEM 17 -->
+<div class="post perfil" data-curso="Enfermagem">
+    
+    <img src="Alice.jpg" alt="Alice">
+
+    <div class="content">
+
+        <h3 onclick="abrirPerfil('Alice')" style="cursor:pointer;">
+            Alice
+        </h3>
+
+        <p>
+           
+        </p>
+
+    
+
+        <style>
+            .botao-voltar {
+                display: inline-flex;     /* Permite usar alinhamento interno */
+                align-items: center;      /* Centraliza o texto verticalmente */
+                background-color: #a2d2ff; /* Cor azul clara idêntica ao Curtir */
+                color: #000000;           /* Cor do texto (ajuste se preferir outra) */
+                text-decoration: none;    /* Remove o sublinhado padrão do link */
+                padding: 8px 16px;        /* Espaçamento interno (cima/baixo e lados) */
+                border-radius: 8px;       /* Deixa os cantos arredondados */
+                font-weight: 500;         /* Deixa a letra um pouco mais grossa */
+                transition: background 0.2s; /* Efeito suave ao passar o mouse */
+            }
+            
+            /* Efeito ao passar o mouse */
+        .botao-voltar:hover {
+            background-color: #030303;
+        }
+    
+        /* ESSA PARTE CRIA O ALINHAMENTO LADO A LADO */
+        .container-botoes {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-top: 15px; /* dá um espacinho do texto de cima */
+        }
+    
+        /* AJUSTE DO BOTÃO PRINCIPAL COM MARGIN-LEFT AUTO */
+        .botao-voltar {
+            display: inline-flex;     
+            align-items: center;      
+            background-color: #a2d2ff; 
+            color: #000000;           
+            text-decoration: none;    
+            padding: 8px 16px;        
+            border-radius: 8px;       
+            font-weight: 500;         
+            transition: background 0.2s;
+            margin-left: auto; /* Empurra totalmente para a direita de forma automática */
+        }
+        </style>
+        <div class="container-botoes">
+
+            <button class="botao-curtir" onclick="curtir(this)">
+                👍 Curtir
+            </button>
+
+            <a href="perfil.html?usuario=Alice" class="botao-voltar">
+                 Relato da faculdade 
+            </a>
+        
+        </div>
+    </div>
+</div>
+
+<!--- NOVA POSTAGEM 18 -->
+<div class="post perfil" data-curso="Psicologia">
+    
+    <img src="Halisom De Souza.jpg" alt="Halisom De Souza">
+
+    <div class="content">
+
+        <h3 onclick="abrirPerfil('Halisom De Souza')" style="cursor:pointer;">
+            Halisom De Souza
+        </h3>
+
+        <p>
+            Halisom escolheu Psicologia por sua história de vida e pelo desejo de ajudar outras pessoas.
+            Ele destaca o apoio da faculdade e das amizades durante sua formação.
+        </p>
+
+    
+
+        <style>
+            .botao-voltar {
+                display: inline-flex;     /* Permite usar alinhamento interno */
+                align-items: center;      /* Centraliza o texto verticalmente */
+                background-color: #a2d2ff; /* Cor azul clara idêntica ao Curtir */
+                color: #000000;           /* Cor do texto (ajuste se preferir outra) */
+                text-decoration: none;    /* Remove o sublinhado padrão do link */
+                padding: 8px 16px;        /* Espaçamento interno (cima/baixo e lados) */
+                border-radius: 8px;       /* Deixa os cantos arredondados */
+                font-weight: 500;         /* Deixa a letra um pouco mais grossa */
+                transition: background 0.2s; /* Efeito suave ao passar o mouse */
+            }
+            
+            /* Efeito ao passar o mouse */
+        .botao-voltar:hover {
+            background-color: #030303;
+        }
+    
+        /* ESSA PARTE CRIA O ALINHAMENTO LADO A LADO */
+        .container-botoes {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-top: 15px; /* dá um espacinho do texto de cima */
+        }
+    
+        /* AJUSTE DO BOTÃO PRINCIPAL COM MARGIN-LEFT AUTO */
+        .botao-voltar {
+            display: inline-flex;     
+            align-items: center;      
+            background-color: #a2d2ff; 
+            color: #000000;           
+            text-decoration: none;    
+            padding: 8px 16px;        
+            border-radius: 8px;       
+            font-weight: 500;         
+            transition: background 0.2s;
+            margin-left: auto; /* Empurra totalmente para a direita de forma automática */
+        }
+        </style>
+        <div class="container-botoes">
+
+            <button class="botao-curtir" onclick="curtir(this)">
+                👍 Curtir
+            </button>
+
+            <a href="perfil.html?usuario=Halisom De Souza" class="botao-voltar">
+                 Relato da faculdade 
+            </a>
+        
+        </div>
+    </div>
+</div>
 
     <!-- POST COM VÍDEO -->
     <div class="post" id="videos">
@@ -1405,17 +1973,13 @@ html{
 
             <br><br>
 
-            <button class="btn" onclick="curtir(this)">
+            <button class="botao-curtir" onclick="curtir(this)">
                 👍 Curtir
             </button>
         </div>
     </div>
 
 </div>
-
-<footer id="contato">
-    <p>© 2026 - Meu Blog Interativo</p>
-</footer>
 
 <script>
 
@@ -1444,6 +2008,88 @@ function abrirMenu(){
 
 }
 
+// BARRA DE PESQUISA
+function pesquisar() {
+    const texto = document.getElementById("campoPesquisa")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const perfis = document.querySelectorAll(".post.perfil");
+
+    let encontrou = false;
+
+    perfis.forEach(perfil => {
+        const conteudo = perfil.textContent.toLowerCase();
+
+        if (conteudo.includes(texto)) {
+            perfil.style.display = "";
+            encontrou = true;
+        } else {
+            perfil.style.display = "none";
+        }
+    });
+
+    // Mensagem quando nenhum perfil for encontrado
+    let mensagem = document.getElementById("mensagemPesquisa");
+
+    if (!mensagem) {
+        mensagem = document.createElement("p");
+        mensagem.id = "mensagemPesquisa";
+        mensagem.style.textAlign = "center";
+        mensagem.style.fontSize = "18px";
+        mensagem.style.margin = "30px";
+        
+        document.querySelector("#postagens").appendChild(mensagem);
+    }
+
+    if (texto !== "" && !encontrou) {
+        mensagem.textContent = "😕 Nenhum perfil encontrado. Tente outro nome, curso ou faculdade.";
+        mensagem.style.display = "block";
+    } else {
+        mensagem.style.display = "none";
+    }
+}
+
+// FILTRO DE CURSO
+function filtrarCurso(curso) {
+
+const cards = document.querySelectorAll("#postagens .post.perfil");
+let primeiroCard = null;
+
+cards.forEach(card => {
+
+    const cursoCard = card.getAttribute("data-curso");
+
+    if (cursoCard === curso) {
+
+        // Mostra o card do curso selecionado
+        card.style.display = "flex";
+
+        // Guarda o primeiro card encontrado
+        if (!primeiroCard) {
+            primeiroCard = card;
+        }
+
+    } else {
+
+        // Esconde os outros cursos
+        card.style.display = "none";
+    }
+});
+
+// Fecha o menu hambúrguer
+document.getElementById("menu").classList.remove("active");
+
+// Desce até o primeiro card encontrado
+if (primeiroCard) {
+    primeiroCard.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+}
+
 // FECHAR AO CLICAR FORA
 document.addEventListener("click", function(event){
 
@@ -1465,60 +2111,336 @@ function abrirPerfil(nome){
 
 </script>
 
-<script>
 
-    window.onload = function(){
-    
-        let tela = document.getElementById("tela-inicial");
-    
-        if(localStorage.getItem("logoJaMostrada")){
-    
-            tela.style.display = "none";
-    
-        }else{
-    
-            localStorage.setItem("logoJaMostrada","sim");
-    
-            setTimeout(function(){
-    
-                tela.style.display = "none";
-    
-            },3000);
-    
-        }
-    
-    }
-    
-    </script>
 <!-- Seção Sobre o Blog Perfeita e Direta -->
-<section id="Sobre" style="padding: 60px 20px; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; width: 100%; box-sizing: border-box; clear: both;">
-    <div style="background-color: #ffffff; max-width: 650px; width: 100%; padding: 35px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); position: relative; border-top: 6px solid #007bff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px auto;">
-        
-        <h2 style="color: #212529; font-size: 1.8rem; margin-top: 0; margin-bottom: 20px; font-weight: 700;">Nossa História</h2>
-        
-        <p style="color: #495057; font-size: 1.05rem; line-height: 1.7; margin-bottom: 15px; text-align: justify;">
-            O <strong>Diário de um Universitário</strong> nasceu da nossa própria jornada acadêmica. 
-            Entre prazos apertados, noites de estudo e a paixão pela tecnologia, percebemos que 
-            compartilhar essa rotina tornaria o caminho mais leve para nós e para outros estudantes.
-        </p>
-        
-        <p style="color: #495057; font-size: 1.05rem; line-height: 1.7; margin-bottom: 20px; text-align: justify;">
-            Este blog é o reflexo da nossa parceria, dedicação e aprendizado diário. Um espaço feito 
-            para registrar nossos projetos, trocar conhecimentos sobre desenvolvimento web e criar uma 
-            comunidade onde ninguém precisa enfrentar os desafios da faculdade sozinho.
-        </p>
-        
-        <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #dee2e6; color: #6c757d; font-size: 0.9rem; font-style: italic;">
-            <span>🚀 Criado com dedicação por dois universitários.</span>
+<section id="Sobre" class="nossa-historia">
+
+    <h2>Nossa História</h2>
+
+    <p>
+        O Blog Interativo foi criado com o objetivo de compartilhar
+        experiências, histórias e informações de uma maneira simples,
+        interativa e acessível para todos.
+    </p>
+
+    <p>
+        A ideia surgiu a partir da vontade de criar um espaço onde os
+        usuários pudessem conhecer diferentes histórias e também participar
+        do conteúdo do site.
+    </p>
+
+    <p>
+        Durante o desenvolvimento, buscamos melhorar o visual, a organização
+        e a interação com os usuários, criando uma experiência mais agradável.
+    </p>
+
+    <p>
+        Este projeto continua sendo desenvolvido e pode receber novas
+        funcionalidades no futuro.
+    </p>
+
+</section>
+
+<section id="comentarios" class="comentarios">
+
+    <h2>O que você achou do nosso site?</h2>
+
+    <p>Deixe seu comentário e conte para nós o que você achou do Blog Interativo!</p>
+
+    <form id="formComentario"> 
+
+        <input type="text" id="nomeComentario" placeholder="Seu nome" required>
+    
+        <label>Avalie nosso site:</label>
+    
+        <div class="estrelas">
+            <input type="radio" name="estrelas" id="estrela5" value="5">
+            <label for="estrela5">★</label>
+    
+            <input type="radio" name="estrelas" id="estrela4" value="4">
+            <label for="estrela4">★</label>
+    
+            <input type="radio" name="estrelas" id="estrela3" value="3">
+            <label for="estrela3">★</label>
+    
+            <input type="radio" name="estrelas" id="estrela2" value="2">
+            <label for="estrela2">★</label>
+    
+            <input type="radio" name="estrelas" id="estrela1" value="1">
+            <label for="estrela1">★</label>
         </div>
-    </div>
+    
+        <textarea id="textoComentario" placeholder="Escreva seu comentário..." required></textarea>
+    
+        <button type="submit">Enviar comentário</button>
+    
+    </form>
+
+    <div id="listaComentarios"></div>
+
 </section>
+
+
+
 <!-- ... seu card da história sobre o blog ... -->
-</section>
 
 
+<script>
+    function falarTextoMaria() {
+        // 1. O texto que o robô vai ditar
+        const texto = "Maria é uma criadora de conteúdo apaixonada por tecnologia, design e educação digital. Ela gosta de compartilhar dicas, curiosidades e conteúdos informativos para ajudar outras pessoas a aprenderem de forma simples e divertida. Além disso, Maria trabalha com desenvolvimento web e criação de projetos interativos utilizando HTML, CSS e JavaScript.";
+        
+        // 2. Cria o objeto de fala do navegador
+        const fala = new SpeechSynthesisUtterance(texto);
+        
+        // 3. Define o idioma para português do Brasil
+        fala.lang = 'pt-BR';
+        
+        // 4. Executa a leitura por voz
+        window.speechSynthesis.speak(fala);
+    }
+    </script>
 
-</body>
-</html>
+<script>
+    function curtir(botao) {
+    
+        // Cria somente 1 emoji
+        const emoji = document.createElement("span");
+        emoji.classList.add("emoji-curtida");
+        emoji.textContent = "👍";
+    
+        // Coloca o emoji dentro do botão
+        botao.appendChild(emoji);
+    
+        // Remove o emoji depois de 3 segundos
+        setTimeout(() => {
+            emoji.remove();
+        }, 3000);
+    }
+    </script> 
+
+    <script>
+
+function pesquisar() {
+    let pesquisa = document.getElementById("campoPesquisa").value
+        .toLowerCase()
+        .trim();
+
+    if (pesquisa === "") {
+        alert("Digite algo para pesquisar.");
+        return;
+    }
+
+    // Palavras-chave e o elemento que deve ser encontrado
+    let palavrasChave = {
+        "engenharia": ["engenharia", "engenheiro", "engenharia mecânica", "engenharia civil"],
+        "psicologia": ["psicologia", "psicóloga", "psicólogo"],
+        "psicologia": ["psicologia", "psicóloga", "psicólogo"],
+        "direito": ["direito", "advocacia", "advogado"],
+        "enfermagem": ["enfermagem", "enfermeira", "enfermeiro"],
+        "veterinaria": ["veterinária", "veterinario", "veterinária"],
+        "historia": ["história", "historiador", "historiadora"],
+        "universidade": ["universidade", "faculdade", "facamp", "unasp", "ufsj"]
+    };
+
+    let encontrados = [];
+
+    // Procura nos posts da página
+    let posts = document.querySelectorAll(".post");
+
+    posts.forEach(function(post) {
+
+        let texto = post.innerText.toLowerCase();
+
+        if (texto.includes(pesquisa)) {
+            encontrados.push(post);
+        } else {
+
+            // Verifica se a pesquisa é uma palavra-chave
+            for (let categoria in palavrasChave) {
+
+                if (pesquisa.includes(categoria)) {
+
+                    let palavras = palavrasChave[categoria];
+
+                    for (let palavra of palavras) {
+
+                        if (texto.includes(palavra)) {
+                            encontrados.push(post);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Se encontrou alguma coisa
+    if (encontrados.length > 0) {
+
+        // Volta a mostrar todos os posts
+        posts.forEach(function(post) {
+            post.style.display = "";
+        });
+
+        // Destaca o primeiro resultado
+        encontrados[0].scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+        encontrados[0].style.outline = "4px solid #003366";
+
+        // Remove o destaque depois de 3 segundos
+        setTimeout(function() {
+            encontrados[0].style.outline = "";
+        }, 3000);
+
+    } else {
+
+        alert("Não encontramos nenhum resultado para: " + pesquisa);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+
+document.getElementById("campoPesquisa").addEventListener("keypress", function(event) {
+
+    if (event.key === "Enter") {
+        pesquisar();
+    }
+
+});
+
+});
+    </script>
+
+    <script>
+
+// ABRIR FORMULÁRIO
+function abrirFormulario() {
+
+document.getElementById("formularioPerfil").style.display = "flex";
+
+}
+
+// FECHAR FORMULÁRIO
+function fecharFormulario() {
+
+document.getElementById("formularioPerfil").style.display = "none";
+
+}
+
+// ADICIONAR PERFIL
+function adicionarPerfil() {
+
+let nome = document.getElementById("nomePerfil").value;
+let relato = document.getElementById("relatoPerfil").value;
+let foto = document.getElementById("fotoPerfil").files[0];
+
+if (nome === "" || relato === "" || !foto) {
+
+    alert("Preencha o nome, escolha uma foto e escreva seu relato.");
+
+    return;
+}
+
+let leitor = new FileReader();
+
+leitor.onload = function(event) {
+
+    let novoPerfil = document.createElement("div");
+
+    novoPerfil.className = "post perfil";
+
+    novoPerfil.innerHTML = `
+        <img src="${event.target.result}" alt="${nome}">
+
+        <div class="content">
+
+            <h3>${nome}</h3>
+
+            <p>
+                ${relato}
+            </p>
+
+            <div class="container-botoes">
+
+                <button class="botao-curtir" onclick="curtir(this)">
+                    👍 Curtir
+                </button>
+
+            </div>
+
+        </div>
+    `;
+
+    document.getElementById("postagens").appendChild(novoPerfil);
+
+    fecharFormulario();
+
+    document.getElementById("nomePerfil").value = "";
+    document.getElementById("relatoPerfil").value = "";
+    document.getElementById("fotoPerfil").value = "";
+
+};
+
+leitor.readAsDataURL(foto);
+}
+
+    </script>
+
+<div style="display: flex; justify-content: center; gap: 15px; margin: 20px 0;">
+    <img src="MF.jpg" alt="Foto 1" style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
+    <img src="MF (3).jpg" alt="Foto 2" style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
+    <img src="MF (4).jpg" alt="Foto 3" style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
+    <img src="RG.jpg" alt="Foto 4" style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
+</div>
+
+
+<script>
+    const formulario = document.getElementById("formComentario");
+const listaComentarios = document.getElementById("listaComentarios");
+
+formulario.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const nome = document.getElementById("nomeComentario").value;
+    const texto = document.getElementById("textoComentario").value;
+
+    // Pega a estrela escolhida pelo usuário
+    const estrelaSelecionada = document.querySelector('input[name="estrelas"]:checked');
+
+    // Verifica se o usuário escolheu uma avaliação
+    if (!estrelaSelecionada) {
+        alert("Por favor, selecione uma quantidade de estrelas.");
+        return;
+    }
+
+    const estrelas = Number(estrelaSelecionada.value);
+
+    const comentario = document.createElement("div");
+    comentario.classList.add("comentario");
+
+    comentario.innerHTML = `
+        <strong>${nome}</strong>
+
+        <div class="avaliacao">
+            ${"★".repeat(estrelas)}${"☆".repeat(5 - estrelas)}
+        </div>
+
+        <p>${texto}</p>
+    `;
+
+    listaComentarios.appendChild(comentario);
+
+    formulario.reset();
+});
+    </script>
+
+
+<footer> 
+    <p>© 2026 - Blog Interativo</p> 
+</footer>
 </body>
 </html> 
