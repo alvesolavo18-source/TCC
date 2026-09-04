@@ -73,6 +73,20 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+#btnAudio {
+    margin-top: 10px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #0077b6;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#btnAudio:hover {
+    background: #005f8f;
+}
  </style>    
     <title>Perfil</title>
 </head>
@@ -95,6 +109,11 @@
 
 <div class="relato-container">
     <div id="relato"></div>
+
+    <button id="btnAudio" onclick="ouvirRelato()">
+        🔊 Ouvir relato
+    </button>
+
 </div>
 
 </div> <!-- fecha card-perfil -->
@@ -391,10 +410,26 @@ perfil.style.textAlign = "left";
 }
 
 else if(usuario === "Diego Santos"){
-    nome.innerHTML = "...";
-    foto.src = "...";
+    nome.innerHTML = "Diego Santos";
+    foto.src = "Diego Santos.jpg";
     descricao.innerHTML = "...";
-    relato.innerHTML = `...`;
+    relato.innerHTML = `<p>Diego Santos, 32 anos, residente em Vinhedo (SP), é formado em Engenharia da Computação pela Faculdade Metrocamp, em Campinas. A escolha pelo curso foi motivada pelo interesse na área de tecnologia, enquanto a instituição foi selecionada devido à sua boa reputação e reconhecimento na formação de profissionais da área.</p>
+
+<p>Seu ingresso na graduação ocorreu por meio do vestibular da própria instituição. Durante o primeiro ano, arcou integralmente com os custos da mensalidade, que na época, entre 2012 e 2013, era de aproximadamente R$ 1.200,00. A partir do segundo ano, passou a contar com o financiamento estudantil oferecido pelo Fundo de Financiamento Estudantil (FIES), benefício que foi fundamental para garantir a continuidade de seus estudos.</p>
+
+<p>O início da graduação foi marcado por desafios, especialmente em razão da estrutura do curso de Engenharia da Computação. Os primeiros semestres apresentavam uma forte carga de disciplinas voltadas à Matemática e às ciências exatas, exigindo dedicação, disciplina e persistência para acompanhar o ritmo acadêmico.</p>
+
+<p>Ainda no segundo semestre da faculdade, conquistou uma oportunidade de estágio na IBM, atuando na área de desenvolvimento de software. Essa experiência representou o primeiro contato com o mercado de trabalho e contribuiu significativamente para seu desenvolvimento profissional. Apesar das dificuldades iniciais, principalmente relacionadas ao domínio da língua inglesa, conseguiu superar os desafios e evoluir tecnicamente dentro da empresa.</p>
+
+<p>Após a conclusão da graduação, permaneceu na IBM e continua atuando na área de Tecnologia, consolidando uma trajetória profissional construída desde os primeiros anos da faculdade. Sua permanência na empresa demonstra a importância da experiência adquirida durante o estágio e o impacto que ela teve na construção de sua carreira.</p>
+
+<p>Ao longo da graduação, o FIES foi essencial para garantir sua permanência financeira no curso. Paralelamente, sua paixão pela tecnologia, aliada à clareza de seus objetivos profissionais, serviu como motivação constante para enfrentar as dificuldades acadêmicas e manter o foco em sua formação.</p>
+
+<p>Segundo sua experiência, as avaliações do curso apresentavam elevado grau de dificuldade e exigiam um estudo contínuo. Além das disciplinas regulares, a instituição promovia diversas atividades complementares, como palestras, feiras de carreira, mostras científicas e outros eventos acadêmicos, proporcionando oportunidades para ampliar conhecimentos e aproximar os estudantes do mercado de trabalho.</p>
+
+<p>Embora não se recorde de benefícios específicos oferecidos pela faculdade aos universitários, reconhece que a instituição desempenhou um papel fundamental em sua formação. Além dos conhecimentos teóricos, a graduação proporcionou experiências práticas em laboratórios, desenvolvimento de competências técnicas, ampliação da rede de contatos profissionais e adaptação a um ambiente de constante cobrança por resultados, preparando-o para os desafios da carreira na área de tecnologia.</p>
+
+<p>Como curiosidade, Diego destaca que muitas das disciplinas estudadas durante a graduação nunca foram utilizadas diretamente em sua rotina profissional. No entanto, acredita que esse conjunto de conhecimentos foi indispensável para desenvolver seu raciocínio lógico, sua capacidade de resolver problemas e sua maturidade profissional. Em sua visão, a universidade vai muito além do ensino de conteúdos específicos: ela forma profissionais preparados para enfrentar desafios, aprender continuamente e adaptar-se às constantes transformações do mercado de trabalho.</p>`;
 
     perfil.style.background = "#e6f7ff"; 
 perfil.style.color = "#003366"; 
@@ -405,6 +440,19 @@ else if(usuario === "Maria Eduarda"){
     nome.innerHTML = "Maria Eduarda";
     foto.src = "Maria Eduarda.jpg";
     descricao.innerHTML = "...";
+
+    galeriaPerfil.innerHTML = ` 
+        <h3>Registros da Faculdade</h3> 
+
+        <div class="galeria"> 
+            <img src="ME.jpg" alt="Registro da faculdade">
+            <img src="ME (2).jpg" alt="Registro da faculdade">
+            <img src="ME (3).jpg" alt="Registro da faculdade">
+            <img src="ME (4).jpg" alt="Registro da faculdade">
+            <img src="ME (5).jpg" alt="Registro da faculdade">
+        </div> 
+    `;
+
     relato.innerHTML = `<p>Maria Eduarda da Silva, 18 anos, residente em Monte Mor (SP), é estudante do curso de Psicologia na Pontifícia Universidade Católica de Campinas (PUC-Campinas). Sua escolha pela graduação foi motivada pelo interesse em compreender o comportamento humano e pela afinidade com o contato e a troca de experiências entre as pessoas. Desde cedo, demonstrava o desejo de trabalhar diretamente com indivíduos, buscando entender melhor a mente humana, as emoções e a subjetividade de cada pessoa. Embora inicialmente tenha considerado cursar Medicina, ao longo do tempo percebeu que sua verdadeira vocação estava na área da saúde mental. A influência de uma familiar formada em Psicologia pela própria PUC-Campinas também contribuiu para que conhecesse mais profundamente a profissão e fortalecesse sua decisão. Além disso, sempre reconheceu a universidade como uma referência na formação de psicólogos, o que a motivou a dedicar-se para conquistar uma vaga na instituição.</p>
 
 <p>Seu ingresso na PUC-Campinas ocorreu por meio do Programa Universidade para Todos (ProUni), conquistando uma bolsa integral de 100% com a nota obtida no Exame Nacional do Ensino Médio (ENEM). A bolsa tornou possível a realização de seu projeto acadêmico, uma vez que o alto custo da mensalidade inviabilizaria seu ingresso sem esse benefício.</p>
@@ -583,6 +631,56 @@ perfil.style.textAlign = "left";
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function ouvirRelato() {
+
+// Pega todo o texto do relato do perfil atual
+const textoRelato = document.getElementById("relato").innerText;
+
+if (!textoRelato.trim()) {
+    alert("Este perfil ainda não possui um relato.");
+    return;
+}
+
+// Se já estiver falando, para
+if (speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    document.getElementById("btnAudio").innerHTML = "🔊 Ouvir relato";
+    return;
+}
+
+// Cria a fala usando o texto do relato
+const fala = new SpeechSynthesisUtterance(textoRelato);
+
+fala.lang = "pt-BR";
+fala.rate = 1;
+fala.pitch = 1;
+
+const botao = document.getElementById("btnAudio");
+
+botao.innerHTML = "⏹️ Parar áudio";
+
+fala.onend = function() {
+    botao.innerHTML = "🔊 Ouvir relato";
+};
+
+speechSynthesis.speak(fala);
+}
 </script>
 
 </body>

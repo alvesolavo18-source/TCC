@@ -81,8 +81,8 @@ html{
     
 
     .container{
-        width:90%;
-        max-width:1200px;
+        width:99%;
+        max-width:1700px;
         margin:30px auto;
     }
 
@@ -106,7 +106,7 @@ html{
     }
 
     .content{
-        padding:20px;
+        padding:30px;
         display:flex;
         flex-direction:column;
         height:100%;
@@ -180,8 +180,9 @@ html{
 .perfil img{
     width:300px;
     height:300px;
-    border-radius:15px;
     object-fit:cover;
+    border-radius:15px;
+    flex-shrink:0;
 }
 
 @media(max-width:768px){
@@ -308,8 +309,9 @@ html{
     background:#4da6ff;
     color:white;
     border:none;
-    padding:8px 16px;
-    border-radius:8px;
+    padding:14px 25px;
+    font-size: 20px;
+    border-radius:10px;
     cursor:pointer;
 }
 
@@ -392,7 +394,7 @@ html{
 /* BOTÃO ADICIONAR PERFIL */
 .botao-adicionar {
     position: fixed;
-    left: 25px;
+    right: 25px;
     bottom: 25px;
 
     width: 60px;
@@ -600,6 +602,42 @@ footer {
     margin: 5px 0;
 }
 
+#postagens .perfil .content p{
+    font-size: 22px;
+    line-height: 1.7;
+}
+
+#postagens .perfil .content h3{
+    font-size: 31px;
+}
+
+.filtro-cursos {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #000207;
+}
+
+.filtro-cursos h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.filtro-cursos button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    border: none;
+    border-radius: 6px;
+    background-color: #6f96f8;
+    cursor: pointer;
+    text-align: left;
+}
+
+.filtro-cursos button:hover {
+    background-color: #6f96f8;
+}
 </style>
 </head>
 
@@ -649,9 +687,14 @@ footer {
      alt="Logo do TCC"
      class="logo-barra">
 
-     <!-- BARRA DE PESQUISA -->
+      <!-- Barra de Pesquisa -->
      <div class="barra-pesquisa">
-        <input type="text" id="campoPesquisa" placeholder="Pesquisar...">
+        <input 
+            type="text" 
+            id="campoPesquisa" 
+            placeholder="⌕ Pesquise por nome, curso ou faculdade..."
+            oninput="pesquisar()"
+            >
         <button onclick="pesquisar()">⌕</button>
     </div>
 
@@ -675,6 +718,58 @@ footer {
     <a href="#contato" onclick="abrirMenu()">
         Contato
     </a>
+
+    <!-- FILTRO POR CURSO -->
+    <div class="filtro-cursos">
+        <h3>Filtrar por curso</h3>
+
+        <button onclick="filtrarCurso('todos')">
+            Todos os cursos
+        </button>
+
+        <button onclick="filtrarCurso('Administração')">
+            Administração
+        </button>
+
+        <button onclick="filtrarCurso('Recursos Humanos')">
+            Recursos Humanos
+        </button>
+
+        <button onclick="filtrarCurso('Desenvolvimento de Sistemas')">
+            Desenvolvimento de Sistemas
+        </button>
+
+        <button onclick="filtrarCurso('Ciencias Sociais')">
+            Ciencias Sociais
+        </button>
+   
+        <button onclick="filtrarCurso('Direito')">
+            Direito
+        </button>
+   
+        <button onclick="filtrarCurso('Psicologia')">
+            Psicologia
+        </button>
+
+        <button onclick="filtrarCurso('Engenharia')">
+            Engenharia
+        </button>
+
+        <button onclick="filtrarCurso('Enfermagem')">
+            Enfermagem
+        </button>
+
+        <button onclick="filtrarCurso('Historia')">
+            Historia
+        </button>
+
+        <button onclick="filtrarCurso('Medicina')">
+            Medicina
+        </button>
+
+    </div>
+
+</div>
 
 </nav>
 
@@ -789,7 +884,7 @@ footer {
     </div>
     
     <!-- NOVA POSTAGEM 2 -->
-    <div class="post perfil">
+    <div class="post perfil" data-curso="Engenharia">
     
         <img src="Joyce Inácio.jpg" alt="Joyce Inácio">
     
@@ -861,7 +956,7 @@ footer {
     </div>
     
     <!-- NOVA POSTAGEM 3 -->
-    <div class="post perfil">
+    <div class="post perfil" data-curso="Psicologia">
     
         <img src="Julia costa.jpg" alt="Julia Costa">
     
@@ -935,7 +1030,7 @@ footer {
 
 
     <!-- NOVA POSTAGEM 4 -->
-    <div class="post perfil">
+    <div class="post perfil" data-curso="Historia">
     
         <img src="Maria Andrade.jpg" alt="Maria Andrade">
     
@@ -1007,7 +1102,7 @@ footer {
     </div>
     
     <!-- NOVA POSTAGEM 5 -->
-    <div class="post perfil">
+    <div class="post perfil" data-curso="Medicina">
     
         <img src="Maryana Freschi.jpg" alt="Maryana Freschi">
     
@@ -1078,7 +1173,7 @@ footer {
     </div>
     
     <!--- NOVA POSTAGEM 6  -->
-    <div class="post perfil">
+    <div class="post perfil" data-curso="Direito">
     
         <img src="Raquel Rodrigues.jpg" alt="Raquel Rodrigues">
     
@@ -1149,7 +1244,7 @@ footer {
     </div>
 
     <!--- NOVA POSTAGEM 7  -->
-    <div class="post perfil">
+    <div class="post perfil" data-curso="Enfermagem">
     
         <img src="Stefany Morais.jpg" alt="Stefany Morais">
     
@@ -1220,7 +1315,7 @@ footer {
     </div>
 
     <!--- NOVA POSTAGEM 8  -->
-    <div class="post perfil">
+    <div class="post perfil" data-curso="Ciencias Sociais">
     
         <img src="Davi Nelson.jpg" alt="Davi Nelson">
     
@@ -1292,7 +1387,7 @@ footer {
 
 
     <!--- NOVA POSTAGEM 9 -->
-    <div class="post perfil">
+    <div class="post perfil" data-curso="Desenvolvimento de Sistemas">
     
         <img src="Diego Santos.jpg" alt="Diego santos">
     
@@ -1363,7 +1458,7 @@ footer {
     </div>
 
     <!--- NOVA POSTAGEM 10 -->
-    <div class="post perfil">
+    <div class="post perfil" data-curso="Psicologia">
     
         <img src="Maria Eduarda.jpg" alt="Maria Eduarda">
     
@@ -1435,7 +1530,7 @@ footer {
 
     
 <!--- NOVA POSTAGEM 12  -->
-<div class="post perfil">
+<div class="post perfil" data-curso="Engenharia">
     
     <img src="Rafaela Gomes.jpg" alt="Rafaela Gomes">
 
@@ -1506,7 +1601,7 @@ footer {
 </div>
 
 <!--- NOVA POSTAGEM 13  -->
-<div class="post perfil">
+<div class="post perfil" data-curso="Recursos Humanos">
     
     <img src="Queite Neves.jpg" alt="Queite Neves">
 
@@ -1578,7 +1673,7 @@ footer {
 
 
 <!--- NOVA POSTAGEM 14  -->
-<div class="post perfil">
+<div class="post perfil" data-curso="Administração">
     
     <img src="Maria Eduarda Albuquerque.jpg" alt="Maria Eduarda Albuquerque">
 
@@ -1720,7 +1815,7 @@ footer {
 </div>
 
 <!--- NOVA POSTAGEM 17 -->
-<div class="post perfil">
+<div class="post perfil" data-curso="Enfermagem">
     
     <img src="Alice.jpg" alt="Alice">
 
@@ -1791,7 +1886,7 @@ footer {
 </div>
 
 <!--- NOVA POSTAGEM 18 -->
-<div class="post perfil">
+<div class="post perfil" data-curso="Psicologia">
     
     <img src="Halisom De Souza.jpg" alt="Halisom De Souza">
 
@@ -1911,6 +2006,88 @@ function abrirMenu(){
 
     menu.classList.toggle("active");
 
+}
+
+// BARRA DE PESQUISA
+function pesquisar() {
+    const texto = document.getElementById("campoPesquisa")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const perfis = document.querySelectorAll(".post.perfil");
+
+    let encontrou = false;
+
+    perfis.forEach(perfil => {
+        const conteudo = perfil.textContent.toLowerCase();
+
+        if (conteudo.includes(texto)) {
+            perfil.style.display = "";
+            encontrou = true;
+        } else {
+            perfil.style.display = "none";
+        }
+    });
+
+    // Mensagem quando nenhum perfil for encontrado
+    let mensagem = document.getElementById("mensagemPesquisa");
+
+    if (!mensagem) {
+        mensagem = document.createElement("p");
+        mensagem.id = "mensagemPesquisa";
+        mensagem.style.textAlign = "center";
+        mensagem.style.fontSize = "18px";
+        mensagem.style.margin = "30px";
+        
+        document.querySelector("#postagens").appendChild(mensagem);
+    }
+
+    if (texto !== "" && !encontrou) {
+        mensagem.textContent = "😕 Nenhum perfil encontrado. Tente outro nome, curso ou faculdade.";
+        mensagem.style.display = "block";
+    } else {
+        mensagem.style.display = "none";
+    }
+}
+
+// FILTRO DE CURSO
+function filtrarCurso(curso) {
+
+const cards = document.querySelectorAll("#postagens .post.perfil");
+let primeiroCard = null;
+
+cards.forEach(card => {
+
+    const cursoCard = card.getAttribute("data-curso");
+
+    if (cursoCard === curso) {
+
+        // Mostra o card do curso selecionado
+        card.style.display = "flex";
+
+        // Guarda o primeiro card encontrado
+        if (!primeiroCard) {
+            primeiroCard = card;
+        }
+
+    } else {
+
+        // Esconde os outros cursos
+        card.style.display = "none";
+    }
+});
+
+// Fecha o menu hambúrguer
+document.getElementById("menu").classList.remove("active");
+
+// Desce até o primeiro card encontrado
+if (primeiroCard) {
+    primeiroCard.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
 }
 
 // FECHAR AO CLICAR FORA
