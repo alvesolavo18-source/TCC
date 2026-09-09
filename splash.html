@@ -20,39 +20,58 @@ body{
     background:white;
 }
 
-img{
-    width:300px;
-    animation: aparecer 1.5s;
+.logo-container{
+    position:relative;
+    width:350px;
+    height:350px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
+.logo-container img{
+    width:300px;
+    animation: aparecer 1.5s ease-out; 
+}
+/* Efeito da logo aumentando */
 @keyframes aparecer{
-    from{
+    0%{
         opacity:0;
-        transform:scale(0.8);
+        transform:scale(0.5);
     }
-    to{
+
+    60%{
+        opacity:1;
+        transform:scale(1.08);
+    }
+
+    100%{
         opacity:1;
         transform:scale(1);
     }
 }
+
 </style>
 
 </head>
 
 <body>
 
-<img src="logo.png" alt="logo">
+    <div class="logo-container">
+        <img src="imagem/Logo Oficial.png" alt="logo">
+
+    </div>
 
 <script>
 
 if(sessionStorage.getItem("logoJaMostrada")){
-    window.location.href="trabalho.html";
+    window.location.href="index.html";
 }else{
 
     sessionStorage.setItem("logoJaMostrada","sim");
 
     setTimeout(function(){
-        window.location.href="trabalho.html";
+        window.location.href="index.html";
     },5000);
 
 }
