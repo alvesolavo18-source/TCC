@@ -71,6 +71,12 @@
     object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.galeria img:hover {
+    transform: scale(1.05);
 }
 
 #btnAudio {
@@ -86,6 +92,91 @@
 
 #btnAudio:hover {
     background: #005f8f;
+}
+
+.botao-voltar {
+    display: inline-block;
+    background-color: #4da6ff;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.botao-voltar:hover {
+    background-color: #287dcc;
+    transform: scale(1.05);
+}
+
+.visualizador {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.9);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.visualizador img {
+    max-width: 80%;
+    max-height: 85%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.fechar {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.seta {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+
+    border: none;
+    border-radius: 50%;
+
+    width: 55px;
+    height: 55px;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+.seta:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.esquerda {
+    left: 30px;
+}
+
+.direita {
+    right: 30px;
 }
  </style>    
     <title>Perfil</title>
@@ -118,7 +209,25 @@
 
 </div> <!-- fecha card-perfil -->
 
-<a href="trabalho.html">← Voltar ao Blog</a>
+<a href="index.html" class="botao-voltar"> Voltar ao Blog</a>
+
+
+<div id="visualizador" class="visualizador">
+
+    <span class="fechar" onclick="fecharImagem()">&times;</span>
+
+    <button class="seta esquerda" onclick="fotoAnterior()">
+        &#10094;
+    </button>
+
+    <img id="imagemAmpliada" src="" alt="Imagem ampliada">
+
+    <button class="seta direita" onclick="proximaFoto()">
+        &#10095;
+    </button>
+
+</div>
+
 
 <script>
 const params = new URLSearchParams(window.location.search);
@@ -135,10 +244,10 @@ if(usuario === "Joyce Inácio"){
 
     nome.innerHTML = "Joyce";
 
-    foto.src = "Joyce Inácio.jpg";
+    foto.src = "imagem/Joyce Inácio.jpg";
 
-    descricao.innerHTML =
-    "Joyce é apaixonada por tecnologia, design e educação digital.";
+    descricao.innerHTML ="..."
+    
    
     galeriaPerfil.innerHTML = `
         <h3>Registros da Faculdade</h3>
@@ -150,6 +259,7 @@ if(usuario === "Joyce Inácio"){
              <img src="/imagem/JI (4).jpg" alt="Registro da faculdade">
         </div>
     `;
+   
 
     relato.innerHTML =`
     <p>Joyce Bezerra, de 28 anos e residente em Hortolândia, graduou-se em Engenharia Civil pela Unimetrocamp há aproximadamente cinco anos. Sua escolha profissional foi fortemente influenciada por seu pai, cuja atuação na construção civil permitiu que ela convivesse com obras desde a infância, despertando um profundo interesse e paixão pelo segmento. A opção pela Unimetrocamp baseou-se no reconhecimento da instituição no mercado de trabalho e na qualificação de seu corpo docente, composto por profissionais com formação e experiência vinculadas à Unicamp, fatores que lhe transmitiram a segurança de receber um ensino de excelência. Seu ingresso ocorreu por meio do Programa Universidade para Todos (PROUNI), no qual obteve uma bolsa de estudos de 50%, resultando em uma mensalidade de R$ 1.500,00 na época. Quanto à logística desse período, as condições mantiveram-se independentes: embora o campus localizasse-se a uma hora de deslocamento por transporte coletivo, o trajeto era considerado viável, e a estudante supria as necessidades de alimentação levando seus próprios lanches.</p>
@@ -170,10 +280,10 @@ else if(usuario === "Julia costa"){
 
     nome.innerHTML = "Julia";
 
-    foto.src = "Julia costa.jpg";
+    foto.src = "imagem/Julia costa.jpg";
 
     descricao.innerHTML =
-    "Julia gosta de esportes, tecnologia e produção de conteúdo digital.";
+    "...";
 
     galeriaPerfil.innerHTML = `
         <h3>Registros da Faculdade</h3>
@@ -186,7 +296,7 @@ else if(usuario === "Julia costa"){
               <img src="/imagem/JC (5).jpg" alt="Registro da faculdade">
         </div>
     `;
-
+   
     relato.innerHTML =`<p>Julia Costa, de 21 anos e residente em Hortolândia-SP, cursa Psicologia no Centro Universitário Adventista de São Paulo (UNASP), campus Hortolândia. Sua escolha pelo curso foi motivada pela afinidade com as possibilidades de atuação que a profissão oferece, tendo o desejo inicial de seguir carreira na área criminal. A opção pelo UNASP baseou-se tanto na proximidade e no conforto em relação à sua residência quanto no fato de a instituição ser uma referência no ensino da Psicologia. Seu ingresso ocorreu de forma direta junto à instituição, complementado por uma bolsa de estudos de 10% obtida por meio de seu desempenho no Exame Nacional do Ensino Médio (ENEM), resultando atualmente em uma mensalidade de R$ 1.155,00.</p>
 
 <p>O período inicial de transição e adaptação na universidade apresentou desafios consideráveis, decorrentes da intensidade dos conteúdos programáticos das disciplinas. Somado a isso, pelo fato de não ter ingressado no ensino superior imediatamente após a conclusão do ensino médio, a estudante enfrentou dificuldades para se readequar à rotina regular de estudos. Contudo, esse cenário de desestabilização foi superado de maneira gradativa, com uma adaptação plena consolidada a partir do segundo semestre do curso.</p>
@@ -197,7 +307,7 @@ else if(usuario === "Julia costa"){
 
 <p>Como elemento de destaque sobre o curso no UNASP Hortolândia, aponta-se que a formação em Psicologia transcende o escopo do atendimento clínico tradicional. Ao longo da matriz curricular, os discentes são introduzidos a uma vasta gama de áreas de atuação, incluindo as vertentes escolar, organizacional, hospitalar, jurídica, esportiva e social, o que proporciona uma expansão significativa da visão profissional sobre a carreira.</p>
 
-<p>Sob a forma de recomendação aos estudantes, Julia enfatiza a importância de manter a assiduidade nos estudos para evitar o acúmulo de conteúdos programáticos. Adicionalmente, preconiza o engajamento proativo em todas as oportunidades extracurriculares disponibilizadas pela instituição, tais como palestras, projetos de extensão e atividades práticas. Tais vivências não apenas atuam no enriquecimento do currículo acadêmico, mas exercem papel fundamental no desenvolvimento de um senso crítico, ético e humano.</p>;`
+<p>Sob a forma de recomendação aos estudantes, Julia enfatiza a importância de manter a assiduidade nos estudos para evitar o acúmulo de conteúdos programáticos. Adicionalmente, preconiza o engajamento proativo em todas as oportunidades extracurriculares disponibilizadas pela instituição, tais como palestras, projetos de extensão e atividades práticas. Tais vivências não apenas atuam no enriquecimento do currículo acadêmico, mas exercem papel fundamental no desenvolvimento de um senso crítico, ético e humano.</p>`;
     
 
 perfil.style.background = "#e6f7ff"; 
@@ -208,10 +318,10 @@ else if(usuario === "Maria Andrade"){
 
     nome.innerHTML = "Maria";
 
-    foto.src = "Maria Andrade.jpg";
+    foto.src = "imagem/Maria Andrade.jpg";
 
     descricao.innerHTML =
-    "Maria trabalha com design gráfico e criação de interfaces modernas.";
+    "...";
 
     galeriaPerfil.innerHTML = ` 
         <h3>Registros da Faculdade</h3> 
@@ -221,9 +331,9 @@ else if(usuario === "Maria Andrade"){
             <img src="/imagem/MA (2).jpg" alt="Registro da faculdade">
             <img src="/imagem/MA (3).jpg" alt="Registro da faculdade">
            
-        </d>
+        </div>
             `;
-
+            
  relato.innerHTML =` <p>Maria Eduarda Andrade Rocha, 19 anos, natural de São João del-Rei, Minas Gerais, é estudante do curso de História – Licenciatura na Universidade Federal de São João del-Rei (UFSJ). Desde a infância, desenvolveu grande interesse pela História e pela compreensão dos processos que moldam a sociedade, despertando uma curiosidade constante sobre os acontecimentos históricos e seus impactos na formação das culturas e das relações humanas. Ao longo de sua trajetória escolar, esse interesse passou a caminhar lado a lado com a admiração pela área da educação, motivando-a a seguir a licenciatura e unir o desejo de ensinar à paixão pelo conhecimento histórico.</p>
 
 <p>A escolha pela UFSJ ocorreu devido ao reconhecimento da instituição, à qualidade de sua estrutura acadêmica e à diversidade da grade curricular oferecida pelo curso. Seu ingresso aconteceu por meio do Sistema de Seleção Unificada (SISU), utilizando a nota obtida no Exame Nacional do Ensino Médio (ENEM), o que lhe possibilitou conquistar uma vaga em uma universidade pública de grande prestígio.</p>
@@ -236,7 +346,7 @@ else if(usuario === "Maria Andrade"){
 
 <p>Maria Eduarda também ressalta a relevância da UFSJ no cenário acadêmico mineiro, destacando que a instituição possui três campi em São João del-Rei, além de unidades em outras cidades de Minas Gerais, como Divinópolis, oferecendo mais de vinte cursos de graduação e programas de intercâmbio amplamente reconhecidos, que ampliam as oportunidades de formação dos estudantes.</p>
 
-<p>Com base em sua experiência, acredita que a paciência é uma das principais virtudes para quem ingressa no ensino superior, especialmente para aqueles que fazem a transição direta do ensino médio para a universidade. Em sua visão, é natural encontrar dificuldades de adaptação diante de uma realidade completamente diferente, mas a persistência faz toda a diferença. Para ela, mesmo quando um curso não corresponde às expectativas iniciais, sempre existem novas possibilidades de recomeço. A vida acadêmica oferece inúmeras oportunidades de crescimento, e nunca é tarde para aprender, mudar de caminho e lutar pelos próprios objetivos. Sua trajetória demonstra que a formação universitária representa muito mais do que a obtenção de um diploma: é um processo de desenvolvimento pessoal, fortalecimento da autonomia e construção de uma visão crítica sobre a sociedade e o papel da educação na transformação social.</p>;`
+<p>Com base em sua experiência, acredita que a paciência é uma das principais virtudes para quem ingressa no ensino superior, especialmente para aqueles que fazem a transição direta do ensino médio para a universidade. Em sua visão, é natural encontrar dificuldades de adaptação diante de uma realidade completamente diferente, mas a persistência faz toda a diferença. Para ela, mesmo quando um curso não corresponde às expectativas iniciais, sempre existem novas possibilidades de recomeço. A vida acadêmica oferece inúmeras oportunidades de crescimento, e nunca é tarde para aprender, mudar de caminho e lutar pelos próprios objetivos. Sua trajetória demonstra que a formação universitária representa muito mais do que a obtenção de um diploma: é um processo de desenvolvimento pessoal, fortalecimento da autonomia e construção de uma visão crítica sobre a sociedade e o papel da educação na transformação social.</p>`;
 
 perfil.style.background = "#e6f7ff"; 
 perfil.style.color = "#003366"; 
@@ -247,11 +357,10 @@ else if(usuario === "Maryana Freschi"){
 
 nome.innerHTML = "Maryana";
 
-foto.src = "Maryana Freschi.jpg";
+foto.src = "imagem/Maryana Freschi.jpg";
 
 descricao.innerHTML =
-"Maryana é desenvolvedor web e gosta de criar projetos inovadores.";
-
+"..."
 galeriaPerfil.innerHTML = ` 
         <h3>Registros da Faculdade</h3> 
 
@@ -261,9 +370,9 @@ galeriaPerfil.innerHTML = `
             <img src="/imagem/MF (3).jpg" alt="Registro da faculdade">
             <img src="/imagem/MF (4).jpg" alt="Registro da faculdade">
            
-        </d>
+        </div>
             `;
-
+           
  relato.innerHTML =` <p>Maryana Freschi, 22 anos, residente em Hortolândia (SP), é estudante de Medicina Veterinária na Faculdade Anhanguera – Unidade Taquaral, em Campinas. A escolha pela profissão sempre esteve presente em sua vida, sendo seu único objetivo desde a infância. Movida pelo amor aos animais e pelo desejo de atuar em sua saúde e bem-estar, encontrou na Medicina Veterinária a oportunidade de transformar essa paixão em carreira. A instituição foi escolhida por indicação de amigos e também pela experiência positiva de seu pai, que realizou uma pós-graduação na mesma faculdade, fatores que lhe transmitiram confiança na qualidade do ensino oferecido.</p>
 
 <p>Seu ingresso no curso ocorreu por meio da nota obtida no Exame Nacional do Ensino Médio (ENEM), que lhe garantiu uma bolsa de 70%. Apesar do benefício, o investimento na graduação continua elevado, com mensalidades superiores a R$ 2.000,00, valor que aumenta progressivamente ao longo do curso.</p>
@@ -274,7 +383,7 @@ galeriaPerfil.innerHTML = `
 
 <p>Em sua avaliação, a instituição apresenta diversos pontos positivos, como a qualidade do corpo docente, do ensino e da coordenação do curso, aspectos que contribuem significativamente para sua formação. Entretanto, destaca que ainda existem melhorias necessárias na infraestrutura da faculdade, especialmente em relação à manutenção de salas, mobiliário e banheiros, investimentos que considera importantes para proporcionar melhores condições aos estudantes.</p>
 
-<p>Ao longo da graduação, também descobriu curiosidades interessantes sobre a profissão, como o fato de os cavalos não vomitarem e não possuírem vesícula biliar, evidenciando a diversidade de conhecimentos proporcionados pelo curso. Com base em sua experiência, acredita que a melhor orientação para quem ingressa no ensino superior é aproveitar cada oportunidade de aprendizado. Para ela, o conhecimento adquirido durante a graduação é um patrimônio permanente, e o tempo na universidade passa rapidamente, tornando essencial vivenciar intensamente cada etapa da formação acadêmica.</p>;`
+<p>Ao longo da graduação, também descobriu curiosidades interessantes sobre a profissão, como o fato de os cavalos não vomitarem e não possuírem vesícula biliar, evidenciando a diversidade de conhecimentos proporcionados pelo curso. Com base em sua experiência, acredita que a melhor orientação para quem ingressa no ensino superior é aproveitar cada oportunidade de aprendizado. Para ela, o conhecimento adquirido durante a graduação é um patrimônio permanente, e o tempo na universidade passa rapidamente, tornando essencial vivenciar intensamente cada etapa da formação acadêmica.</p>`;
    
 
 perfil.style.background = "#e6f7ff"; 
@@ -286,10 +395,10 @@ else if(usuario === "Raquel Rodrigues"){
 
 nome.innerHTML = "Raquel";
 
-foto.src = "Raquel Rodrigues.jpg";
+foto.src = "imagem/Raquel Rodrigues.jpg";
 
 descricao.innerHTML =
-"Raquel é apaixonada por marketing digital e criação de conteúdo.";
+"...";
 
 galeriaPerfil.innerHTML = ` 
         <h3>Registros da Faculdade</h3> 
@@ -302,6 +411,7 @@ galeriaPerfil.innerHTML = `
             <img src="/imagem/RR (5).jpg" alt="Registro da faculdade">
         </div> 
     `;
+    
  relato.innerHTML =` <p>Raquel Rodrigues, 23 anos, residente em Hortolândia (SP), é formada em Direito pelo Centro Universitário Adventista de São Paulo (UNASP), campus Hortolândia. A escolha pelo curso foi motivada pelo interesse em compreender o funcionamento das leis e a importância dos direitos na vida das pessoas. Quanto à instituição de ensino, optou pelo UNASP principalmente pela proximidade com sua residência, fator que facilitou sua rotina acadêmica ao longo da graduação.</p>
 
 <p>Seu ingresso na universidade ocorreu por meio do vestibular da própria instituição, composto por uma prova de redação. O desempenho no processo seletivo garantiu um desconto de 15% na mensalidade. Durante o curso, os valores sofreram reajustes semestrais, passando de aproximadamente R$ 495,00 no início da graduação para cerca de R$ 1.200,00 ao final do curso.</p>
@@ -323,7 +433,7 @@ galeriaPerfil.innerHTML = `
 <p>Como curiosidade, destaca que o curso de Direito vai muito além do estudo das leis. A formação envolve áreas como História, Filosofia e Psicologia Jurídica, proporcionando uma compreensão mais ampla da sociedade, de sua evolução e das necessidades humanas que fundamentam a criação e a aplicação das normas jurídicas.</p>
 
 <p>Com base em sua trajetória, Raquel aconselha os futuros universitários a aproveitarem todas as oportunidades oferecidas pela graduação. Em sua visão, participar de oficinas científicas, apresentações de trabalhos, projetos acadêmicos e atividades extracurriculares é essencial para uma formação mais completa. Além disso, ressalta a importância de encarar a faculdade com responsabilidade e dedicação, pois a qualidade da formação refletirá diretamente na confiança que as pessoas depositarão no profissional ao longo de sua carreira.</p>
-;`
+`;
     
 
 perfil.style.background = "#e6f7ff"; 
@@ -336,10 +446,10 @@ else if(usuario === "Stefany Morais"){
 
 nome.innerHTML = "Stefany";
 
-foto.src = "Stefany Morais.jpg";
+foto.src = "imagem/Stefany Morais.jpg";
 
 descricao.innerHTML =
-"Stefany é apaixonada por marketing digital e criação de conteúdo.";
+"...";
 
 galeriaPerfil.innerHTML = ` 
         <h3>Registros da Faculdade</h3> 
@@ -351,7 +461,7 @@ galeriaPerfil.innerHTML = `
             <img src="/imagem/SM (4).jpg" alt="Registro da faculdade">
         </div> 
     `;
-
+   
  relato.innerHTML =` <p>Stefany Morais de Oliveira, de 27 anos e residente em Hortolândia/SP, possui uma trajetória consolidada e multifacetada na área da saúde. Motivada desde a infância pelo desejo de atuar nesse segmento, realizou inicialmente um curso técnico em Enfermagem antes de ingressar no ensino superior. Essa experiência prévia foi fundamental para confirmar sua identificação com a profissão e fortalecer sua decisão de seguir carreira na área. Posteriormente, com base na nota obtida no Exame Nacional do Ensino Médio (ENEM), ingressou na Faculdade Anhanguera por meio do Programa Universidade para Todos (PROUNI), sendo contemplada com uma bolsa integral de 100%, oportunidade indispensável para a concretização de seu objetivo de se tornar enfermeira. O PROUNI mostrou-se o pilar central de sua jornada, garantindo não apenas o acesso, mas a permanência e a conclusão do curso, mesmo quando Stefany precisou mudar de cidade por motivos profissionais, realizando a transferência de campus e o posterior retorno à unidade de origem sem sofrer prejuízos pedagógicos.</p>
 
 <p>No que tange à transição para o ensino superior, a estudante não enfrentou grandes dificuldades de adaptação pedagógica, uma vez que já mantinha uma rotina diária de aprendizagem. Contudo, o principal desafio residiu na conciliação das atividades profissionais com as demandas acadêmicas, visto que a graduação exige maior dedicação, autonomia e responsabilidade em comparação ao ensino médio. Somando-se a isso, a trajetória foi marcada pela necessidade de adaptação ao ensino remoto (EAD) a partir do segundo semestre, devido à pandemia da COVID-19, com o retorno ao modelo presencial ocorrendo apenas no sétimo semestre. Na visão da estudante, o formato digital apresentou maior complexidade por exigir extrema disciplina e organização do aluno. Diante das especificidades da área da saúde, Stefany preconiza a importância do modelo presencial devido à necessidade do contato direto com o corpo docente, pacientes e cenários práticos para a consolidação segura das competências profissionais.</p>
@@ -362,7 +472,7 @@ galeriaPerfil.innerHTML = `
 
 <p>O estágio curricular obrigatório, realizado no último ano da graduação na Faculdade Anhanguera, foi estruturado pela própria instituição através do encaminhamento dos alunos a campos conveniados e sob supervisão direta. As práticas ocorreram no município de Campinas em regime de rodízio por diferentes setores da assistência à saúde, abrangendo instituições como o Hospital Municipal Dr. Mário Gatti, o Complexo Hospitalar Prefeito Edivaldo Orsi, a Unidade Pediátrica Mário Gattinho e Centros de Saúde vinculados à Prefeitura Municipal. Essa vivência em serviços públicos voltados ao Sistema Único de Saúde (SUS) proporcionou experiências altamente positivas. Como reflexão sobre o processo, aponta-se que a inclusão de estágios em instituições privadas enriqueceria ainda mais a formação ao apresentar diferentes modelos de gestão e assistência, embora a ausência dessa vertente não tenha comprometido o aprendizado geral.</p>
 
-<p>Em suma, a experiência acadêmica global foi classificada como muito satisfatória, consolidando o entendimento de Stefany sobre a Enfermagem como uma carreira ampla, que abrange desde a gestão até o cuidado em momentos marcantes da vida, preparando-a solidamente com competências de liderança, pensamento crítico e trabalho em equipe para os desafios do mercado de trabalho.</p>;`
+<p>Em suma, a experiência acadêmica global foi classificada como muito satisfatória, consolidando o entendimento de Stefany sobre a Enfermagem como uma carreira ampla, que abrange desde a gestão até o cuidado em momentos marcantes da vida, preparando-a solidamente com competências de liderança, pensamento crítico e trabalho em equipe para os desafios do mercado de trabalho.</p>`;
     
 
 perfil.style.background = "#e6f7ff"; 
@@ -375,7 +485,7 @@ else if(usuario === "Davi Nelson"){
 
 nome.innerHTML = "Davi";
 
-foto.src = "Davi Nelson.jpg";
+foto.src = "imagem/Davi Nelson.jpg";
 
 descricao.innerHTML = "Davi é estudante de Ciências Sociais na UNESP.";
 
@@ -401,7 +511,7 @@ Como curiosidade, destaca a relevância da UNESP no cenário científico naciona
 
 <p>
 Com base em sua experiência, Davi acredita que a formação universitária vai além da aquisição de conhecimentos técnicos, representando uma oportunidade de desenvolver pensamento crítico, autonomia e organização. Sua trajetória evidencia a importância da curiosidade intelectual, da disciplina e do comprometimento como elementos essenciais para aproveitar plenamente a experiência acadêmica e construir uma formação sólida e significativa.
-</p>;`
+</p>`;
 
 perfil.style.background = "#e6f7ff"; 
 perfil.style.color = "#003366"; 
@@ -411,7 +521,7 @@ perfil.style.textAlign = "left";
 
 else if(usuario === "Diego Santos"){
     nome.innerHTML = "Diego Santos";
-    foto.src = "Diego Santos.jpg";
+    foto.src = "imagem/Diego Santos.jpg";
     descricao.innerHTML = "...";
     relato.innerHTML = `<p>Diego Santos, 32 anos, residente em Vinhedo (SP), é formado em Engenharia da Computação pela Faculdade Metrocamp, em Campinas. A escolha pelo curso foi motivada pelo interesse na área de tecnologia, enquanto a instituição foi selecionada devido à sua boa reputação e reconhecimento na formação de profissionais da área.</p>
 
@@ -438,7 +548,7 @@ perfil.style.textAlign = "left";
 
 else if(usuario === "Maria Eduarda"){
     nome.innerHTML = "Maria Eduarda";
-    foto.src = "Maria Eduarda.jpg";
+    foto.src = "imagem/Maria Eduarda.jpg";
     descricao.innerHTML = "...";
 
     galeriaPerfil.innerHTML = ` 
@@ -452,7 +562,7 @@ else if(usuario === "Maria Eduarda"){
             <img src="/imagem/ME (5).jpg" alt="Registro da faculdade">
         </div> 
     `;
-
+    
     relato.innerHTML = `<p>Maria Eduarda da Silva, 18 anos, residente em Monte Mor (SP), é estudante do curso de Psicologia na Pontifícia Universidade Católica de Campinas (PUC-Campinas). Sua escolha pela graduação foi motivada pelo interesse em compreender o comportamento humano e pela afinidade com o contato e a troca de experiências entre as pessoas. Desde cedo, demonstrava o desejo de trabalhar diretamente com indivíduos, buscando entender melhor a mente humana, as emoções e a subjetividade de cada pessoa. Embora inicialmente tenha considerado cursar Medicina, ao longo do tempo percebeu que sua verdadeira vocação estava na área da saúde mental. A influência de uma familiar formada em Psicologia pela própria PUC-Campinas também contribuiu para que conhecesse mais profundamente a profissão e fortalecesse sua decisão. Além disso, sempre reconheceu a universidade como uma referência na formação de psicólogos, o que a motivou a dedicar-se para conquistar uma vaga na instituição.</p>
 
 <p>Seu ingresso na PUC-Campinas ocorreu por meio do Programa Universidade para Todos (ProUni), conquistando uma bolsa integral de 100% com a nota obtida no Exame Nacional do Ensino Médio (ENEM). A bolsa tornou possível a realização de seu projeto acadêmico, uma vez que o alto custo da mensalidade inviabilizaria seu ingresso sem esse benefício.</p>
@@ -490,7 +600,7 @@ perfil.style.textAlign = "left";
 
 else if(usuario === "Queite Neves"){
     nome.innerHTML = "Queite Neves";
-    foto.src = "Queite Neves.jpg";
+    foto.src = "imagem/Queite Neves.jpg";
     descricao.innerHTML = "...";
     relato.innerHTML = `<p>Queite Neves, 36 anos, residente em Hortolândia (SP), iniciou sua trajetória acadêmica no curso de Gestão de Recursos Humanos pela Faculdade Anhanguera Educacional II. A escolha pela graduação aconteceu após uma experiência marcante ainda no ensino médio, quando realizou um estágio na Secretaria da Fazenda do Estado de São Paulo, na área de Recursos Humanos. A vivência despertou seu interesse pela área de gestão de pessoas e a motivou a buscar uma formação superior que possibilitasse crescimento profissional e novas oportunidades.</p>
 
@@ -521,9 +631,28 @@ perfil.style.textAlign = "left";
 
 else if(usuario === "Alice"){
     nome.innerHTML = "Alice";
-    foto.src = "Alice.jpg";
+    foto.src = "imagem/Alice.jpg";
     descricao.innerHTML = "...";
-    relato.innerHTML = `...`;
+    relato.innerHTML = `<p>Alice Bettio, 23 anos, residente no Jardim Amanda 2, em Hortolândia (SP), é formanda em <strong>Enfermagem pela Faculdade Anhanguera</strong>. A escolha pela profissão está relacionada ao seu interesse pelo cuidado e pelo contato direto com as pessoas. Desde a infância, já se identificava com a área e sentia que a Enfermagem poderia representar sua vocação, especialmente pela possibilidade de acolher, cuidar e contribuir diretamente para o bem-estar de outras pessoas.</p>
+
+<p>Seu ingresso na graduação ocorreu por meio de um vestibular composto por uma redação, processo pelo qual conquistou uma <strong>bolsa de 80%</strong>. A oportunidade possibilitou sua formação acadêmica e contribuiu para que pudesse seguir o caminho profissional que desejava.</p>
+
+<p>O processo de adaptação à faculdade foi considerado tranquilo. Alice procurou respeitar seu próprio ritmo de aprendizagem, mantendo o interesse e a curiosidade diante dos conteúdos e das diferentes experiências proporcionadas pela graduação. Essa postura contribuiu para que enfrentasse as etapas do curso de maneira positiva e aproveitasse melhor sua formação.</p>
+
+<p>Durante a graduação, conciliou os estudos com a atividade profissional de <strong>cuidadora de idosos</strong>, experiência que manteve uma relação direta com sua formação em Enfermagem. Para conseguir se manter durante o curso, precisou conciliar a rotina acadêmica com muitos plantões, demonstrando dedicação e esforço para administrar as responsabilidades profissionais e universitárias.</p>
+
+<p>A etapa de estágio também foi bastante intensa. Como os estágios eram realizados em outra cidade, Alice precisou lidar com uma rotina corrida e com os deslocamentos, tornando esse período desafiador. Apesar disso, considera que a experiência foi importante para sua formação e afirma ter se surpreendido positivamente com as oportunidades que surgiram durante sua inserção no mercado de trabalho.</p>
+
+<p>Atualmente, atua como <strong>Responsável Técnica (RT) de uma Instituição de Longa Permanência para Idosos (ILPI)</strong>, função que representa um importante passo em sua trajetória profissional e demonstra a relação entre sua experiência como cuidadora, sua formação em Enfermagem e sua atuação na área de cuidados à pessoa idosa.</p>
+
+<p>Em relação às avaliações acadêmicas, Alice considera que o nível de dificuldade variava de acordo com a disciplina. Algumas matérias apresentavam conteúdos mais fáceis de compreender, enquanto outras exigiam maior dedicação e um período mais prolongado de estudo. Além das disciplinas tradicionais, a graduação também contou com atividades práticas e complementares, como o <strong>trabalho de extensão</strong>, componente obrigatório que contribuiu para aproximar o conhecimento acadêmico da realidade social e profissional.</p>
+
+<p>Quanto aos benefícios oferecidos pela instituição, acredita que existiam algumas possibilidades, embora não tenha utilizado nenhuma delas durante sua graduação. Da mesma forma, não precisou recorrer a benefícios relacionados à moradia ou alimentação, e destaca que sua graduação não possuía regime de internato, o que tornou esses aspectos mais tranquilos durante sua trajetória acadêmica.</p>
+
+<p>Ao refletir sobre sua experiência universitária, Alice destaca que uma das principais descobertas foi perceber a quantidade de possibilidades profissionais existentes após a formação. Para ela, a Enfermagem oferece caminhos muito diversos, permitindo que o profissional encontre diferentes áreas de atuação dentro da própria profissão.</p>
+
+<p>Como conselho aos estudantes, recomenda <strong>não ter medo do processo e aproveitar cada etapa da graduação</strong>. Em sua visão, é importante valorizar as experiências adquiridas durante o curso, pois muitas oportunidades podem surgir depois da formação e nem sempre são percebidas no início da trajetória. Sua experiência demonstra que dedicação, persistência e abertura para novas possibilidades podem transformar a graduação em uma etapa fundamental para a construção de uma carreira profissional sólida.</p>
+`;
 
     perfil.style.background = "#e6f7ff"; 
 perfil.style.color = "#003366"; 
@@ -533,7 +662,7 @@ perfil.style.textAlign = "left";
 
 else if(usuario === "Rafaela Gomes"){
     nome.innerHTML = "Rafaela";
-    foto.src = "Rafaela Gomes.jpg";
+    foto.src = "imagem/Rafaela Gomes.jpg";
     descricao.innerHTML = "...";
     relato.innerHTML = `<p>
 Rafaela Gomes dos Santos, 19 anos, residente em Hortolândia (SP), é estudante de Engenharia Mecânica na Facamp. A escolha pelo curso foi motivada por seu interesse pelo setor automobilístico, área com a qual sempre se identificou e que despertou seu desejo de seguir carreira na engenharia. Quanto à instituição de ensino, optou pela Facamp devido à sua reconhecida qualidade acadêmica e ao alto índice de empregabilidade de seus egressos, fatores que reforçaram sua confiança na formação oferecida.
@@ -570,7 +699,7 @@ Com base em sua vivência, Rafaela considera que a formação universitária rep
             <img src="/imagem/RG (5).jpg" alt="Registro da faculdade">
         </div> 
     `;
-
+    prepararGaleria();
     perfil.style.background = "#e6f7ff"; 
 perfil.style.color = "#003366"; 
 perfil.style.textAlign = "left"; 
@@ -579,7 +708,7 @@ perfil.style.textAlign = "left";
 
 else if(usuario === "Maria Eduarda Albuquerque"){
     nome.innerHTML = "Maria Albuquerque";
-    foto.src = "Maria Eduarda Albuquerque.jpg";
+    foto.src = "imagem/Maria Eduarda Albuquerque.jpg";
     descricao.innerHTML = "...";
     galeriaPerfil.innerHTML = `
         <h3>Registros da Faculdade</h3>
@@ -590,7 +719,8 @@ else if(usuario === "Maria Eduarda Albuquerque"){
             <img src="/imagem/albu 4.jpg" alt="Registro da faculdade">
         </div>
     `;
-    relato.innerHTML = `<p>Maria Eduarda de Albuquerque, 19 anos, residente em Hortolândia (SP), é estudante do curso de **Administração** no Centro Universitário Adventista de São Paulo (UNASP). Embora Administração não tenha sido sua primeira opção de graduação, a escolha pelo curso ocorreu principalmente pela amplitude da área e pela diversidade de possibilidades profissionais que ela oferece. Além disso, optou pelo UNASP por considerar a instituição de qualidade, tanto pela estrutura quanto pelo apoio oferecido pelos professores, que demonstram disponibilidade e atenção aos estudantes.</p>
+    prepararGaleria();
+    relato.innerHTML = `<p>Maria Eduarda de Albuquerque, 19 anos, residente em Hortolândia (SP), é estudante do curso de Administração no Centro Universitário Adventista de São Paulo (UNASP). Embora Administração não tenha sido sua primeira opção de graduação, a escolha pelo curso ocorreu principalmente pela amplitude da área e pela diversidade de possibilidades profissionais que ela oferece. Além disso, optou pelo UNASP por considerar a instituição de qualidade, tanto pela estrutura quanto pelo apoio oferecido pelos professores, que demonstram disponibilidade e atenção aos estudantes.</p>
 <p>A escolha da instituição também esteve relacionada à localização. Inicialmente, Maria Eduarda avaliou outras faculdades, porém muitas delas estavam situadas em Campinas, o que dificultaria sua rotina devido aos horários das aulas e ao deslocamento. Dessa forma, a proximidade do UNASP tornou-se um fator importante para conciliar os estudos com as demais responsabilidades do dia a dia. Atualmente, a estudante paga aproximadamente R$ 1.000,00 de mensalidade, contando com um desconto obtido por meio de seu desempenho no ENEM.</p>
 <p>O início da graduação foi marcado por um período de adaptação. Por ser uma experiência nova e pela grande quantidade de estudantes que ingressaram simultaneamente, os primeiros momentos apresentaram algumas dificuldades. Entretanto, a instituição proporcionou um processo de acolhimento positivo, oferecendo suporte aos alunos durante as diferentes etapas de integração ao ambiente universitário. Esse apoio contribuiu para que Maria Eduarda se sentisse mais segura e conseguisse se adaptar à nova rotina acadêmica.</p>
 <p>Atualmente, demonstra estar bastante satisfeita com o curso de Administração, principalmente pela amplitude de conhecimentos e pelas diversas possibilidades de atuação profissional. A graduação permite trabalhar em áreas como Recursos Humanos, finanças, marketing, vendas, logística, gestão e empreendedorismo. Essa variedade proporciona maior flexibilidade para construir uma carreira, permitindo que o profissional explore diferentes setores e encontre áreas com as quais tenha maior identificação.</p>
@@ -608,9 +738,9 @@ perfil.style.textAlign = "left";
 
 else if(usuario === "Halisom De Souza"){
     nome.innerHTML = "Halisom De Souza Casemiro";
-    foto.src = "Halisom De Souza.jpg";
+    foto.src = "imagem/Halisom De Souza.jpg";
     descricao.innerHTML = "...";
-    relato.innerHTML = `<p>Halisom De Souza Casemiro, 24 anos, residente em Hortolândia (SP), é estudante do 5º semestre do curso de **Psicologia** na Faculdade Anhanguera FAC 3, localizada no Taquaral, em Campinas. A escolha pela Psicologia está relacionada à sua própria trajetória de vida e ao desejo de compreender melhor as questões relacionadas à saúde mental. Sua experiência pessoal com a depressão despertou uma sensibilidade especial para compreender as dificuldades enfrentadas por pessoas que passam por momentos de sofrimento emocional. A partir dessa vivência, encontrou na Psicologia uma oportunidade de adquirir conhecimento e, com base em sua fé, utilizar sua formação para contribuir com a vida e o bem-estar de outras pessoas.</p>
+    relato.innerHTML = `<p>Halisom De Souza Casemiro, 24 anos, residente em Hortolândia (SP), é estudante do 5º semestre do curso de Psicologia na Faculdade Anhanguera FAC 3, localizada no Taquaral, em Campinas. A escolha pela Psicologia está relacionada à sua própria trajetória de vida e ao desejo de compreender melhor as questões relacionadas à saúde mental. Sua experiência pessoal com a depressão despertou uma sensibilidade especial para compreender as dificuldades enfrentadas por pessoas que passam por momentos de sofrimento emocional. A partir dessa vivência, encontrou na Psicologia uma oportunidade de adquirir conhecimento e, com base em sua fé, utilizar sua formação para contribuir com a vida e o bem-estar de outras pessoas.</p>
 
 <p>Seu ingresso no ensino superior ocorreu em 2024, após um período de intensa reflexão e oração em busca de uma direção para sua vida acadêmica e profissional. Poucos dias depois, ao chegar à empresa Arcor do Brasil, em Campinas, teve contato com uma funcionária chamada Leticia, que estava com um panfleto apresentando diferentes opções de cursos. Ao observar as opções relacionadas à área da saúde, identificou-se imediatamente com Psicologia. Posteriormente, ao perceber que havia na empresa uma equipe de consultores que também possuía contato com a instituição, decidiu iniciar sua matrícula. Essa sequência de acontecimentos foi determinante para sua escolha e marcou o início de sua trajetória universitária.</p>
 
@@ -629,6 +759,9 @@ perfil.style.color = "#003366";
 perfil.style.textAlign = "left"; 
 
 }
+
+
+
 
 
 
@@ -681,6 +814,84 @@ fala.onend = function() {
 
 speechSynthesis.speak(fala);
 }
+
+
+
+// ===============================
+// GALERIA DE FOTOS
+// ===============================
+
+let fotosGaleria = [];
+let fotoAtual = 0;
+
+function prepararGaleria() {
+
+    // Pega somente as fotos da galeria do perfil atual
+    const imagens = document.querySelectorAll("#galeria-perfil .galeria img");
+
+    fotosGaleria = [];
+
+    imagens.forEach(function(imagem, indice) {
+
+        fotosGaleria.push(imagem.src);
+
+        imagem.onclick = function() {
+            abrirImagem(indice);
+        };
+
+    });
+}
+
+function abrirImagem(indice) {
+
+    fotoAtual = indice;
+
+    document.getElementById("visualizador").style.display = "flex";
+
+    document.getElementById("imagemAmpliada").src =
+        fotosGaleria[fotoAtual];
+}
+
+function fecharImagem() {
+
+    document.getElementById("visualizador").style.display = "none";
+
+}
+
+function proximaFoto() {
+
+    if (fotosGaleria.length === 0) {
+        return;
+    }
+
+    fotoAtual++;
+
+    if (fotoAtual >= fotosGaleria.length) {
+        fotoAtual = 0;
+    }
+
+    document.getElementById("imagemAmpliada").src =
+        fotosGaleria[fotoAtual];
+}
+
+function fotoAnterior() {
+
+    if (fotosGaleria.length === 0) {
+        return;
+    }
+
+    fotoAtual--;
+
+    if (fotoAtual < 0) {
+        fotoAtual = fotosGaleria.length - 1;
+    }
+
+    document.getElementById("imagemAmpliada").src =
+        fotosGaleria[fotoAtual];
+}
+
+// Prepara as fotos do usuário atual
+prepararGaleria();
 </script>
 
 </body>
