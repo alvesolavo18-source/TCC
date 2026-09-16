@@ -1901,7 +1901,79 @@ footer {
             Ele destaca o apoio da faculdade e das amizades durante sua formação.
         </p>
 
-    
+        <script>
+
+            function abrirFormulario() {
+            
+                document.getElementById("formularioPerfil").style.display = "flex";
+                
+                }
+                
+                // FECHAR FORMULÁRIO
+                function fecharFormulario() {
+                
+                document.getElementById("formularioPerfil").style.display = "none";
+                
+                }
+                
+                // ADICIONAR PERFIL
+                function adicionarPerfil() {
+                
+                let nome = document.getElementById("nomePerfil").value;
+                let relato = document.getElementById("relatoPerfil").value;
+                let foto = document.getElementById("fotoPerfil").files[0];
+                
+                if (nome === "" || relato === "" || !foto) {
+                
+                    alert("Preencha o nome, escolha uma foto e escreva seu relato.");
+                
+                    return;
+                }
+                
+                let leitor = new FileReader();
+                
+                leitor.onload = function(event) {
+                
+                    let novoPerfil = document.createElement("div");
+                
+                    novoPerfil.className = "post perfil";
+                
+                    novoPerfil.innerHTML = `
+                        <img src="${event.target.result}" alt="${nome}">
+                
+                        <div class="content">
+                
+                            <h3>${nome}</h3>
+                
+                            <p>
+                                ${relato}
+                            </p>
+                
+                            <div class="container-botoes">
+                
+                                <button class="botao-curtir" onclick="curtir(this)">
+                                    👍 Curtir
+                                </button>
+                
+                            </div>
+                
+                        </div>
+                    `;
+                
+                    document.getElementById("postagens").appendChild(novoPerfil);
+                
+                    fecharFormulario();
+                
+                    document.getElementById("nomePerfil").value = "";
+                    document.getElementById("relatoPerfil").value = "";
+                    document.getElementById("fotoPerfil").value = "";
+                
+                };
+                
+                leitor.readAsDataURL(foto);
+                }
+            
+                </script>
 
         <style>
             .botao-voltar {
@@ -2113,31 +2185,34 @@ function abrirPerfil(nome){
 
 
 <!-- Seção Sobre o Blog Perfeita e Direta -->
-<section id="Sobre" class="nossa-historia">
+<section id="Sobre" class="nossa-historia" style="display: flex; justify-content: center; padding: 40px 20px;">
+    
+    <!-- CONTAINER COM BORDA (SEM FUNDO BRANCO) -->
+    <div style="max-width: 800px; padding: 35px; border-radius: 16px; border: 2px solid #b0c4de; text-align: center;">
+        
+        <!-- TÍTULO DO CARD -->
+        <h2 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #2d3748; font-size: 28px; margin-bottom: 25px; font-weight: 700; letter-spacing: -0.5px;">
+            Nossa História
+        </h2>
+        
+        <!-- TEXTOS -->
+        <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #4a5568; line-height: 1.7; font-size: 16px; margin-bottom: 18px; text-align: justify;">
+            O Blog Interativo foi criado com o objetivo de compartilhar experiências, histórias e informações de uma maneira simples, interativa e acessível para todos.
+        </p>
+        
+        <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #4a5568; line-height: 1.7; font-size: 16px; margin-bottom: 18px; text-align: justify;">
+            A ideia surgiu a partir da vontade de criar um espaço onde os usuários pudessem conhecer differentes histórias e também participar do conteúdo do site.
+        </p>
+        
+        <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #4a5568; line-height: 1.7; font-size: 16px; margin-bottom: 18px; text-align: justify;">
+            Durante o desenvolvimento, buscamos melhorar o visual, a organização e a interação com os usuários, criando uma experiência mais agradável.
+        </p>
+        
+        <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #4a5568; line-height: 1.7; font-size: 16px; margin-bottom: 0; text-align: justify;">
+            Este projeto continua sendo desenvolvido e pode receber novas funcionalidades no futuro.
+        </p>
 
-    <h2>Nossa História</h2>
-
-    <p>
-        O Blog Interativo foi criado com o objetivo de compartilhar
-        experiências, histórias e informações de uma maneira simples,
-        interativa e acessível para todos.
-    </p>
-
-    <p>
-        A ideia surgiu a partir da vontade de criar um espaço onde os
-        usuários pudessem conhecer diferentes histórias e também participar
-        do conteúdo do site.
-    </p>
-
-    <p>
-        Durante o desenvolvimento, buscamos melhorar o visual, a organização
-        e a interação com os usuários, criando uma experiência mais agradável.
-    </p>
-
-    <p>
-        Este projeto continua sendo desenvolvido e pode receber novas
-        funcionalidades no futuro.
-    </p>
+    </div>
 
 </section>
 
@@ -2315,86 +2390,31 @@ document.getElementById("campoPesquisa").addEventListener("keypress", function(e
 });
     </script>
 
-    <script>
-
-// ABRIR FORMULÁRIO
-function abrirFormulario() {
-
-document.getElementById("formularioPerfil").style.display = "flex";
-
-}
-
-// FECHAR FORMULÁRIO
-function fecharFormulario() {
-
-document.getElementById("formularioPerfil").style.display = "none";
-
-}
-
-// ADICIONAR PERFIL
-function adicionarPerfil() {
-
-let nome = document.getElementById("nomePerfil").value;
-let relato = document.getElementById("relatoPerfil").value;
-let foto = document.getElementById("fotoPerfil").files[0];
-
-if (nome === "" || relato === "" || !foto) {
-
-    alert("Preencha o nome, escolha uma foto e escreva seu relato.");
-
-    return;
-}
-
-let leitor = new FileReader();
-
-leitor.onload = function(event) {
-
-    let novoPerfil = document.createElement("div");
-
-    novoPerfil.className = "post perfil";
-
-    novoPerfil.innerHTML = `
-        <img src="${event.target.result}" alt="${nome}">
-
-        <div class="content">
-
-            <h3>${nome}</h3>
-
-            <p>
-                ${relato}
-            </p>
-
-            <div class="container-botoes">
-
-                <button class="botao-curtir" onclick="curtir(this)">
-                    👍 Curtir
-                </button>
-
-            </div>
-
-        </div>
-    `;
-
-    document.getElementById("postagens").appendChild(novoPerfil);
-
-    fecharFormulario();
-
-    document.getElementById("nomePerfil").value = "";
-    document.getElementById("relatoPerfil").value = "";
-    document.getElementById("fotoPerfil").value = "";
-
-};
-
-leitor.readAsDataURL(foto);
-}
-
-    </script>
-
 <div style="display: flex; justify-content: center; gap: 15px; margin: 20px 0;">
-    <img src="/imagem/MF.jpg" alt="Foto 1" style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
-    <img src="/imagem/MF (3).jpg" alt="Foto 2" style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
-    <img src="/imagem/MF (4).jpg" alt="Foto 3" style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
-    <img src="/imagem/RG.jpg" alt="Foto 4" style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
+    
+    <!-- Foto 1 e Nome -->
+    <div style="text-align: center;">
+        <img src="imagem/MF.Jpg" alt="Foto 1" style="width: 220px; height: 220px; object-fit: cover; border-radius: 8px;">
+        <p style="margin-top: 5px; font-weight: bold; color: rgb(0, 0, 0);">Nome 1</p>
+    </div>
+
+    <!-- Foto 2 e Nome -->
+    <div style="text-align: center;">
+        <img src="imagem/MF (3).Jpg" alt="Foto 2" style="width: 220px; height: 220px; object-fit: cover; border-radius: 8px;">
+        <p style="margin-top: 5px; font-weight: bold; color: rgb(0, 0, 0);">Nome 2</p>
+    </div>
+
+    <!-- Foto 3 e Nome -->
+    <div style="text-align: center;">
+        <img src="imagem/MF (4).Jpg" alt="Foto 3" style="width: 220px; height: 220px; object-fit: cover; border-radius: 8px;">
+        <p style="margin-top: 5px; font-weight: bold; color: rgb(0, 0, 0);">Nome 3</p>
+    </div>
+
+    <!-- Foto 4 e Nome -->
+    <div style="text-align: center;">
+        <img src="imagem/RG.Jpg" alt="Foto 4" style="width: 220px; height: 220px; object-fit: cover; border-radius: 8px;">
+        <p style="margin-top: 5px; font-weight: bold; color: rgb(0, 0, 0);">Nome 4</p>
+    </div>
 </div>
 
 
