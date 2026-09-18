@@ -185,6 +185,125 @@ html{
     flex-shrink:0;
 }
 
+/* CARDS HORIZONTAIS PEQUENOS */
+
+.post.perfil{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+
+    width:60%;
+    min-height:120px;
+    height:auto;
+
+    margin:0;
+    padding:10px;
+
+    border-radius:15px;
+
+    background:white;
+
+    box-shadow:0 3px 10px rgba(0,0,0,0.10);
+
+    overflow:hidden;
+}
+
+/* FOTO PEQUENA DO CARD */
+
+.post.perfil > img{
+    width:90px;
+    height:90px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    flex-shrink:0;
+}
+
+/* CONTEÚDO DO CARD */
+
+.post.perfil .content {
+    padding: 10px 50px 10px 15px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    min-width: 0;
+    flex: 1;
+}
+/* NOME / TÍTULO */
+
+.post.perfil .content h3{
+    font-size:17px;
+    margin-bottom:15px;
+}
+
+/* TEXTO */
+
+.post.perfil .content p{
+    font-size:13px;
+    margin:0;
+
+    line-height:1.3;
+}
+
+/* CARD PRECISA SER A REFERÊNCIA DA SETA */
+.post.perfil {
+    position: relative;
+}
+
+/* SETA NO CANTO SUPERIOR DIREITO */
+.botao-seta {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    background: none;
+    border: none;
+
+    font-size: 22px;
+    cursor: pointer;
+    color: #000;
+
+    padding: 5px;
+    z-index: 10;
+}
+
+.mini-texto {
+    display: none;
+    font-size: 13px;
+    line-height: 1.4;
+    margin-top: 5px;
+    padding-right: 30px;
+}
+
+.mini-texto.aberto {
+    display: block;
+}
+
+/* BOTÕES */
+
+.post.perfil .container-botoes {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    width: 100%;
+
+    margin-top: auto;
+    padding-top: 10px;
+    gap: 5px;
+}
+
+.post.perfil .botao-curtir,
+.post.perfil .botao-voltar{
+    padding:5px 10px;
+    font-size:12px;
+}
+
 @media(max-width:768px){
 
     .perfil{
@@ -902,10 +1021,16 @@ footer {
                  Joyce Inácio
             </h3>
     
-            <p>
+            <div class="texto-card">
+                <button class="botao-seta" onclick="abrirTexto(this)">
+                    ▼
+                </button>
+            
+                <div class="mini-texto">
                 Joyce Bezerra, de 28 anos, é engenheira civil formada pela Unimetrocamp com o apoio do PROUNI.
                 Residente em Hortolândia (SP), superou um início de carreira desafiador, atuou temporariamente na área comercial e hoje consolida sua paixão profissional trabalhando no setor de Infraestrutura.
-            </p>
+            </div>
+        </div>
     
             <style>
                 .botao-voltar {
@@ -974,11 +1099,15 @@ footer {
             Julia Costa
             </h3>
     
-            <p>
+            <div class="texto-card">
+                <button class="botao-seta" onclick="abrirTexto(this)">
+                    ▼
+                </button>
+            
+                <div class="mini-texto">
                 Julia Costa, de 21 anos, cursa Psicologia no UNASP em Hortolândia (SP), com o objetivo de atuar na área criminal. Bolsista pelo ENEM, superou os desafios de adaptação e hoje destaca a qualidade dos professores e a grade curricular que prepara para diversas áreas além da clínica.
-            </p>
-    
-        
+            </div>
+        </div>
     
             <style>
                 .botao-voltar {
@@ -1048,10 +1177,15 @@ footer {
              Maria Andrade
             </h3>
     
-            <p>
+            <div class="texto-card">
+                <button class="botao-seta" onclick="abrirTexto(this)">
+                    ▼
+                </button>
+            
+                <div class="mini-texto">
                 Maria Eduarda Andrade Rocha, 19 anos, cursa História na UFSJ via SISU. Natural de São João del-Rei (MG), superou a mudança de estado e estuda à noite, focando no sonho de unir a paixão histórica à educação. 
-            </p>
-    
+            </div>
+        </div>
             
             <style>
                 .botao-voltar {
@@ -1120,10 +1254,15 @@ footer {
              Maryana Freschi
             </h3>
     
-            <p>
+            <div class="texto-card">
+                <button class="botao-seta" onclick="abrirTexto(this)">
+                    ▼
+                </button>
+            
+                <div class="mini-texto">
                 Maryana Freschi, 22 anos, cursa Medicina Veterinária na Anhanguera de Campinas com bolsa do ENEM. Residente em Hortolândia (SP), realiza seu sonho de infância focada na saúde e no bem-estar dos animais.
-            </p>
-    
+            </div>
+        </div>   
             
     
             <style>
@@ -1191,11 +1330,15 @@ footer {
             Raquel Rodrigues
             </h3>
     
-            <p>
-                Raquel Rodrigues, 23 anos, é graduada em Direito pelo UNASP e reside em Hortolândia (SP). Aprovada na OAB, hoje faz pós-graduação e atua como estagiária de gabinete no TJ-SP, auxiliando um magistrado na elaboração de sentenças.
-            </p>
-    
+            <div class="texto-card">
+                <button class="botao-seta" onclick="abrirTexto(this)">
+                    ▼
+                </button>
             
+                <div class="mini-texto">
+                Raquel Rodrigues, 23 anos, é graduada em Direito pelo UNASP e reside em Hortolândia (SP). Aprovada na OAB, hoje faz pós-graduação e atua como estagiária de gabinete no TJ-SP, auxiliando um magistrado na elaboração de sentenças.
+            </div>
+        </div>    
     
             <style>
                 .botao-voltar {
@@ -1262,10 +1405,15 @@ footer {
             Stefany Morais
             </h3>
     
-            <p>
+            <div class="texto-card">
+                <button class="botao-seta" onclick="abrirTexto(this)">
+                    ▼
+                </button>
+            
+                <div class="mini-texto">    
             Stefany Morais de Oliveira, de 27 anos, é técnica de enfermagem concursada em Campinas e enfermeira graduada pela Anhanguera com bolsa integral do PROUNI. Residente em Hortolândia (SP), superou a rotina de trabalho e estudos e hoje foca em concursos para a área de Saúde Pública.
-            </p>
-    
+            </div>
+        </div>
             
     
             <style>
@@ -1333,10 +1481,15 @@ footer {
             Davi Nelson
             </h3>
     
-            <p>
+            <div class="texto-card">
+                <button class="botao-seta" onclick="abrirTexto(this)">
+                    ▼
+                </button>
+            
+                <div class="mini-texto">
                 Davi Nelson Brito Camargo, 20 anos, cursa Ciências Sociais na UNESP de Araraquara. Residente em Campinas (SP), organiza sua rotina de leituras com foco em concluir a graduação no prazo e desenvolver seu senso crítico.
-            </p>
-    
+            </div>
+        </div>
 
     
             <style>
@@ -1405,10 +1558,15 @@ footer {
             Diego Santos 
             </h3>
     
-            <p>
+            <div class="texto-card">
+                <button class="botao-seta" onclick="abrirTexto(this)">
+                    ▼
+                </button>
+            
+                <div class="mini-texto">
                 Diego Santos, 32 anos, é engenheiro da computação e atua em desenvolvimento de software na IBM, carreira iniciada ainda na faculdade. Residente em Vinhedo (SP), destaca-se por sua resiliência acadêmica e forte capacidade de resolução de problemas.
-            </p>
-    
+            </div>
+        </div>
 
     
             <style>
@@ -1476,10 +1634,15 @@ footer {
                 Maria Eduarda
             </h3>
     
-            <p>
+            <div class="texto-card">
+                <button class="botao-seta" onclick="abrirTexto(this)">
+                    ▼
+                </button>
+            
+                <div class="mini-texto">
                 Maria Eduarda da Silva, 18 anos, cursa Psicologia na PUC-Campinas com bolsa integral do ProUni. Residente em Monte Mor (SP), viaja diariamente para o campus em período integral e dedica-se à biblioteca e ao hub de inovação.
-            </p>
-    
+            </div>
+        </div>
             
     
             <style>
@@ -1548,10 +1711,15 @@ footer {
             Rafaela Gomes
         </h3>
 
-        <p>
+        <div class="texto-card">
+            <button class="botao-seta" onclick="abrirTexto(this)">
+                ▼
+            </button>
+        
+            <div class="mini-texto">
             Rafaela Gomes dos Santos, 19 anos, cursa Engenharia Mecânica na Facamp via PROUNI. Residente em Hortolândia (SP), estuda motivada pelo interesse no setor automobilístico e pela alta empregabilidade da instituição.
-        </p>
-
+        </div>
+    </div>
         
 
         <style>
@@ -1619,10 +1787,15 @@ footer {
             Queite Neves
         </h3>
 
-        <p>
+        <div class="texto-card">
+            <button class="botao-seta" onclick="abrirTexto(this)">
+                ▼
+            </button>
+        
+            <div class="mini-texto">
             Queite Neves, 36 anos, é formada em Gestão de RH pela Anhanguera via PROUNI. Residente em Hortolândia (SP), conciliou a faculdade com a IBM e hoje atua como Líder de Operações Estratégicas em Pré-vendas.
-        </p>
-
+        </div>
+    </div>
     
 
         <style>
@@ -1691,10 +1864,15 @@ footer {
            Maria Eduarda Albuquerque
         </h3>
 
-        <p>
+        <div class="texto-card">
+            <button class="botao-seta" onclick="abrirTexto(this)">
+                ▼
+            </button>
+        
+            <div class="mini-texto">
             Maria Eduarda de Albuquerque, 19 anos, é estudante de Administração no UNASP e escolheu a área pela diversidade de oportunidades profissionais e de empreendedorismo. Sua trajetória destaca a importância da dedicação, da qualificação contínua e do desenvolvimento de habilidades para o mercado de trabalho.
-        </p>
-
+        </div>
+    </div>
     
 
         <style>
@@ -1762,10 +1940,15 @@ footer {
             Vanessa Martins
         </h3>
 
-        <p>
+        <div class="texto-card">
+            <button class="botao-seta" onclick="abrirTexto(this)">
+                ▼
+            </button>
+        
+            <div class="mini-texto">
             Vanessa Martins, 29 anos, cursou Biomedicina na UFRJ via SISU. Residente em São Gonçalo (RJ), superava horas de transporte diário atraída pela excelência da instituição em pesquisa clínica e iniciação científica. 
-        </p>
-
+        </div>
+    </div>
     
 
         <style>
@@ -1833,10 +2016,15 @@ footer {
             Alice
         </h3>
 
-        <p>
+        <div class="texto-card">
+            <button class="botao-seta" onclick="abrirTexto(this)">
+                ▼
+            </button>
+        
+            <div class="mini-texto">
             Alice Bettio, 23 anos, é formanda em Enfermagem pela Faculdade Anhanguera, com bolsa de 80%. Durante a graduação, trabalhou como cuidadora de idosos e enfrentou desafios nos estudos e estágios. Atualmente, atua como Responsável Técnica de uma ILPI e destaca a importância de aproveitar cada etapa da graduação.
-        </p>
-
+        </div>
+    </div>
     
 
         <style>
@@ -1904,11 +2092,16 @@ footer {
             Halisom De Souza
         </h3>
 
-        <p>
+        <div class="texto-card">
+            <button class="botao-seta" onclick="abrirTexto(this)">
+                ▼
+            </button>
+        
+            <div class="mini-texto">
             Halisom escolheu Psicologia por sua história de vida e pelo desejo de ajudar outras pessoas.
             Ele destaca o apoio da faculdade e das amizades durante sua formação.
-        </p>
-
+        </div>
+    </div>
     
 
         <style>
@@ -2444,6 +2637,20 @@ formulario.addEventListener("submit", function(event) {
 
     formulario.reset();
 });
+    </script>
+
+<script>
+    function abrirTexto(botao) {
+        const texto = botao.nextElementSibling;
+    
+        texto.classList.toggle("aberto");
+    
+        if (texto.classList.contains("aberto")) {
+            botao.textContent = "▲";
+        } else {
+            botao.textContent = "▼";
+        }
+    }
     </script>
 
 
