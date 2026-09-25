@@ -188,35 +188,37 @@ html{
 /* CARDS HORIZONTAIS PEQUENOS */
 
 .post.perfil{
-    display:flex;
-    flex-direction:row;
-    align-items:center;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
-    width:60%;
-    min-height:120px;
-    height:auto;
+    width: 50%;
+    max-width: 750px;
+    min-height: 130px;
+    height: 130px;
 
-    margin:0;
-    padding:10px;
+    margin: 0 0 12px 20px;
+    padding: 8px;
 
-    border-radius:15px;
+    border-radius: 12px;
+    background: white;
 
-    background:white;
+    border: 1px solid #d9e8f5;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 
-    box-shadow:0 3px 10px rgba(0,0,0,0.10);
-
-    overflow:hidden;
+    overflow: hidden;
 }
 
 /* FOTO PEQUENA DO CARD */
 
 .post.perfil > img{
-    width:90px;
-    height:90px;
+    width:110px;
+    height:100px;
 
     object-fit:cover;
 
-    border-radius:10px;
+    border-radius:8px;
 
     flex-shrink:0;
 }
@@ -224,15 +226,14 @@ html{
 /* CONTEÚDO DO CARD */
 
 .post.perfil .content {
-    padding: 10px 50px 10px 15px;
+    flex: 1;
+    min-width: 0;
 
     display: flex;
     flex-direction: column;
-
     justify-content: center;
 
-    min-width: 0;
-    flex: 1;
+    padding: 5px 170px 5px 10px;
 }
 /* NOME / TÍTULO */
 
@@ -258,17 +259,17 @@ html{
 /* SETA NO CANTO SUPERIOR DIREITO */
 .botao-seta {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 5px;
+    right: 7px;
 
     background: none;
     border: none;
 
-    font-size: 22px;
+    font-size: 16px;
     cursor: pointer;
-    color: #000;
+    color: #1769aa;
 
-    padding: 5px;
+    padding: 3px;
     z-index: 10;
 }
 
@@ -282,26 +283,6 @@ html{
 
 .mini-texto.aberto {
     display: block;
-}
-
-/* BOTÕES */
-
-.post.perfil .container-botoes {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-
-    width: 100%;
-
-    margin-top: auto;
-    padding-top: 10px;
-    gap: 5px;
-}
-
-.post.perfil .botao-curtir,
-.post.perfil .botao-voltar{
-    padding:5px 10px;
-    font-size:12px;
 }
 
 @media(max-width:768px){
@@ -729,13 +710,16 @@ footer {
     margin: 5px 0;
 }
 
-#postagens .perfil .content p{
-    font-size: 22px;
-    line-height: 1.7;
+#postagens .perfil .content h3{
+    font-size: 20px;
+    color: #1769aa;
+    margin-bottom: 5px;
 }
 
-#postagens .perfil .content h3{
-    font-size: 31px;
+#postagens .perfil .content p{
+    font-size: 12px;
+    line-height: 1.3;
+    margin: 0;
 }
 
 .filtro-cursos {
@@ -764,6 +748,55 @@ footer {
 
 .filtro-cursos button:hover {
     background-color: #6f96f8;
+}
+/* BOTÕES DOS CARDS */
+.post.perfil .container-botoes {
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
+
+/* CORAÇÃO */
+.post.perfil .botao-curtir {
+    position: static;
+
+    background: none;
+    color: #e91e63;
+
+    border: none;
+    padding: 0;
+
+    font-size: 16px;
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+/* BOTÃO RELATO DA FACULDADE */
+.post.perfil .botao-voltar {
+    position: static;
+
+    background: #a2d2ff;
+    color: #000;
+
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid #1769aa;
+
+    font-size: 12px;
+    white-space: nowrap;
+    text-decoration: none;
 }
 </style>
 </head>
@@ -934,7 +967,7 @@ footer {
             </p>
 
             <button class="btn" onclick="curtir(this)">
-                👍 Curtir
+                ♥ 76
             </button>
         </div>
     </div>
@@ -1037,7 +1070,7 @@ footer {
                     display: inline-flex;     /* Permite usar alinhamento interno */
                     align-items: center;      /* Centraliza o texto verticalmente */
                     background-color: #a2d2ff; /* Cor azul clara idêntica ao Curtir */
-                    color: #000000;           /* Cor do texto (ajuste se preferir outra) */
+                    color: #080808;           /* Cor do texto (ajuste se preferir outra) */
                     text-decoration: none;    /* Remove o sublinhado padrão do link */
                     padding: 8px 16px;        /* Espaçamento interno (cima/baixo e lados) */
                     border-radius: 8px;       /* Deixa os cantos arredondados */
@@ -1075,7 +1108,7 @@ footer {
             <div class="container-botoes">
 
                 <button class="botao-curtir" onclick="curtir(this)">
-                    👍 Curtir
+                    ♥ 76
                 </button>
 
                 <a href="perfil.html?usuario=Joyce Inácio" class="botao-voltar">
@@ -1152,7 +1185,7 @@ footer {
            <div class="container-botoes">
 
             <button class="botao-curtir" onclick="curtir(this)">
-                👍 Curtir
+                ♥ 76
             </button>
 
                 <a href="perfil.html?usuario=Julia costa" class="botao-voltar">
@@ -1230,7 +1263,7 @@ footer {
             <div class="container-botoes">
 
                 <button class="botao-curtir" onclick="curtir(this)">
-                    👍 Curtir
+                    ♥ 76
                 </button>
 
                 <a href="perfil.html?usuario=Maria Andrade" class="botao-voltar">
@@ -1308,7 +1341,7 @@ footer {
             <div class="container-botoes">
 
                 <button class="botao-curtir" onclick="curtir(this)">
-                    👍 Curtir
+                    ♥ 76
                 </button>
 
                 <a href="perfil.html?usuario=Maryana Freschi" class="botao-voltar">
@@ -1383,7 +1416,7 @@ footer {
             <div class="container-botoes">
 
                 <button class="botao-curtir" onclick="curtir(this)">
-                    👍 Curtir
+                    ♥ 76
                 </button>
 
                 <a href="perfil.html?usuario=Raquel Rodrigues" class="botao-voltar">
@@ -1459,7 +1492,7 @@ footer {
             <div class="container-botoes">
 
                 <button class="botao-curtir" onclick="curtir(this)">
-                    👍 Curtir
+                    ♥ 76
                 </button>
 
                 <a href="perfil.html?usuario=Stefany Morais" class="botao-voltar">
@@ -1535,7 +1568,7 @@ footer {
             <div class="container-botoes">
 
                 <button class="botao-curtir" onclick="curtir(this)">
-                    👍 Curtir
+                    ♥ 76
                 </button>
 
                 <a href="perfil.html?usuario=Davi Nelson" class="botao-voltar">
@@ -1612,7 +1645,7 @@ footer {
             <div class="container-botoes">
 
                 <button class="botao-curtir" onclick="curtir(this)">
-                    👍 Curtir
+                    ♥ 76
                 </button>
 
                 <a href="perfil.html?usuario=Diego Santos" class="botao-voltar">
@@ -1688,7 +1721,7 @@ footer {
             <div class="container-botoes">
 
                 <button class="botao-curtir" onclick="curtir(this)">
-                    👍 Curtir
+                    ♥ 76
                 </button>
 
                 <a href="perfil.html?usuario=Maria Eduarda" class="botao-voltar">
@@ -1765,7 +1798,7 @@ footer {
         <div class="container-botoes">
 
             <button class="botao-curtir" onclick="curtir(this)">
-                👍 Curtir
+                ♥ 76
             </button>
 
             <a href="perfil.html?usuario=Rafaela Gomes" class="botao-voltar">
@@ -1841,7 +1874,7 @@ footer {
         <div class="container-botoes">
 
             <button class="botao-curtir" onclick="curtir(this)">
-                👍 Curtir
+                ♥ 76
             </button>
 
             <a href="perfil.html?usuario=Queite Neves" class="botao-voltar">
@@ -1918,7 +1951,7 @@ footer {
         <div class="container-botoes">
 
             <button class="botao-curtir" onclick="curtir(this)">
-                👍 Curtir
+                ♥ 76
             </button>
 
             <a href="perfil.html?usuario=Maria Eduarda Albuquerque" class="botao-voltar">
@@ -1994,7 +2027,7 @@ footer {
         <div class="container-botoes">
 
             <button class="botao-curtir" onclick="curtir(this)">
-                👍 Curtir
+                ♥ 40
             </button>
 
             <a href="perfil.html?usuario=Vanessa Martins" class="botao-voltar">
@@ -2070,7 +2103,7 @@ footer {
         <div class="container-botoes">
 
             <button class="botao-curtir" onclick="curtir(this)">
-                👍 Curtir
+                ♥ 76
             </button>
 
             <a href="perfil.html?usuario=Alice" class="botao-voltar">
@@ -2147,7 +2180,7 @@ footer {
         <div class="container-botoes">
 
             <button class="botao-curtir" onclick="curtir(this)">
-                👍 Curtir
+                ♥ 73
             </button>
 
             <a href="perfil.html?usuario=Halisom De Souza" class="botao-voltar">
@@ -2175,7 +2208,7 @@ footer {
             <br><br>
 
             <button class="botao-curtir" onclick="curtir(this)">
-                👍 Curtir
+                ♥ 76
             </button>
         </div>
     </div>
@@ -2187,10 +2220,10 @@ footer {
     // Função de Curtir
     function curtir(botao){
 
-        if(botao.innerHTML === "👍 Curtir"){
+        if(botao.innerHTML === "❤️ Curtir"){
             botao.innerHTML = "❤️ Curtido";
         } else {
-            botao.innerHTML = "👍 Curtir";
+            botao.innerHTML = "❤️ Curtir";
         }
 
     }
@@ -2318,27 +2351,14 @@ function abrirPerfil(nome){
 
     <h2>Nossa História</h2>
 
-    <p>
-        O Blog Interativo foi criado com o objetivo de compartilhar
-        experiências, histórias e informações de uma maneira simples,
-        interativa e acessível para todos.
-    </p>
-
-    <p>
-        A ideia surgiu a partir da vontade de criar um espaço onde os
-        usuários pudessem conhecer diferentes histórias e também participar
-        do conteúdo do site.
-    </p>
-
-    <p>
-        Durante o desenvolvimento, buscamos melhorar o visual, a organização
-        e a interação com os usuários, criando uma experiência mais agradável.
-    </p>
-
-    <p>
-        Este projeto continua sendo desenvolvido e pode receber novas
-        funcionalidades no futuro.
-    </p>
+ <p>Somos Lavinia, Wesley, Bruno e Vitória, estudantes do curso técnico de Análise e Desenvolvimento de Sistemas. Durante nossa trajetória no curso, percebemos algo que muitas pessoas enfrentam ao escolher uma faculdade: a falta de informações reais sobre os cursos, as instituições e, principalmente, sobre como é a vida de um universitário.</p>
+<p>Foi dessa percepção que nasceu a ideia do nosso projeto. Criamos este blog com o objetivo de aproximar estudantes e vestibulandos de experiências reais, trazendo relatos de pessoas que realmente vivenciam ou já vivenciaram a faculdade.</p>
+<p>Para nós, não bastava apenas pesquisar informações na internet. Queríamos ouvir pessoas de verdade, conhecer suas histórias, suas dificuldades, conquistas, escolhas e aprendizados. Por isso, buscamos universitários e profissionais que conhecemos e realizamos entrevistas para trazer experiências reais para dentro do nosso projeto.</p>
+<p>Cada relato apresentado aqui representa uma trajetória diferente e mostra que não existe apenas um caminho para chegar à profissão desejada.</p>
+<p>Este projeto também representa uma parte da nossa própria trajetória no curso técnico. Durante sua construção, aprendemos, pesquisamos, entrevistamos, desenvolvemos ideias e trabalhamos juntos para transformar uma simples dúvida em algo que pudesse ajudar outras pessoas.</p>
+<p>Esperamos que, ao conhecer essas histórias, você também encontre informações que possam ajudar na sua própria escolha e descubra um pouco mais sobre o mundo universitário.</p>
+<strong>Este é o nosso projeto, mas as histórias são de muitas pessoas. E talvez a próxima história possa ser a sua.</strong>
+<p>— Lavinia, Wesley, Bruno e Vitória</p>
 
 </section>
 
@@ -2408,7 +2428,7 @@ function abrirPerfil(nome){
         // Cria somente 1 emoji
         const emoji = document.createElement("span");
         emoji.classList.add("emoji-curtida");
-        emoji.textContent = "👍";
+        emoji.textContent = "❤️";
     
         // Coloca o emoji dentro do botão
         botao.appendChild(emoji);
@@ -2568,7 +2588,7 @@ leitor.onload = function(event) {
             <div class="container-botoes">
 
                 <button class="botao-curtir" onclick="curtir(this)">
-                    👍 Curtir
+                    ❤️ Curtir
                 </button>
 
             </div>
