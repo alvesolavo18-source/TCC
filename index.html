@@ -193,12 +193,12 @@ html{
     flex-direction: row;
     align-items: center;
 
-    width: 50%;
-    max-width: 750px;
+    width: 100%;
+    max-width: none;
     min-height: 130px;
     height: 130px;
 
-    margin: 0 0 12px 20px;
+    margin: 0 0 12px 0px;
     padding: 8px;
 
     border-radius: 12px;
@@ -329,28 +329,24 @@ html{
 #menu{
     display:none;
     flex-direction:column;
+
     position:fixed;
     top:0;
     left:0;
 
-    /* DIMINUIR TAMANHO */
-    width:180px;
+    width:190px;
     height:100%;
 
-    background:#ddebf9;
+    background:white;
 
-    padding-top:70px;
+    padding:75px 12px 20px 12px;
 
-    flex-direction:column;
-
-    box-shadow:4px 0 10px rgba(0,0,0,0.3);
+    box-shadow:3px 0 12px rgba(0,0,0,0.12);
 
     z-index:2000;
 
-    transition:0.3s;
-
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow-y:auto;
+    overflow-x:hidden;
     scrollbar-width:none;
 }
 
@@ -365,14 +361,37 @@ html{
 
 /* LINKS */
 #menu a{
-    color:rgb(8, 8, 8);
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    width:100%;
+
+    color:#173b68;
     text-decoration:none;
 
-    /* ALTERA A COR DA LINHA DO MENU HAMBURGUER*/
-    padding:15px;
-    font-size:16px;
+    padding:10px 10px;
+    margin:2px 0;
 
-    border-bottom:1px solid rgba(118, 117, 117, 0.2);
+    font-size:14px;
+    font-weight:500;
+
+    border:none;
+    border-radius:10px;
+
+    transition:0.2s;
+}
+
+#menu a:hover{
+    background:#e6f1ff;
+}
+
+.icone-menu{
+    width:20px;
+    text-align:center;
+    color:#174b83;
+    font-size:16px;
+    flex-shrink:0;
 }
 
 .cadastro-btn{
@@ -602,7 +621,7 @@ footer {
 
 .nossa-historia {
     width: 95%;
-    max-width: 1200px;
+    max-width: none;
     margin: 50px auto;
     padding: 40px;
     line-height: 1.8;
@@ -618,12 +637,13 @@ footer {
 }
 
 .comentarios {
-    max-width: 900px;
+    width: 95%;
+    max-width: none;
     margin: 50px auto;
     padding: 40px;
     background: white;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); ;
 }
 
 .comentarios h2 {
@@ -722,33 +742,58 @@ footer {
     margin: 0;
 }
 
-.filtro-cursos {
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px solid #000207;
+
+.filtro-cursos{
+    margin-top:15px;
+    padding-top:15px;
+
+    border-top:1px solid #e5edf5;
 }
 
-.filtro-cursos h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: #000000;
+.filtro-cursos h3{
+    font-size:14px;
+    font-weight:500;
+
+    margin:0 0 8px 8px;
+
+    color:#23476b;
 }
 
-.filtro-cursos button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 8px;
-    border: none;
-    border-radius: 6px;
-    background-color: #6f96f8;
-    cursor: pointer;
-    text-align: left;
+.filtro-cursos button{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    width:100%;
+
+    padding:9px 10px;
+    margin-bottom:2px;
+
+    border:none;
+    border-radius:9px;
+
+    background:transparent;
+
+    color:#173b68;
+
+    cursor:pointer;
+    text-align:left;
+
+    font-size:12px;
+
+    transition:0.2s;
 }
 
-.filtro-cursos button:hover {
-    background-color: #6f96f8;
+.filtro-cursos button:hover{
+    background:#e6f1ff;
 }
+
+.curso-selecionado{
+    background:#dcecff !important;
+    color:#174b83 !important;
+    font-weight:600;
+}
+
 /* BOTÕES DOS CARDS */
 .post.perfil .container-botoes {
     position: absolute;
@@ -798,6 +843,215 @@ footer {
     white-space: nowrap;
     text-decoration: none;
 }
+
+/* =========================================
+   ÁREA DOS CARDS + DICAS
+   ========================================= */
+
+   .area-conteudo {
+    display: flex;
+    align-items: flex-start;
+    gap: 35px;
+    width: 100%;
+}
+
+
+/* =========================================
+   COLUNA DOS CARDS
+   ========================================= */
+
+.lista-cards {
+    width: calc(50% - 18px);
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   ABA DE DICAS
+   ========================================= */
+
+.aba-dicas {
+    width: calc(50% - 18px);
+    flex-shrink: 0;
+
+    background: #eaf6ff;
+    border: 1px solid #c9e5f7;
+    border-radius: 15px;
+
+    padding: 25px;
+
+    min-height: 750px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+    position: sticky;
+    top: 110px;
+}
+
+/* CADA DICA */
+.dica {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #d9e8f5;
+}
+
+
+/* BOTÃO DA SETA */
+.seta-dica {
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 3px 8px 3px 0;
+    flex-shrink: 0;
+    
+}
+
+
+/* ÁREA DO TEXTO */
+.conteudo-dica {
+    flex: 1;
+}
+
+
+/* TÍTULO */
+.conteudo-dica h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+/* TEXTO INFORMATIVO */
+.conteudo-dica p {
+    display: none;
+    margin-top: 10px 0 0 0;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+
+/* QUANDO A DICA ESTIVER ABERTA */
+.dica.aberta .conteudo-dica p {
+    display: block;
+}
+
+
+/* GIRA A SETA */
+.dica.aberta .seta-dica {
+    transform: rotate(90deg);
+}
+
+/* TÍTULO DAS DICAS */
+
+.aba-dicas h2 {
+    color: #1769aa;
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+
+/* CADA DICA */
+
+.dica {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 15px 10px;
+    margin-bottom: 12px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+    color: #1769aa;
+
+    transition: 0.2s;
+}
+
+
+/* ÍCONE */
+
+.dica .icone {
+    font-size: 23px;
+    width: 30px;
+}
+
+
+/* TEXTO */
+
+.dica span:last-child {
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+
+/* EFEITO */
+
+.dica:hover {
+    background: #d8edfc;
+    transform: translateX(4px);
+}
+
+
+/* BOTÃO */
+
+.botao-dicas {
+    display: block;
+
+    margin-top: 25px;
+
+    background: #a2d2ff;
+    color: #000;
+
+    text-align: center;
+    text-decoration: none;
+
+    padding: 12px;
+
+    border-radius: 8px;
+    border: 1px solid #1769aa;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+
+.botao-dicas:hover {
+    background: #1769aa;
+    color: white;
+}
+
+
+/* =========================================
+   CELULAR
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .area-conteudo {
+        flex-direction: column;
+    }
+
+    .lista-cards {
+        width: 100%;
+    }
+
+    .aba-dicas {
+        width: 100%;
+        position: static;
+        min-height: auto;
+    }
+}
+    
+
 </style>
 </head>
 
@@ -860,30 +1114,37 @@ footer {
 
     <!-- MENU -->
 <nav id="menu">
-
-    <a href="#inicio" onclick="abrirMenu()">Início</a>
-
+    <a href="#inicio" onclick="abrirMenu()">
+        <span class="icone-menu">⌂</span>
+        Início
+    </a>
+    
     <a href="#postagens" onclick="abrirMenu()">
+        <span class="icone-menu">▣</span>
         Postagens
     </a>
-
+    
     <a href="#videos" onclick="abrirMenu()">
+        <span class="icone-menu">▶</span>
         Vídeos
     </a>
-
+    
     <a href="#Sobre" onclick="abrirMenu()">
+        <span class="icone-menu">●</span>
         Sobre
     </a>
-
+    
     <a href="#contato" onclick="abrirMenu()">
+        <span class="icone-menu">▧</span>
         Contato
     </a>
-
+    
     <!-- FILTRO POR CURSO -->
     <div class="filtro-cursos">
         <h3>Filtrar por curso</h3>
 
-        <button onclick="filtrarCurso('todos')">
+        <button class="curso-selecionado" onclick="filtrarCurso('todos')">
+            <span class="icone-menu">▣</span>
             Todos os cursos
         </button>
 
@@ -952,6 +1213,8 @@ footer {
 </section>
 
 <div class="container" id="postagens">
+   
+        
 
     <!-- POST 1 -->
     <div class="post">
@@ -971,6 +1234,8 @@ footer {
             </button>
         </div>
     </div>
+
+    
 
 <!-- SOBRE A PESSOA -->
 <div class="post perfil">
@@ -1042,6 +1307,10 @@ footer {
     </div>
     </div>
     </div>
+
+    <div class="area-conteudo">
+
+        <div class="lista-cards">
     
     <!-- NOVA POSTAGEM 2 -->
     <div class="post perfil" data-curso="Engenharia">
@@ -2190,6 +2459,161 @@ footer {
         </div>
     </div>
 </div>
+        </div>
+<!-- ABA DE DICAS -->
+
+<aside class="aba-dicas">
+
+    <h2>💡 Dicas para quem vai entrar na faculdade</h2>
+
+
+    <div class="dica">
+
+        <button class="seta-dica" onclick="abrirDica(this)">
+            ▶
+        </button>
+
+        <div class="conteudo-dica">
+<h3> Como escolher um curso?</h3>
+
+            <p>
+               <br><br>
+                Antes de escolher, procure entender o que realmente combina com você. Pesquise:
+                <br><br>
+                • O que se estuda durante o curso;<br>
+                • Quais matérias fazem parte da grade;<br>
+                • Quais são as áreas de atuação profissional;<br>
+                • Como é o mercado de trabalho;<br>
+                • Duração do curso;<br>
+                • Se existem modalidades presencial, EAD ou híbrida.
+                <br><br>
+                Também é interessante conversar com universitários e profissionais da área. Os relatos de quem já vive essa experiência podem mostrar aspectos que não aparecem apenas na descrição do curso.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="dica">
+
+        <button class="seta-dica" onclick="abrirDica(this)">
+            ▶
+        </button>
+
+        <div class="conteudo-dica">
+
+            <h3>Como conseguir uma bolsa?</h3>
+
+            <p>
+                <br><br>
+                Existem diferentes formas de reduzir ou até eliminar os custos da faculdade. No Brasil, algumas possibilidades são:
+                <br><br>
+                • <strong>Prouni:</strong> oferece bolsas integrais e parciais em instituições privadas, seguindo critérios definidos pelo programa;<br>
+                • <strong>Fies:</strong> possibilita financiamento de cursos superiores em instituições privadas participantes;<br>
+                • <strong>Bolsas oferecidas pela própria faculdade:</strong> algumas instituições possuem programas próprios;<br>
+                • <strong>Bolsas por desempenho:</strong> determinadas faculdades oferecem descontos de acordo com resultados em processos seletivos ou no ENEM;<br>
+                • <strong>Convênios e programas sociais:</strong> algumas instituições oferecem condições especiais para determinados grupos.
+                <br><br>
+                É importante conferir sempre as regras e os prazos diretamente nos canais oficiais dos programas e das instituições.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="dica">
+
+        <button class="seta-dica" onclick="abrirDica(this)">
+            ▶
+        </button>
+
+        <div class="conteudo-dica">
+
+            <h3>Como organizar os estudos?</h3>
+
+            <p>
+                <br><br>
+                A faculdade exige mais autonomia. Uma boa organização pode começar com:
+                <br><br>
+                • Criar um cronograma semanal;<br>
+                • Anotar provas, trabalhos e prazos;<br>
+                • Dividir matérias maiores em pequenas partes;<br>
+                • Revisar o conteúdo depois das aulas;<br>
+                • Reservar momentos para trabalhos e projetos;<br>
+                • Evitar deixar tudo para a última hora.
+                <br><br>
+                Uma dica importante é encontrar um método que funcione para você. Algumas pessoas preferem resumos, outras mapas mentais, exercícios ou explicações em vídeo.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="dica">
+
+        <button class="seta-dica" onclick="abrirDica(this)">
+            ▶
+        </button>
+
+        <div class="conteudo-dica">
+
+            <h3>Como conseguir um estágio?</h3>
+
+            <p>
+                <strong>4. Como conseguir um estágio?</strong><br><br>
+                Não é necessário esperar estar no final da faculdade para começar a procurar. Você pode:
+                <br><br>
+                • Montar um currículo simples e atualizado;<br>
+                • Criar ou atualizar seu LinkedIn;<br>
+                • Procurar vagas em plataformas de emprego e estágio;<br>
+                • Verificar oportunidades divulgadas pela própria faculdade;<br>
+                • Participar de eventos, palestras e feiras de carreira;<br>
+                • Conversar com professores e profissionais da área;<br>
+                • Procurar empresas relacionadas ao seu curso.
+                <br><br>
+                No início, talvez seja difícil encontrar uma oportunidade, então vale acompanhar as vagas com frequência e continuar desenvolvendo conhecimentos relacionados à área.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="dica">
+
+        <button class="seta-dica" onclick="abrirDica(this)">
+            ▶
+        </button>
+
+        <div class="conteudo-dica">
+
+            <h3>Como escolher uma faculdade?</h3>
+
+            <p>
+                <strong>5. Como escolher uma faculdade?</strong><br><br>
+                Não escolha apenas pelo nome ou pela proximidade. Compare diferentes instituições e observe:
+                <br><br>
+                • Reconhecimento e situação do curso;<br>
+                • Grade curricular;<br>
+                • Professores e estrutura;<br>
+                • Laboratórios e outros espaços disponíveis;<br>
+                • Modalidade das aulas;<br>
+                • Mensalidade e possíveis bolsas;<br>
+                • Localização e transporte;<br>
+                • Horários das aulas;<br>
+                • Oportunidades de estágio e atividades extracurriculares;<br>
+                • Opiniões e experiências de alunos e ex-alunos.
+            </p>
+
+        </div>
+
+    </div>
+
+</aside>
+
 
     <!-- POST COM VÍDEO -->
     <div class="post" id="videos">
@@ -2214,6 +2638,7 @@ footer {
     </div>
 
 </div>
+
 
 <script>
 
@@ -2345,23 +2770,6 @@ function abrirPerfil(nome){
 
 </script>
 
-
-<!-- Seção Sobre o Blog Perfeita e Direta -->
-<section id="Sobre" class="nossa-historia">
-
-    <h2>Nossa História</h2>
-
- <p>Somos Lavinia, Wesley, Bruno e Vitória, estudantes do curso técnico de Análise e Desenvolvimento de Sistemas. Durante nossa trajetória no curso, percebemos algo que muitas pessoas enfrentam ao escolher uma faculdade: a falta de informações reais sobre os cursos, as instituições e, principalmente, sobre como é a vida de um universitário.</p>
-<p>Foi dessa percepção que nasceu a ideia do nosso projeto. Criamos este blog com o objetivo de aproximar estudantes e vestibulandos de experiências reais, trazendo relatos de pessoas que realmente vivenciam ou já vivenciaram a faculdade.</p>
-<p>Para nós, não bastava apenas pesquisar informações na internet. Queríamos ouvir pessoas de verdade, conhecer suas histórias, suas dificuldades, conquistas, escolhas e aprendizados. Por isso, buscamos universitários e profissionais que conhecemos e realizamos entrevistas para trazer experiências reais para dentro do nosso projeto.</p>
-<p>Cada relato apresentado aqui representa uma trajetória diferente e mostra que não existe apenas um caminho para chegar à profissão desejada.</p>
-<p>Este projeto também representa uma parte da nossa própria trajetória no curso técnico. Durante sua construção, aprendemos, pesquisamos, entrevistamos, desenvolvemos ideias e trabalhamos juntos para transformar uma simples dúvida em algo que pudesse ajudar outras pessoas.</p>
-<p>Esperamos que, ao conhecer essas histórias, você também encontre informações que possam ajudar na sua própria escolha e descubra um pouco mais sobre o mundo universitário.</p>
-<strong>Este é o nosso projeto, mas as histórias são de muitas pessoas. E talvez a próxima história possa ser a sua.</strong>
-<p>— Lavinia, Wesley, Bruno e Vitória</p>
-
-</section>
-
 <section id="comentarios" class="comentarios">
 
     <h2>O que você achou do nosso site?</h2>
@@ -2401,7 +2809,21 @@ function abrirPerfil(nome){
 
 </section>
 
+<!-- Seção Sobre o Blog Perfeita e Direta -->
+<section id="Sobre" class="nossa-historia">
 
+    <h2>Nossa História</h2>
+
+ <p>Somos Lavinia, Wesley, Bruno e Vitória, estudantes do curso técnico de Análise e Desenvolvimento de Sistemas. Durante nossa trajetória no curso, percebemos algo que muitas pessoas enfrentam ao escolher uma faculdade: a falta de informações reais sobre os cursos, as instituições e, principalmente, sobre como é a vida de um universitário.</p>
+<p>Foi dessa percepção que nasceu a ideia do nosso projeto. Criamos este blog com o objetivo de aproximar estudantes e vestibulandos de experiências reais, trazendo relatos de pessoas que realmente vivenciam ou já vivenciaram a faculdade.</p>
+<p>Para nós, não bastava apenas pesquisar informações na internet. Queríamos ouvir pessoas de verdade, conhecer suas histórias, suas dificuldades, conquistas, escolhas e aprendizados. Por isso, buscamos universitários e profissionais que conhecemos e realizamos entrevistas para trazer experiências reais para dentro do nosso projeto.</p>
+<p>Cada relato apresentado aqui representa uma trajetória diferente e mostra que não existe apenas um caminho para chegar à profissão desejada.</p>
+<p>Este projeto também representa uma parte da nossa própria trajetória no curso técnico. Durante sua construção, aprendemos, pesquisamos, entrevistamos, desenvolvemos ideias e trabalhamos juntos para transformar uma simples dúvida em algo que pudesse ajudar outras pessoas.</p>
+<p>Esperamos que, ao conhecer essas histórias, você também encontre informações que possam ajudar na sua própria escolha e descubra um pouco mais sobre o mundo universitário.</p>
+<strong>Este é o nosso projeto, mas as histórias são de muitas pessoas. E talvez a próxima história possa ser a sua.</strong>
+<p>— Lavinia, Wesley, Bruno e Vitória</p>
+
+</section>
 
 <!-- ... seu card da história sobre o blog ... -->
 
@@ -2612,10 +3034,31 @@ leitor.readAsDataURL(foto);
     </script>
 
 <div style="display: flex; justify-content: center; gap: 15px; margin: 20px 0;">
-    <img src="/imagem/Vitória.png" alt="Foto 1" style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
-    <img src="/imagem/Wesley.jpg" alt="Foto 2" style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
-    <img src="/imagem/Lavinia.png" alt="Foto 3" style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
-    <img src="/imagem/RG.jpg" alt="Foto 4" style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
+
+    <div style="text-align: center;">
+        <img src="/imagem/Vitória.png" alt="Vitória"
+             style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
+        <p style="margin-top: 8px; font-weight: bold;">Vitória</p>
+    </div>
+
+    <div style="text-align: center;">
+        <img src="/imagem/Wesley.jpg" alt="Wesley"
+             style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
+        <p style="margin-top: 8px; font-weight: bold;">Wesley</p>
+    </div>
+
+    <div style="text-align: center;">
+        <img src="/imagem/Lavinia.png" alt="Lavinia"
+             style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
+        <p style="margin-top: 8px; font-weight: bold;">Lavinia</p>
+    </div>
+
+    <div style="text-align: center;">
+        <img src="/imagem/RG.jpg" alt="RG"
+             style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
+        <p style="margin-top: 8px; font-weight: bold;">RG</p>
+    </div>
+
 </div>
 
 
@@ -2673,9 +3116,17 @@ formulario.addEventListener("submit", function(event) {
     }
     </script>
 
+<script>
+function abrirDica(botao) {
+
+    const dica = botao.parentElement;
+
+    dica.classList.toggle("aberta");
+
+}
+</script>
 
 <footer> 
     <p>© 2026 - Blog Interativo</p> 
 </footer>
-</body>
-</html> 
+</body> 
