@@ -196,7 +196,7 @@ html{
     width: 100%;
     max-width: none;
     min-height: 130px;
-    height: 130px;
+    height: auto;
 
     margin: 0 0 12px 0px;
     padding: 8px;
@@ -207,7 +207,7 @@ html{
     border: 1px solid #d9e8f5;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 
-    overflow: hidden;
+    overflow: visible;
 }
 
 /* FOTO PEQUENA DO CARD */
@@ -233,7 +233,7 @@ html{
     flex-direction: column;
     justify-content: center;
 
-    padding: 5px 170px 5px 10px;
+    padding: 5px 80px 5px 10px;
 }
 /* NOME / TÍTULO */
 
@@ -275,7 +275,7 @@ html{
 
 .mini-texto {
     display: none;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.4;
     margin-top: 5px;
     padding-right: 30px;
@@ -530,7 +530,7 @@ html{
     border-radius: 50%;
     border: none;
 
-    background: #0a0a0a;
+    background: #1e90ff;
     color: white;
 
     font-size: 35px;
@@ -1051,6 +1051,73 @@ footer {
     }
 }
     
+.titulo-historia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.titulo-historia h2 {
+    text-align: center;
+    margin: 0;
+}
+
+#setaHistoria {
+    position: absolute;
+    right: 10px;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
+    color: #1769aa;
+    transition: 0.3s;
+}
+
+/* TEXTO ESCONDIDO */
+#conteudoHistoria {
+    display: none;
+    margin-top: 25px;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* TEXTO VISÍVEL */
+#conteudoHistoria.aberto {
+    display: block;
+}
+
+/* GIRA A SETA */
+#setaHistoria.aberta {
+    transform: rotate(90deg);
+}
+
+.fotos-equipe {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 25px;
+    margin: 20px 0;
+}
+
+.pessoa-equipe {
+    text-align: center;
+}
+
+.pessoa-equipe img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.pessoa-equipe p {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #030303;
+}
 
 </style>
 </head>
@@ -2809,25 +2876,6 @@ function abrirPerfil(nome){
 
 </section>
 
-<!-- Seção Sobre o Blog Perfeita e Direta -->
-<section id="Sobre" class="nossa-historia">
-
-    <h2>Nossa História</h2>
-
- <p>Somos Lavinia, Wesley, Bruno e Vitória, estudantes do curso técnico de Análise e Desenvolvimento de Sistemas. Durante nossa trajetória no curso, percebemos algo que muitas pessoas enfrentam ao escolher uma faculdade: a falta de informações reais sobre os cursos, as instituições e, principalmente, sobre como é a vida de um universitário.</p>
-<p>Foi dessa percepção que nasceu a ideia do nosso projeto. Criamos este blog com o objetivo de aproximar estudantes e vestibulandos de experiências reais, trazendo relatos de pessoas que realmente vivenciam ou já vivenciaram a faculdade.</p>
-<p>Para nós, não bastava apenas pesquisar informações na internet. Queríamos ouvir pessoas de verdade, conhecer suas histórias, suas dificuldades, conquistas, escolhas e aprendizados. Por isso, buscamos universitários e profissionais que conhecemos e realizamos entrevistas para trazer experiências reais para dentro do nosso projeto.</p>
-<p>Cada relato apresentado aqui representa uma trajetória diferente e mostra que não existe apenas um caminho para chegar à profissão desejada.</p>
-<p>Este projeto também representa uma parte da nossa própria trajetória no curso técnico. Durante sua construção, aprendemos, pesquisamos, entrevistamos, desenvolvemos ideias e trabalhamos juntos para transformar uma simples dúvida em algo que pudesse ajudar outras pessoas.</p>
-<p>Esperamos que, ao conhecer essas histórias, você também encontre informações que possam ajudar na sua própria escolha e descubra um pouco mais sobre o mundo universitário.</p>
-<strong>Este é o nosso projeto, mas as histórias são de muitas pessoas. E talvez a próxima história possa ser a sua.</strong>
-<p>— Lavinia, Wesley, Bruno e Vitória</p>
-
-</section>
-
-<!-- ... seu card da história sobre o blog ... -->
-
-
 <script>
     function falarTextoMaria() {
         // 1. O texto que o robô vai ditar
@@ -3033,33 +3081,74 @@ leitor.readAsDataURL(foto);
 
     </script>
 
-<div style="display: flex; justify-content: center; gap: 15px; margin: 20px 0;">
+<section id="Sobre" class="nossa-historia">
 
-    <div style="text-align: center;">
-        <img src="/imagem/Vitória.png" alt="Vitória"
-             style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
-        <p style="margin-top: 8px; font-weight: bold;">Vitória</p>
+    <!-- TÍTULO + SETA -->
+    <div class="titulo-historia">
+        <h2>Nossa História</h2>
+
+        <button id="setaHistoria" onclick="abrirHistoria()">
+            ▶
+        </button>
     </div>
 
-    <div style="text-align: center;">
-        <img src="/imagem/Wesley.jpg" alt="Wesley"
-             style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
-        <p style="margin-top: 8px; font-weight: bold;">Wesley</p>
+    <!-- TEXTO QUE FICA ESCONDIDO -->
+    <div id="conteudoHistoria">
+
+        <p>
+            Somos Lavinia, Wesley, Bruno e Vitória, estudantes do curso técnico
+            de Análise e Desenvolvimento de Sistemas. Durante nossa trajetória
+            no curso, percebemos algo que muitas pessoas enfrentam ao escolher
+            uma faculdade: a falta de informações reais sobre os cursos,
+            instituições e, principalmente, sobre como é a vida de um universitário.
+        </p>
+
+        <p>
+            Foi dessa percepção que nasceu a ideia do nosso projeto. Criamos
+            este blog com o objetivo de aproximar estudantes e vestibulandos
+            de experiências reais.
+        </p>
+
+        <p>
+            Cada relato apresentado aqui representa uma trajetória diferente
+            e mostra que não existe apenas um caminho para chegar à profissão desejada.
+        </p>
+
+        <strong>
+            Este é o nosso projeto, mas as histórias são de muitas pessoas.
+            E talvez a próxima história possa ser a sua.
+        </strong>
+
+        <p>— Lavinia, Wesley, Bruno e Vitória</p>
+
     </div>
 
-    <div style="text-align: center;">
-        <img src="/imagem/Lavinia.png" alt="Lavinia"
-             style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
-        <p style="margin-top: 8px; font-weight: bold;">Lavinia</p>
-    </div>
 
-    <div style="text-align: center;">
-        <img src="/imagem/RG.jpg" alt="RG"
-             style="width: 220px; height: 220px; object-fit: cover; border-radius: 24px;">
-        <p style="margin-top: 8px; font-weight: bold;">RG</p>
-    </div>
+    <!-- FOTOS: FICAM SEMPRE VISÍVEIS -->
+    <div class="fotos-equipe">
 
-</div>
+        <div class="pessoa-equipe">
+            <img src="imagem/Lavinia.png" alt="Lavinia">
+            <p>Lavinia</p>
+        </div>
+    
+        <div class="pessoa-equipe">
+            <img src="imagem/Wesley.jpg" alt="Wesley">
+            <p>Wesley</p>
+        </div>
+    
+        <div class="pessoa-equipe">
+            <img src="imagem/Bruno.jpg" alt="Bruno">
+            <p>Bruno</p>
+        </div>
+    
+        <div class="pessoa-equipe">
+            <img src="imagem/Vitória.png" alt="Vitória">
+            <p>Vitória</p>
+        </div>
+    
+    </div>
+</section>
 
 
 <script>
@@ -3122,6 +3211,18 @@ function abrirDica(botao) {
     const dica = botao.parentElement;
 
     dica.classList.toggle("aberta");
+
+}
+</script>
+
+<script>
+function abrirHistoria() {
+
+    const conteudo = document.getElementById("conteudoHistoria");
+    const seta = document.getElementById("setaHistoria");
+
+    conteudo.classList.toggle("aberto");
+    seta.classList.toggle("aberta");
 
 }
 </script>
