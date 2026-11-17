@@ -15,8 +15,10 @@
         font-family: Arial, sans-serif;
     }
     body {
+    max-width: 100%;
     margin: 0;
     min-height: 100vh;
+    overflow-x: clip;
 }
 
     body{
@@ -28,6 +30,8 @@
     
 html{
     scroll-behavior:smooth;
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
 }
 
 
@@ -59,12 +63,14 @@ html{
     }
 
     .foto-banner {
-    width: 100vw;       /* Ocupa toda a largura da tela */
-    height: auto;       /* Faz a altura se ajustar sozinha sem cortar nada */
-    object-fit: contain;/* Garante que a foto apareça 100% inteira */
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
     display: block;
     margin: 0 auto;
-} 
+    box-sizing: border-box;
+}
 
 
 .banner h2{
@@ -853,6 +859,7 @@ footer {
     align-items: flex-start;
     gap: 35px;
     width: 100%;
+    position: relative;
 }
 
 
@@ -879,13 +886,15 @@ footer {
     border-radius: 15px;
 
     padding: 25px;
-
-    min-height: 750px;
+    height: fit-content;
+    min-height: 0px;
 
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 
+    /* FAZ A ABA ACOMPANHAR A ROLAGEM */
     position: sticky;
     top: 110px;
+    align-self: flex-start;
 }
 
 /* CADA DICA */
@@ -1119,6 +1128,19 @@ footer {
     color: #030303;
 }
 
+.video-post {
+    width: 100%;
+    max-width: none;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+}
+
+.post {
+    overflow: hidden;
+}
+
 </style>
 </head>
 
@@ -1285,45 +1307,27 @@ footer {
 
     <!-- POST 1 -->
     <div class="post">
-        <img src="https://picsum.photos/1200/500" alt="Imagem do Blog">
-
-        <div class="content">
-            <h3>Título da Postagem</h3>
-
-            <p>
-                Aqui você pode escrever textos informativos,
-                notícias, curiosidades ou conteúdos educativos.
-                O site é totalmente personalizável.
-            </p>
-
-            <button class="btn" onclick="curtir(this)">
-                ♥ 76
-            </button>
-        </div>
-    </div>
+        <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/B1PSv0rZrYs"
+    title="Vídeo do YouTube"
+    frameborder="0"
+    allowfullscreen>
+</iframe>
 
     
 
 <!-- SOBRE A PESSOA -->
 <div class="post perfil">
 
-    <img src="https://picsum.photos/500/500" alt="Foto da Pessoa">
-
     <div class="content">
-        <h3 onclick="('Maria'); falarTextoMaria()" style="cursor:pointer;">Sobre Maria 🔊</h3>
+        <h3 onclick="(''); falarTexto()" style="cursor:pointer;"> </h3>
         <p>
             
-            Maria é uma criadora de conteúdo apaixonada por tecnologia,
-            design e educação digital. Ela gosta de compartilhar dicas,
-            curiosidades e conteúdos informativos para ajudar outras
-            pessoas a aprenderem de forma simples e divertida.
+            Prezando o apoio humanizado e a realidade nas faculdades e cursos, indicamos o  vídeo introdutório para apresentar nossa proposta e objetivo. Com entrevistados reais que passaram e estão passando pelo processo universitário. Veja acima todas as informações!
         </p>
 
-        <p>
-            Além disso, Maria trabalha com desenvolvimento web e
-            criação de projetos interativos utilizando HTML, CSS
-            e JavaScript.
-        </p>
 
     <style>
         .botao-voltar {
@@ -2680,30 +2684,6 @@ footer {
     </div>
 
 </aside>
-
-
-    <!-- POST COM VÍDEO -->
-    <div class="post" id="videos">
-
-        <div class="content">
-            <h3>Vídeo Informativo</h3>
-
-            <p>
-                Você também pode inserir vídeos do YouTube
-                para deixar o blog mais dinâmico e interativo.
-            </p>
-
-            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
-            </iframe>
-
-            <br><br>
-
-            <button class="botao-curtir" onclick="curtir(this)">
-                ♥ 76
-            </button>
-        </div>
-    </div>
-
 </div>
 
 
